@@ -1,4 +1,6 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -12,7 +14,9 @@ def limpiar_mapping_futbol():
     options.add_argument("--headless")        # Sin ventana (obligatorio en server)
     options.add_argument("--no-sandbox")       # Para que no chille por ser root
     options.add_argument("--disable-dev-shm-usage") # Para no saturar la memoria del LXC
-    driver = webdriver.Chrome(options=options)
+    service = Service(ChromeDriverManager().install())
+    driver = webdriver.Chrome(service=service, options=options)
+
     
     try:
         print("Iniciando limpieza de mapping (FUTBOL_LIBRE)...")
