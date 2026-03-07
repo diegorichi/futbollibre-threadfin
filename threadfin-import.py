@@ -60,3 +60,6 @@ def cargar_en_threadfin():
 
 if __name__ == "__main__":
     cargar_en_threadfin()
+    print("[Info] Esperando 5s a que Threadfin descargue...")
+    time.sleep(30) 
+    print("[Info] Proceso finalizado.")    
