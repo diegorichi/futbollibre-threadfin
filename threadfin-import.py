@@ -9,7 +9,7 @@ import time
 
 load_dotenv()
 
-# --- CONFIGURACIÓN ---
+# --- CONFIGURACION ---
 THREADFIN_API_URL = os.getenv("THREADFIN_API_URL")
 LOCAL_PORT = os.getenv("LOCAL_PORT")
 M3U_FILE = os.getenv("M3U_FILE")
@@ -26,19 +26,18 @@ def obtener_mi_ip():
 def iniciar_servidor():
     handler = http.server.SimpleHTTPRequestHandler
     socketserver.TCPServer.allow_reuse_address = True
-    with socketserver.TCPServer(("0.0.0.0", int(LOCAL_PORT)), handler) as httpd:
+    with socketserver.TCPServer(("", int(LOCAL_PORT)), handler) as httpd:
         print(f"[HTTP] Sirviendo por 30s M3U en: http://{obtener_mi_ip()}:{LOCAL_PORT}/{M3U_FILE}")
         httpd.timeout = 30
         httpd.handle_request()
-        time.sleep(5)
+        time.sleep(10)
         print("Archivo entregado o tiempo cumplido. Cerrando servidor.")
 
 def cargar_en_threadfin():
-    mythread = threading.Thread(target=iniciar_servidor, daemon=True)
+    threading.Thread(target=iniciar_servidor, daemon=True).start()
     print("[Info] Servidor activo.")
-    #time.sleep(2)
     
-    print(f"[Threadfin] Intentando forzar actualización...")
+    print(f"[Threadfin] Intentando forzar actualizacion...")
     
     # Intentamos con dos comandos distintos para saltar el bloqueo 423
     comandos = [
@@ -52,13 +51,12 @@ def cargar_en_threadfin():
             if response.status_code == 200:
                 print(f"[Threadfin] OK: Comando {payload['cmd']} aceptado.")
             elif response.status_code == 423:
-                print(f"[Threadfin] El servidor está bloqueado (423). Esperando 5 segundos...")
+                print(f"[Threadfin] El servidor esta bloqueado (423). Esperando 5 segundos...")
                 time.sleep(5)
             else:
                 print(f"[Threadfin] Error {response.status_code}: {response.text}")
         except Exception as e:
-            print(f"[Threadfin] Error de conexión: {e}")
-    mythread.start()
+            print(f"[Threadfin] Error de conexion: {e}")
 if __name__ == "__main__":
     cargar_en_threadfin()
     print("[Info] Proceso finalizado.")    
