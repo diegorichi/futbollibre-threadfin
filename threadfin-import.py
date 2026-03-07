@@ -26,7 +26,7 @@ def obtener_mi_ip():
 def iniciar_servidor():
     handler = http.server.SimpleHTTPRequestHandler
     socketserver.TCPServer.allow_reuse_address = True
-    with socketserver.TCPServer(("", int(LOCAL_PORT)), handler) as httpd:
+    with socketserver.TCPServer(("0.0.0.0", int(LOCAL_PORT)), handler) as httpd:
         print(f"[HTTP] Sirviendo por 30s M3U en: http://{obtener_mi_ip()}:{LOCAL_PORT}/{M3U_FILE}")
         httpd.timeout = 30
         httpd.handle_request()
@@ -35,7 +35,7 @@ def iniciar_servidor():
 def cargar_en_threadfin():
     threading.Thread(target=iniciar_servidor, daemon=True).start()
     print("[Info] Servidor activo.")
-    time.sleep(2)
+    #time.sleep(2)
     
     print(f"[Threadfin] Intentando forzar actualización...")
     
