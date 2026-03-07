@@ -1,3 +1,5 @@
+import os
+from dotenv import load_dotenv
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -6,11 +8,17 @@ import re
 import time
 import sys
 
+load_dotenv()
+
+FUTBOL_LIBRE_URL = os.getenv("FUTBOL_LIBRE_URL")
+M3U_FILE = os.getenv("M3U_FILE")
+LOCAL_PORT = os.getenv("LOCAL_PORT")
+
 def extraer_todo_futbol_libre():
     search_key = sys.argv[1].lower() if len(sys.argv) > 1 else None
     
     options = webdriver.ChromeOptions()
-    options.add_argument("--window-size=1920,1080")    
+    options.add_argument("--window-size=1440,900")
     options.add_argument("--headless")        # Sin ventana (obligatorio en server)
     options.add_argument("--no-sandbox")       # Para que no chille por ser root
     options.add_argument("--disable-dev-shm-usage") # Para no saturar la memoria del LXC
@@ -19,7 +27,7 @@ def extraer_todo_futbol_libre():
     wait = WebDriverWait(driver, 20)
 
     try:
-        driver.get("https://futbollibres.net/")
+        driver.get(FUTBOL_LIBRE_URL)
         time.sleep(5) 
 
         # 1. JS modificado para capturar LOGO y separar TORNEO de PARTICIPANTES
@@ -89,8 +97,8 @@ def extraer_todo_futbol_libre():
                     try:
                         wait_iframe = WebDriverWait(driver, 10) 
                         wait_iframe.until(EC.frame_to_be_available_and_switch_to_it((By.ID, "embedIframe")))
-                        time.sleep(4) 
-                        
+                        time.sleep(3)
+
                         scripts = driver.find_elements(By.TAG_NAME, "script")
                         url_encontrada = False
                         
@@ -129,10 +137,10 @@ def extraer_todo_futbol_libre():
                     print("Error al cargar página.")
                     continue
 
-        with open("agenda_futbol.m3u", "w", encoding="utf-8") as f:
+        with open(M3U_FILE, "w", encoding="utf-8") as f:
             f.write(m3u_content)
         
-        print(f"\nArchivo 'agenda_futbol.m3u' generado exitosamente.")
+        print(f"\nArchivo '{M3U_FILE}' generado exitosamente.")
 
     finally:
         driver.quit()
