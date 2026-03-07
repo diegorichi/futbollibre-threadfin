@@ -26,7 +26,7 @@ def obtener_mi_ip():
 def iniciar_servidor():
     handler = http.server.SimpleHTTPRequestHandler
     socketserver.TCPServer.allow_reuse_address = True
-    with socketserver.TCPServer(("", PUERTO_LOCAL), handler) as httpd:
+    with socketserver.TCPServer(("", int(LOCAL_PORT)), handler) as httpd:
         print(f"[HTTP] Sirviendo por 30s M3U en: http://{obtener_mi_ip()}:{LOCAL_PORT}/{M3U_FILE}")
         httpd.timeout = 30
         httpd.handle_request()
@@ -47,7 +47,7 @@ def cargar_en_threadfin():
     
     for payload in comandos:
         try:
-            response = requests.post(f"{THREADFIN_API_URL}/api/", json=payload)
+            response = requests.post(f"{THREADFIN_API_URL}", json=payload)
             if response.status_code == 200:
                 print(f"[Threadfin] OK: Comando {payload['cmd']} aceptado.")
             elif response.status_code == 423:

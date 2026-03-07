@@ -6,16 +6,21 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 
-
 load_dotenv()
 
 # --- CONFIGURACIÓN ---
 THREADFIN_URL = os.getenv("THREADFIN_URL")
+XPATH_MAPPING_TAB = os.getenv("XPATH_MAPPING_TAB")
+XPATH_BULK_BTN = os.getenv("XPATH_BULK_BTN")
+XPATH_UNMAPPED_TABLE = os.getenv("XPATH_UNMAPPED_TABLE")
+XPATH_BTN_SAVE_MAPPINGS = os.getenv("XPATH_BTN_SAVE_MAPPINGS")
+XPATH_POPUP_INPUT_CHECK = os.getenv("XPATH_POPUP_INPUT_CHECK")
+XPATH_POPUP_DONE_BTN = os.getenv("XPATH_POPUP_DONE_BTN")
 
 
 def realizar_mapping_bulk():
     options = webdriver.ChromeOptions()
-    options.add_argument("--window-size=1920,1080")
+    options.add_argument("--window-size=1440,900")
     options.add_argument("--headless")        # Sin ventana (obligatorio en server)
     options.add_argument("--no-sandbox")       # Para que no chille por ser root
     options.add_argument("--disable-dev-shm-usage") # Para no saturar la memoria del LXC
@@ -28,26 +33,26 @@ def realizar_mapping_bulk():
         time.sleep(1)
 
         # 1. Clic en Mapping (li[4])
-        mapping_tab = wait.until(EC.element_to_be_clickable((By.XPATH, "/html/body/nav/div/div/ul[1]/li[4]")))
+        mapping_tab = wait.until(EC.element_to_be_clickable((By.XPATH, XPATH_MAPPING_TAB)))
         time.sleep(1)
         mapping_tab.click()
 
         # 2. Clic en Bulk Edit
         time.sleep(1)
-        bulk_btn = wait.until(EC.element_to_be_clickable((By.XPATH, "/html/body/div[4]/div[1]/div/div/div[1]/input[2]")))
+        bulk_btn = wait.until(EC.element_to_be_clickable((By.XPATH, XPATH_BULK_BTN)))
         bulk_btn.click()
 
         # 3. Analizar la tabla y marcar Checkboxes
         time.sleep(1)
-        wait.until(EC.presence_of_element_located((By.XPATH, "/html/body/div[4]/div[1]/div/div/div[2]/table[2]")))
+        wait.until(EC.presence_of_element_located((By.XPATH, XPATH_UNMAPPED_TABLE)))
         
-        filas = driver.find_elements(By.XPATH, "/html/body/div[4]/div[1]/div/div/div[2]/table[2]/tr")
+        filas = driver.find_elements(By.XPATH, f"{XPATH_UNMAPPED_TABLE}/tr")
         print(f"Filas encontradas: {len(filas)}")
 
         primer_indice_futbol = None
 
         for i in range(1, len(filas) + 1):
-            base_xpath = f"/html/body/div[4]/div[1]/div/div/div[2]/table[2]/tr[{i}]"
+            base_xpath = f"{XPATH_UNMAPPED_TABLE}/tr[{i}]"
             try:
                 fuente_text = driver.find_element(By.XPATH, f"{base_xpath}/td[5]/p").text
                 
@@ -60,7 +65,7 @@ def realizar_mapping_bulk():
                     # CORRECCIÓN: El clic se hace SIEMPRE que sea FUTBOL_LIBRE
                     checkbox = driver.find_element(By.XPATH, f"{base_xpath}/td[1]/input")
                     driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", checkbox)
-                    time.sleep(2)
+                    time.sleep(1)
                     
                     if not checkbox.is_selected(): # Evita desmarcar si ya estaba marcado
                         checkbox.click()
@@ -74,18 +79,18 @@ def realizar_mapping_bulk():
         if primer_indice_futbol:
             print(f"Abriendo edición del primer canal (Fila {primer_indice_futbol})...")
             time.sleep(1)
-            celda_3 = driver.find_element(By.XPATH, f"/html/body/div[4]/div[1]/div/div/div[2]/table[2]/tr[{primer_indice_futbol}]/td[3]")
+            celda_3 = driver.find_element(By.XPATH, f"{XPATH_UNMAPPED_TABLE}/tr[{primer_indice_futbol}]/td[3]")
             driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", celda_3)
             time.sleep(2)
             celda_3.click()
 
             # Popup: Activar y Confirmar
             time.sleep(1)
-            input_popup = wait.until(EC.element_to_be_clickable((By.XPATH, "/html/body/div[2]/div/div/div[2]/div/div/div/table/tr[2]/td[2]/input")))
+            input_popup = wait.until(EC.element_to_be_clickable((By.XPATH, XPATH_POPUP_INPUT_CHECK)))
             input_popup.click()
             
             time.sleep(1)
-            btn_confirm = driver.find_element(By.XPATH, "/html/body/div[2]/div/div/div[2]/div/div/div/div/input[4]")
+            btn_confirm = driver.find_element(By.XPATH, XPATH_POPUP_DONE_BTN)
             btn_confirm.click()
             print("Configuración propagada a todos los seleccionados.")
         else:
@@ -98,7 +103,7 @@ def realizar_mapping_bulk():
         # Volver arriba y clickear Save
         driver.execute_script("window.scrollTo(0, 0);")
         time.sleep(2)
-        btn_save_final = driver.find_element(By.XPATH, "/html/body/div[4]/div[1]/div/div/div[1]/input[1]")
+        btn_save_final = driver.find_element(By.XPATH, XPATH_BTN_SAVE_MAPPINGS)
         driver.execute_script("arguments[0].click();", btn_save_final)
         
         print("Esperando 10 segundos para asegurar el guardado en el host...")

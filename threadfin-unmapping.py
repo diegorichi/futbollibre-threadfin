@@ -71,7 +71,7 @@ def limpiar_mapping_futbol():
                     # Clic en checkbox de la fila
                     checkbox = driver.find_element(By.XPATH, f"{base_xpath}/td[1]/input")
                     driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", checkbox)
-                    time.sleep(0.5) # Delay de 1 segundos como pediste
+                    time.sleep(0.5)
                     
                     if not checkbox.is_selected():
                         checkbox.click()

@@ -14,9 +14,9 @@ echo "2. Extrayendo nuevos canales..."
 $PYTHON_VENV futbol.py
 
 echo "3. importing agenda in threadfin"
-$PYTHON_VENV import_in_threadfin.py
+$PYTHON_VENV threadfin-import.py
 
 echo "3. Mapeando canales nuevos en Threadfin..."
-$PYTHON_VENV threadfin_mapping.py
+$PYTHON_VENV threadfin-mapping.py
 
 echo "--- Proceso finalizado ---"
