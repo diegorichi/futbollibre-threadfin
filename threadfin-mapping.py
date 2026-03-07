@@ -15,6 +15,7 @@ THREADFIN_URL = os.getenv("THREADFIN_URL")
 
 def realizar_mapping_bulk():
     options = webdriver.ChromeOptions()
+    options.add_argument("--window-size=1920,1080")
     options.add_argument("--headless")        # Sin ventana (obligatorio en server)
     options.add_argument("--no-sandbox")       # Para que no chille por ser root
     options.add_argument("--disable-dev-shm-usage") # Para no saturar la memoria del LXC

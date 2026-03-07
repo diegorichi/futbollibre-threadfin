@@ -10,6 +10,7 @@ def extraer_todo_futbol_libre():
     search_key = sys.argv[1].lower() if len(sys.argv) > 1 else None
     
     options = webdriver.ChromeOptions()
+    options.add_argument("--window-size=1920,1080")    
     options.add_argument("--headless")        # Sin ventana (obligatorio en server)
     options.add_argument("--no-sandbox")       # Para que no chille por ser root
     options.add_argument("--disable-dev-shm-usage") # Para no saturar la memoria del LXC
