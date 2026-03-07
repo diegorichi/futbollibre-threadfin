@@ -1,11 +1,17 @@
+import os
+from dotenv import load_dotenv
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 
+
+load_dotenv()
+
 # --- CONFIGURACIÓN ---
-THREADFIN_URL = "http://192.168.0.149:34400/web/"
+THREADFIN_URL = os.getenv("THREADFIN_URL")
+
 
 def realizar_mapping_bulk():
     options = webdriver.ChromeOptions()

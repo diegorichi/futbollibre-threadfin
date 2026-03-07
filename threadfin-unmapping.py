@@ -1,3 +1,5 @@
+import os
+from dotenv import load_dotenv
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
@@ -6,8 +8,17 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 
+load_dotenv()
+
 # --- CONFIGURACIÓN ---
-THREADFIN_URL = "http://192.168.0.149:34400/web/"
+THREADFIN_URL = os.getenv("THREADFIN_URL")
+XPATH_MAPPING_TAB = os.getenv("XPATH_MAPPING_TAB")
+XPATH_BULK_BTN = os.getenv("XPATH_BULK_BTN")
+XPATH_MAPPING_TABLE = os.getenv("XPATH_MAPPING_TABLE")
+XPATH_POPUP_TABLE_POPUP_BTN = os.getenv("XPATH_POPUP_TABLE_POPUP_BTN")
+XPATH_POPUP_DONE_BTN = os.getenv("XPATH_POPUP_DONE_BTN")
+XPATH_BTN_SAVE_MAPPINGS = os.getenv("XPATH_BTN_SAVE_MAPPINGS")
+
 
 def limpiar_mapping_futbol():
     options = webdriver.ChromeOptions()
@@ -25,7 +36,7 @@ def limpiar_mapping_futbol():
         time.sleep(1)
 
         # 1. Clic en Mapping (li[4])
-        mapping_tab = wait.until(EC.element_to_be_clickable((By.XPATH, "/html/body/nav/div/div/ul[1]/li[4]")))
+        mapping_tab = wait.until(EC.element_to_be_clickable((By.XPATH, XPATH_MAPPING_TAB)))
         time.sleep(1)
         mapping_tab.click()
 

@@ -1,3 +1,5 @@
+import os
+from dotenv import load_dotenv
 import http.server
 import socketserver
 import threading
@@ -5,10 +7,12 @@ import requests
 import socket
 import time
 
+load_dotenv()
+
 # --- CONFIGURACIÓN ---
-THREADFIN_URL = "http://192.168.0.149:34400"
-PUERTO_LOCAL = 8080
-ARCHIVO_M3U = "agenda_futbol.m3u"
+THREADFIN_API_URL = os.getenv("THREADFIN_API_URL")
+LOCAL_PORT = os.getenv("LOCAL_PORT")
+M3U_FILE = os.getenv("M3U_FILE")
 
 def obtener_mi_ip():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -23,11 +27,14 @@ def iniciar_servidor():
     handler = http.server.SimpleHTTPRequestHandler
     socketserver.TCPServer.allow_reuse_address = True
     with socketserver.TCPServer(("", PUERTO_LOCAL), handler) as httpd:
-        print(f"[HTTP] Sirviendo M3U en: http://{obtener_mi_ip()}:{PUERTO_LOCAL}/{ARCHIVO_M3U}")
-        httpd.serve_forever()
+        print(f"[HTTP] Sirviendo por 30s M3U en: http://{obtener_mi_ip()}:{LOCAL_PORT}/{M3U_FILE}")
+        httpd.timeout = 30
+        httpd.handle_request()
+        print("Archivo entregado o tiempo cumplido. Cerrando servidor.")
 
 def cargar_en_threadfin():
     threading.Thread(target=iniciar_servidor, daemon=True).start()
+    print("[Info] Servidor activo.")
     time.sleep(2)
     
     print(f"[Threadfin] Intentando forzar actualización...")
@@ -40,7 +47,7 @@ def cargar_en_threadfin():
     
     for payload in comandos:
         try:
-            response = requests.post(f"{THREADFIN_URL}/api/", json=payload)
+            response = requests.post(f"{THREADFIN_API_URL}/api/", json=payload)
             if response.status_code == 200:
                 print(f"[Threadfin] OK: Comando {payload['cmd']} aceptado.")
             elif response.status_code == 423:
@@ -50,13 +57,6 @@ def cargar_en_threadfin():
                 print(f"[Threadfin] Error {response.status_code}: {response.text}")
         except Exception as e:
             print(f"[Threadfin] Error de conexión: {e}")
-
-    print("[Info] Servidor activo. Presiona Ctrl+C para cerrar una vez que Threadfin cargue.")
-    try:
-        while True:
-            time.sleep(1)
-    except KeyboardInterrupt:
-        print("\nServidor cerrado.")
 
 if __name__ == "__main__":
     cargar_en_threadfin()
