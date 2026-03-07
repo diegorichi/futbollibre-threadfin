@@ -30,10 +30,11 @@ def iniciar_servidor():
         print(f"[HTTP] Sirviendo por 30s M3U en: http://{obtener_mi_ip()}:{LOCAL_PORT}/{M3U_FILE}")
         httpd.timeout = 30
         httpd.handle_request()
+        time.sleep(5)
         print("Archivo entregado o tiempo cumplido. Cerrando servidor.")
 
 def cargar_en_threadfin():
-    threading.Thread(target=iniciar_servidor, daemon=True).start()
+    mythread = threading.Thread(target=iniciar_servidor, daemon=True)
     print("[Info] Servidor activo.")
     #time.sleep(2)
     
@@ -57,9 +58,7 @@ def cargar_en_threadfin():
                 print(f"[Threadfin] Error {response.status_code}: {response.text}")
         except Exception as e:
             print(f"[Threadfin] Error de conexión: {e}")
-
+    mythread.start()
 if __name__ == "__main__":
     cargar_en_threadfin()
-    print("[Info] Esperando 5s a que Threadfin descargue...")
-    time.sleep(30) 
     print("[Info] Proceso finalizado.")    
