@@ -36,7 +36,7 @@ def limpiar_mapping_futbol():
         time.sleep(1)
 
         # 1. Clic en Mapping (li[4])
-        mapping_tab = wait.until(EC.element_to_be_clickable((By.XPATH, XPATH_MAPPING_TAB)))
+        mapping_tab = wait.until(EC.element_to_be_clickable((By.XPATH, "/html/body/nav/div/div/ul[1]/li[4]")))
         time.sleep(1)
         mapping_tab.click()
 
