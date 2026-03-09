@@ -112,7 +112,24 @@ def extraer_todo_futbol_libre():
         with open(M3U_FILE, "w", encoding="utf-8") as f:
             f.write(m3u_content)
         
-        requests.post(THREADFIN_API_URL, json={"cmd": "update.m3u"})
+        comandos = [
+            {"cmd": "update.m3u"}, # Actualizar fuentes
+            {"cmd": "save.m3u"}    # Forzar guardado y re-escaneo
+        ]
+        
+        for payload in comandos:
+            try:
+                response = requests.post(f"{THREADFIN_API_URL}", json=payload)
+                if response.status_code == 200:
+                    print(f"[Threadfin] OK: Comando {payload['cmd']} aceptado.")
+                elif response.status_code == 423:
+                    print(f"[Threadfin] El servidor esta bloqueado (423). Esperando 5 segundos...")
+                    time.sleep(5)
+                else:
+                    print(f"[Threadfin] Error {response.status_code}: {response.text}")
+            except Exception as e:
+                print(f"[Threadfin] Error de conexion: {e}")
+
         #os.system("pkill -9 ffmpeg")
         print("\nGrilla de 15 canales actualizada en Threadfin.")
 
