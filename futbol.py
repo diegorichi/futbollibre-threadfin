@@ -14,7 +14,7 @@ import sys
 load_dotenv()
 
 FUTBOL_LIBRE_URL = os.getenv("FUTBOL_LIBRE_URL")
-M3U_FILE = "./eventos.m3u" #os.getenv("M3U_FILE")
+M3U_FILE = os.getenv("M3U_FILE")
 THREADFIN_API_URL = os.getenv("THREADFIN_API_URL", "http://localhost:34400/api/")
 SINTEL_URL = "https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8"
 
