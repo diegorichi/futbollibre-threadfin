@@ -62,8 +62,8 @@ def generar_xmltv(eventos_mapeados, xml_path):
 
     xml_lines = ['<?xml version="1.0" encoding="UTF-8"?>', '<tv>']
 
-    # Canales (E01-E15)
-    for i in range(1, 16):
+    # Canales (E01-E30)
+    for i in range(1, 31):
         xml_lines.append(f'  <channel id="E{i:02d}">')
         xml_lines.append(f'    <display-name>Evento {i}</display-name>')
         xml_lines.append(f'  </channel>')
@@ -143,8 +143,8 @@ def extraer_todo_futbol_libre():
         m3u_content = "#EXTM3U\n"
         datos_para_xml = []
 
-        # 2. Iterar las 15 veces obligatorias
-        for i in range(1, 16):
+        # 2. Iterar las 30 veces obligatorias
+        for i in range(1, 31):
             slot_id = f"E{i:02d}"
             logo = ""
 
