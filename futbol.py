@@ -14,7 +14,7 @@ load_dotenv()
 
 FUTBOL_LIBRE_URL = os.getenv("FUTBOL_LIBRE_URL")
 M3U_FILE = os.getenv("M3U_FILE")
-THREADFIN_URL = os.getenv("THREADFIN_URL", "http://localhost:34400/api/")
+THREADFIN_API_URL = os.getenv("THREADFIN_API_URL", "http://localhost:34400/api/")
 SINTEL_URL = "https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8"
 
 def es_horario_valido(hora_str):
@@ -112,7 +112,7 @@ def extraer_todo_futbol_libre():
         with open(M3U_FILE, "w", encoding="utf-8") as f:
             f.write(m3u_content)
         
-        requests.post(THREADFIN_URL, json={"cmd": "update.m3u"})
+        requests.post(THREADFIN_API_URL, json={"cmd": "update.m3u"})
         #os.system("pkill -9 ffmpeg")
         print("\nGrilla de 15 canales actualizada en Threadfin.")
 
