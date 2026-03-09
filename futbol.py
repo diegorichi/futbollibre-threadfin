@@ -81,15 +81,16 @@ def generar_xmltv(eventos_mapeados, xml_path):
             if hora_evento > ahora + timedelta(hours=12):
                 hora_evento -= timedelta(days=1)
                 
-            inicio_xml = hora_evento.strftime("%Y%m%d%H%M%S") + " -0300"
+            inicio_xml = hora_evento.strftime("%Y%m%d %H%M%S") + " -0300"
             # Timeout de 2 horas desde el inicio del evento
             fin_xml = (hora_evento + timedelta(hours=2)).strftime("%Y%m%d%H%M%S") + " -0300"
+
         except:
             # Fallback por si la hora falla
             inicio_xml = ahora.strftime("%Y%m%d%H%M%S") + " -0300"
             fin_xml = (ahora + timedelta(hours=2)).strftime("%Y%m%d%H%M%S") + " -0300"
 
-        xml_lines.append(f'  <programme start="{inicio_str}" stop="{fin_str}" channel="{ev["slot"]}">')
+        xml_lines.append(f'  <programme start="{inicio_xml}" stop="{fin_xml}" channel="{ev["slot"]}">')
         xml_lines.append(f'    <title lang="es">{ev["nombre_guia"]}</title>')
         xml_lines.append(f'    <desc lang="es">Transmision en vivo: {ev["nombre_guia"]}</desc>')
         if ev.get('logo'):
