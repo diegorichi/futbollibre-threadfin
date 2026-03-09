@@ -84,9 +84,6 @@ def generar_xmltv(eventos_mapeados, xml_path):
             inicio_xml = hora_evento.strftime("%Y%m%d%H%M%S") + " -0300"
             # Timeout de 3 horas desde el inicio del evento
             fin_xml = (hora_evento + timedelta(hours=3)).strftime("%Y%m%d%H%M%S") + " -0300"
-            print(hora_evento)
-            print(inicio_xml)
-            print(fin_xml)
         except:
             # Fallback por si la hora falla
             inicio_xml = ahora.strftime("%Y%m%d%H%M%S") + " -0300"
@@ -115,7 +112,8 @@ def extraer_todo_futbol_libre():
 
     try:
         driver.get(FUTBOL_LIBRE_URL)
-        time.sleep(4) 
+        print("levantando futbol libre y esperando 4 segundos")
+        time.sleep(4)
 
         eventos_raw = driver.execute_script("""
             return Array.from(document.querySelectorAll('#menu > li')).map(li => ({
@@ -128,7 +126,8 @@ def extraer_todo_futbol_libre():
                 }))
             }));
         """)
-        
+        print("eventos obtenidos")
+
         # 1. Separar los que estan EN VIVO de los que son PROXIMAMENTE
         en_vivo = []
         proximos = []
@@ -145,6 +144,8 @@ def extraer_todo_futbol_libre():
         m3u_content = "#EXTM3U\n"
         datos_para_xml = []
 
+        print("Armando canales y extrayendo info")
+
         # 2. Iterar las 30 veces obligatorias
         for i in range(1, 31):
             slot_id = f"E{i:02d}"
@@ -155,7 +156,7 @@ def extraer_todo_futbol_libre():
                 item = en_vivo.pop(0)
                 nombre = sanitizar_nombre(item['nombre'])
                 logo = item['logo']
-                print(f"Slot {slot_id}: {nombre} ({item['canal']})")
+                print(f"Slot {slot_id}: {item['hora']} {nombre} ({item['canal']})")
                 datos_para_xml.append({'slot': slot_id, 'nombre_guia': nombre, 'logo': logo,'hora_real': item['hora']})
 
                 try:
@@ -205,7 +206,7 @@ def extraer_todo_futbol_libre():
         
         comandos = [
             {"cmd": "update.m3u"},
-            {"cmd": "update.xmltv"}, # Comando para actualizar la guía
+            {"cmd": "update.xmltv"},
             {"cmd": "update.xepg"}
         ]
         
@@ -223,8 +224,7 @@ def extraer_todo_futbol_libre():
                 print(f"[Threadfin] Error de conexion: {e}")
             time.sleep(2)
             
-        #os.system("pkill -9 ffmpeg")
-        print("\nGrilla de 15 canales actualizada en Threadfin.")
+        print("\nGrilla de 30 canales actualizada en Threadfin.")
 
     finally:
         driver.quit()
