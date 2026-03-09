@@ -54,6 +54,34 @@ def es_activo(hora_str):
     except:
         return False
 
+def generar_xmltv(eventos_mapeados, xml_path):
+    ahora = datetime.now()
+    inicio_str = ahora.strftime("%Y%m%d%H%M%S") + " -0300"
+    # Le damos 3 horas de validez a cada programa en la guía
+    fin_str = (ahora + timedelta(hours=3)).strftime("%Y%m%d%H%M%S") + " -0300"
+
+    xml_lines = ['<?xml version="1.0" encoding="UTF-8"?>', '<tv>']
+
+    # Canales (E01-E15)
+    for i in range(1, 16):
+        xml_lines.append(f'  <channel id="E{i:02d}">')
+        xml_lines.append(f'    <display-name>Evento {i}</display-name>')
+        xml_lines.append(f'  </channel>')
+
+    # Programas
+    for ev in eventos_mapeados:
+        xml_lines.append(f'  <programme start="{inicio_str}" stop="{fin_str}" channel="{ev["slot"]}">')
+        xml_lines.append(f'    <title lang="es">{ev["nombre_guia"]}</title>')
+        xml_lines.append(f'    <desc lang="es">Transmision en vivo: {ev["nombre_guia"]}</desc>')
+        if ev.get('logo'):
+            xml_lines.append(f'    <icon src="{ev["logo"]}" />')
+        xml_lines.append(f'  </programme>')
+
+    xml_lines.append('</tv>')
+
+    with open(xml_path, "w", encoding="utf-8") as f:
+        f.write("\n".join(xml_lines))
+
 def extraer_todo_futbol_libre():
     options = webdriver.ChromeOptions()
     options.add_argument("--window-size=1440,900")
@@ -93,11 +121,13 @@ def extraer_todo_futbol_libre():
                     proximos.append(ev)
 
         m3u_content = "#EXTM3U\n"
-        
+        datos_para_xml = []
+
         # 2. Iterar las 15 veces obligatorias
         for i in range(1, 16):
             slot_id = f"E{i:02d}"
-            
+            logo = ""
+
             if len(en_vivo) > 0:
                 # Ocupar slot con evento en vivo
                 item = en_vivo.pop(0)
@@ -131,21 +161,28 @@ def extraer_todo_futbol_libre():
                     nombre_txt = f"PROXIMAMENTE: [{px['hora']}] {nombre}"
                 else:
                     nombre_txt = "Slot Libre - Sin Eventos"
-                logo = ""
+                logo = px['logo']
                 link_stream = SINTEL_URL
                 print(f"Slot {slot_id}: {nombre_txt}")
             # Escribir el canal al M3U (siempre con el mismo tvg-id para la tele)
             m3u_content += f'#EXTINF:-1 tvg-id="{slot_id}" tvg-name="Evento {i}" tvg-logo="{logo}" group-title="Sports",{nombre_txt}\n'
             m3u_content += f'#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"\n'
             m3u_content += f'{link_stream}\n'
+            
+            XML_FILE = M3U_FILE.replace(".m3u", ".xml")
+            generar_xmltv(datos_para_xml, XML_FILE)
+
+            # Guardamos para el XML
+            datos_para_xml.append({'slot': slot_id, 'nombre_guia': nombre_txt, 'logo': logo})
 
         # 3. Guardar y Notificar
         with open(M3U_FILE, "w", encoding="utf-8") as f:
             f.write(m3u_content)
         
         comandos = [
-            {"cmd": "update.m3u"}, # Actualizar fuentes
-            {"cmd": "save.m3u"}    # Forzar guardado y re-escaneo
+            {"cmd": "update.m3u"},
+            {"cmd": "xmltv.update"}, # Comando para actualizar la guía
+            {"cmd": "xepg.update"}
         ]
         
         for payload in comandos:
