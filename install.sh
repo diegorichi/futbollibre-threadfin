@@ -4,7 +4,7 @@ source `pwd`/config.sh
 apt update && apt upgrade -y
 
 # 2. Instalar Python, Pip y herramientas de red
-apt install -y python3 python3-pip python3-venv git curl wget xvfb
+apt install -y python3 python3-pip python3-venv git curl wget xvfb ffmpeg
 
 # 2. Crear el Entorno Virtual (VENV) si no existe
 if [ ! -d "$VENV_PATH" ]; then
