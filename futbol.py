@@ -24,7 +24,7 @@ def es_horario_valido(hora_str):
             year=ahora.year, month=ahora.month, day=ahora.day
         )
         # Eventos activos: desde hace 2.5 horas hasta 5 mins en el futuro
-        return (ahora - timedelta(hours=2, minutes=30)) <= hora_obj <= (ahora + timedelta(minutes=5))
+        return (ahora - timedelta(hours=2, minutes=30)) <= hora_obj <= (ahora + timedelta(minutes=30))
     except:
         return False
 
