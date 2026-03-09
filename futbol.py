@@ -184,7 +184,7 @@ def extraer_todo_futbol_libre():
                     px = proximos.pop(0)
                     nombre = sanitizar_nombre(px['nombre'])
 
-                    nombre_txt = f"PROXIMAMENTE: [{px['hora']}] {nombre} ({px['canal']})"
+                    nombre_txt = f"PROXIMAMENTE: [{px['hora']}] {nombre})"
                 else:
                     nombre_txt = "Slot Libre - Sin Eventos"
                 logo = px['logo']
