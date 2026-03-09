@@ -186,7 +186,7 @@ def extraer_todo_futbol_libre():
                 else:
                     nombre_txt = "Slot Libre - Sin Eventos"
                 logo = px['logo']
-                datos_para_xml.append({'slot': slot_id, 'nombre_guia': nombre_txt, 'logo': logo, 'hora_real': px['hora'], 'canal': "")
+                datos_para_xml.append({'slot': slot_id, 'nombre_guia': nombre_txt, 'logo': logo, 'hora_real': px['hora'], 'canal': ""})
 
 
                 link_stream = SINTEL_URL
