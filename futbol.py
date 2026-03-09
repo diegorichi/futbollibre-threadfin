@@ -82,8 +82,8 @@ def generar_xmltv(eventos_mapeados, xml_path):
                 hora_evento -= timedelta(days=1)
                 
             inicio_xml = hora_evento.strftime("%Y%m%d %H%M%S") + " -0300"
-            # Timeout de 2 horas desde el inicio del evento
-            fin_xml = (hora_evento + timedelta(hours=2)).strftime("%Y%m%d%H%M%S") + " -0300"
+            # Timeout de 3 horas desde el inicio del evento
+            fin_xml = (hora_evento + timedelta(hours=3)).strftime("%Y%m%d%H%M%S") + " -0300"
 
         except:
             # Fallback por si la hora falla
