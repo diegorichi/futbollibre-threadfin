@@ -173,7 +173,7 @@ def extraer_todo_futbol_libre():
                     link_stream = SINTEL_URL
                     nombre_txt = f"[{item['hora']}] {nombre} (Error de carga)"
                 
-                print(f"Slot {slot_id}: {nombre_txt})")
+                print(f"Slot {slot_id}: {nombre_txt}")
 
                 datos_para_xml.append({'slot': slot_id, 'nombre_guia': nombre_txt, 'logo': logo, 'hora_real': item['hora']})
 
