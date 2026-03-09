@@ -70,6 +70,25 @@ def generar_xmltv(eventos_mapeados, xml_path):
 
     # Programas
     for ev in eventos_mapeados:
+        try:
+            # Parseamos la hora que viene del scraper (HH:MM)
+            hora_evento = datetime.strptime(ev['hora_real'], "%H:%M").replace(
+                year=ahora.year, month=ahora.month, day=ahora.day
+            )
+            
+            # Si la hora del evento es mayor a la actual + 12hs, 
+            # probablemente sea un error de casteo de día (ayer/mañana)
+            if hora_evento > ahora + timedelta(hours=12):
+                hora_evento -= timedelta(days=1)
+                
+            inicio_xml = hora_evento.strftime("%Y%m%d%H%M%S") + " -0300"
+            # Timeout de 2 horas desde el inicio del evento
+            fin_xml = (hora_evento + timedelta(hours=2)).strftime("%Y%m%d%H%M%S") + " -0300"
+        except:
+            # Fallback por si la hora falla
+            inicio_xml = ahora.strftime("%Y%m%d%H%M%S") + " -0300"
+            fin_xml = (ahora + timedelta(hours=2)).strftime("%Y%m%d%H%M%S") + " -0300"
+
         xml_lines.append(f'  <programme start="{inicio_str}" stop="{fin_str}" channel="{ev["slot"]}">')
         xml_lines.append(f'    <title lang="es">{ev["nombre_guia"]}</title>')
         xml_lines.append(f'    <desc lang="es">Transmision en vivo: {ev["nombre_guia"]}</desc>')
@@ -134,7 +153,8 @@ def extraer_todo_futbol_libre():
                 nombre = sanitizar_nombre(item['nombre'])
                 logo = item['logo']
                 print(f"Slot {slot_id}: {nombre} ({item['canal']})")
-                
+                datos_para_xml.append({'slot': slot_id, 'nombre_guia': nombre_txt, 'logo': logo,'hora_real': item['hora']})
+
                 try:
                     driver.get(item['url'])
                     wait.until(EC.frame_to_be_available_and_switch_to_it((By.ID, "embedIframe")))
@@ -162,6 +182,8 @@ def extraer_todo_futbol_libre():
                 else:
                     nombre_txt = "Slot Libre - Sin Eventos"
                 logo = px['logo']
+                datos_para_xml.append({'slot': slot_id, 'nombre_guia': nombre_txt, 'logo': logo,'hora_real': px['hora']})
+
                 link_stream = SINTEL_URL
                 print(f"Slot {slot_id}: {nombre_txt}")
             # Escribir el canal al M3U (siempre con el mismo tvg-id para la tele)
@@ -171,7 +193,6 @@ def extraer_todo_futbol_libre():
             
             XML_FILE = M3U_FILE.replace(".m3u", ".xml")
             # Guardamos para el XML
-            datos_para_xml.append({'slot': slot_id, 'nombre_guia': nombre_txt, 'logo': logo})
 
             generar_xmltv(datos_para_xml, XML_FILE)
 
