@@ -102,6 +102,7 @@ def extraer_todo_futbol_libre():
                 # Ocupar slot con evento en vivo
                 item = en_vivo.pop(0)
                 nombre = sanitizar_nombre(item['nombre'])
+                logo = item['logo']
                 print(f"Slot {slot_id}: {nombre} ({item['canal']})")
                 
                 try:
@@ -130,12 +131,11 @@ def extraer_todo_futbol_libre():
                     nombre_txt = f"PROXIMAMENTE: [{px['hora']}] {nombre}"
                 else:
                     nombre_txt = "Slot Libre - Sin Eventos"
-                
+                logo = ""
                 link_stream = SINTEL_URL
                 print(f"Slot {slot_id}: {nombre_txt}")
-            logo = item['logo']
             # Escribir el canal al M3U (siempre con el mismo tvg-id para la tele)
-            m3u_content += f'#EXTINF:-1 tvg-id="{slot_id}" tvg-name="Evento {i}" tvg-logo="{logo}" group-title="Sports", {nombre_txt}\n'
+            m3u_content += f'#EXTINF:-1 tvg-id="{slot_id}" tvg-name="Evento {i}" tvg-logo="{logo}" group-title="Sports",{nombre_txt}\n'
             m3u_content += f'#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"\n'
             m3u_content += f'{link_stream}\n'
 
