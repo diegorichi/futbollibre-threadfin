@@ -90,7 +90,7 @@ def generar_xmltv(eventos_mapeados, xml_path):
             fin_xml = (ahora + timedelta(hours=2)).strftime("%Y%m%d%H%M%S") + " -0300"
 
         xml_lines.append(f'  <programme start="{inicio_xml}" stop="{fin_xml}" channel="{ev["slot"]}">')
-        xml_lines.append(f'    <title lang="es">{ev["hora_real"]} {ev["nombre_guia"]} ({ev["canal"]})</title>')
+        xml_lines.append(f'    <title lang="es">{ev["nombre_guia"]}</title>')
         xml_lines.append(f'    <desc lang="es">Transmision en vivo: {ev["nombre_guia"]}</desc>')
         if ev.get('logo'):
             xml_lines.append(f'    <icon src="{ev["logo"]}" />')
@@ -157,7 +157,6 @@ def extraer_todo_futbol_libre():
                 nombre = sanitizar_nombre(item['nombre'])
                 logo = item['logo']
                 print(f"Slot {slot_id}: {item['hora']} {nombre} ({item['canal']})")
-                datos_para_xml.append({'slot': slot_id, 'nombre_guia': nombre, 'logo': logo, 'hora_real': item['hora'], 'canal': item['canal']})
 
                 try:
                     driver.get(item['url'])
@@ -175,6 +174,9 @@ def extraer_todo_futbol_libre():
                     link_stream = SINTEL_URL
                     nombre_txt = f"[{item['hora']}] {nombre} (Error de carga)"
                 
+                datos_para_xml.append({'slot': slot_id, 'nombre_guia': nombre_txt, 'logo': logo, 'hora_real': item['hora']})
+
+
                 driver.switch_to.default_content()
             else:
                 # Rellenar con "Próximamente"
@@ -182,11 +184,11 @@ def extraer_todo_futbol_libre():
                     px = proximos.pop(0)
                     nombre = sanitizar_nombre(px['nombre'])
 
-                    nombre_txt = f"PROXIMAMENTE: [{px['hora']}] {nombre}"
+                    nombre_txt = f"PROXIMAMENTE: [{px['hora']}] {nombre} ({px['canal']})"
                 else:
                     nombre_txt = "Slot Libre - Sin Eventos"
                 logo = px['logo']
-                datos_para_xml.append({'slot': slot_id, 'nombre_guia': nombre_txt, 'logo': logo, 'hora_real': px['hora'], 'canal': ""})
+                datos_para_xml.append({'slot': slot_id, 'nombre_guia': nombre_txt, 'logo': logo, 'hora_real': px['hora']})
 
 
                 link_stream = SINTEL_URL
