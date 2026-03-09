@@ -90,7 +90,7 @@ def generar_xmltv(eventos_mapeados, xml_path):
             fin_xml = (ahora + timedelta(hours=2)).strftime("%Y%m%d%H%M%S") + " -0300"
 
         xml_lines.append(f'  <programme start="{inicio_xml}" stop="{fin_xml}" channel="{ev["slot"]}">')
-        xml_lines.append(f'    <title lang="es">{ev[hora_real]} {ev["nombre_guia"]} ({ev["canal"]})</title>')
+        xml_lines.append(f'    <title lang="es">{ev["hora_real"]} {ev["nombre_guia"]} ({ev["canal"]})</title>')
         xml_lines.append(f'    <desc lang="es">Transmision en vivo: {ev["nombre_guia"]}</desc>')
         if ev.get('logo'):
             xml_lines.append(f'    <icon src="{ev["logo"]}" />')
