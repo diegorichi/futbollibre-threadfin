@@ -181,8 +181,8 @@ def extraer_todo_futbol_libre():
         
         comandos = [
             {"cmd": "update.m3u"},
-            {"cmd": "xmltv.update"}, # Comando para actualizar la guía
-            {"cmd": "xepg.update"}
+            {"cmd": "update.xmltv"}, # Comando para actualizar la guía
+            {"cmd": "update.xepg"}
         ]
         
         for payload in comandos:
@@ -192,12 +192,13 @@ def extraer_todo_futbol_libre():
                     print(f"[Threadfin] OK: Comando {payload['cmd']} aceptado.")
                 elif response.status_code == 423:
                     print(f"[Threadfin] El servidor esta bloqueado (423). Esperando 5 segundos...")
-                    time.sleep(5)
                 else:
                     print(f"[Threadfin] Error {response.status_code}: {response.text}")
+
             except Exception as e:
                 print(f"[Threadfin] Error de conexion: {e}")
-
+            time.sleep(2)
+            
         #os.system("pkill -9 ffmpeg")
         print("\nGrilla de 15 canales actualizada en Threadfin.")
 
