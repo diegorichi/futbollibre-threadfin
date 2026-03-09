@@ -14,7 +14,7 @@ import sys
 load_dotenv()
 
 FUTBOL_LIBRE_URL = os.getenv("FUTBOL_LIBRE_URL")
-M3U_FILE = os.getenv("M3U_FILE")
+M3U_FILE = "./eventos.m3u" #os.getenv("M3U_FILE")
 THREADFIN_API_URL = os.getenv("THREADFIN_API_URL", "http://localhost:34400/api/")
 SINTEL_URL = "https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8"
 
@@ -81,10 +81,12 @@ def generar_xmltv(eventos_mapeados, xml_path):
             if hora_evento > ahora + timedelta(hours=12):
                 hora_evento -= timedelta(days=1)
                 
-            inicio_xml = hora_evento.strftime("%Y%m%d %H%M%S") + " -0300"
+            inicio_xml = hora_evento.strftime("%Y%m%d%H%M%S") + " -0300"
             # Timeout de 3 horas desde el inicio del evento
             fin_xml = (hora_evento + timedelta(hours=3)).strftime("%Y%m%d%H%M%S") + " -0300"
-
+            print(hora_evento)
+            print(inicio_xml)
+            print(fin_xml)
         except:
             # Fallback por si la hora falla
             inicio_xml = ahora.strftime("%Y%m%d%H%M%S") + " -0300"
