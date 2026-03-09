@@ -153,7 +153,7 @@ def extraer_todo_futbol_libre():
                 nombre = sanitizar_nombre(item['nombre'])
                 logo = item['logo']
                 print(f"Slot {slot_id}: {nombre} ({item['canal']})")
-                datos_para_xml.append({'slot': slot_id, 'nombre_guia': nombre_txt, 'logo': logo,'hora_real': item['hora']})
+                datos_para_xml.append({'slot': slot_id, 'nombre_guia': nombre, 'logo': logo,'hora_real': item['hora']})
 
                 try:
                     driver.get(item['url'])
