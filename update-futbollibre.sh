@@ -5,7 +5,6 @@ source `pwd`/config.sh
 
 echo "--- Iniciando proceso diario $(date) ---"
 
-echo "2. Extrayendo nuevos canales..."
 $PYTHON_VENV futbol.py $1
 
 echo "--- Proceso finalizado ---"
