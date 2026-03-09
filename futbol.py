@@ -14,7 +14,7 @@ import sys
 load_dotenv()
 
 FUTBOL_LIBRE_URL = os.getenv("FUTBOL_LIBRE_URL")
-M3U_FILE = os.getenv("M3U_FILE")
+M3U_FILE = "eventos.m3u" #os.getenv("M3U_FILE")
 THREADFIN_API_URL = os.getenv("THREADFIN_API_URL", "http://localhost:34400/api/")
 SINTEL_URL = "https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8"
 
@@ -157,7 +157,7 @@ def extraer_todo_futbol_libre():
                 nombre = sanitizar_nombre(item['nombre'])
                 logo = item['logo']
                 print(f"Slot {slot_id}: {item['hora']} {nombre} ({item['canal']})")
-                datos_para_xml.append({'slot': slot_id, 'nombre_guia': nombre, 'logo': logo,'hora_real': item['hora']})
+                datos_para_xml.append({'slot': slot_id, 'nombre_guia': f"{item['hora']} {nombre} ({item['canal']}}", 'logo': logo,'hora_real': item['hora'])
 
                 try:
                     driver.get(item['url'])
@@ -186,7 +186,7 @@ def extraer_todo_futbol_libre():
                 else:
                     nombre_txt = "Slot Libre - Sin Eventos"
                 logo = px['logo']
-                datos_para_xml.append({'slot': slot_id, 'nombre_guia': nombre_txt, 'logo': logo,'hora_real': px['hora']})
+                datos_para_xml.append({'slot': slot_id, 'nombre_guia': f"{px['hora']} {nombre_txt} ({px['canal']}}", 'logo': logo,'hora_real': px['hora']})
 
                 link_stream = SINTEL_URL
                 print(f"Slot {slot_id}: {nombre_txt}")
