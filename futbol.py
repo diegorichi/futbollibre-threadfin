@@ -170,10 +170,10 @@ def extraer_todo_futbol_libre():
             m3u_content += f'{link_stream}\n'
             
             XML_FILE = M3U_FILE.replace(".m3u", ".xml")
-            generar_xmltv(datos_para_xml, XML_FILE)
-
             # Guardamos para el XML
             datos_para_xml.append({'slot': slot_id, 'nombre_guia': nombre_txt, 'logo': logo})
+
+            generar_xmltv(datos_para_xml, XML_FILE)
 
         # 3. Guardar y Notificar
         with open(M3U_FILE, "w", encoding="utf-8") as f:
