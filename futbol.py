@@ -189,7 +189,8 @@ def extraer_todo_futbol_libre():
                 else:
                     nombre_txt = "Slot Libre - Sin Eventos"
                 logo = px['logo']
-                datos_para_xml.append({'slot': slot_id, 'nombre_guia': nombre_txt, 'logo': logo, 'hora_real': px['hora']})
+                hora_inicio_proximo = (datetime.now() - timedelta(minutes=5)).strftime("%H:%M")
+                datos_para_xml.append({'slot': slot_id, 'nombre_guia': nombre_txt, 'logo': logo, 'hora_real': hora_inicio_proximo})
 
 
                 link_stream = SINTEL_URL
