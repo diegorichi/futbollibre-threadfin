@@ -177,11 +177,12 @@ def extraer_todo_futbol_libre():
                 print(f"Slot {slot_id}: {nombre_txt}")
 
                 # Parseamos la hora que viene del scraper (HH:MM)
+                ahora = datetime.now()
                 hora_evento = datetime.strptime(hora_inicio_evento, "%H:%M").replace(
                     year=ahora.year, month=ahora.month, day=ahora.day
                 )
-                if (hora_evento > datetime.now())
-                    hora_evento = (datetime.now() - timedelta(minutes=5)).strftime("%H:%M")
+                if (hora_evento > ahora):
+                    hora_evento = (ahora - timedelta(minutes=5)).strftime("%H:%M")
 
                 datos_para_xml.append({'slot': slot_id, 'nombre_guia': nombre_txt, 'logo': logo, 'hora_real': hora_evento})
 
