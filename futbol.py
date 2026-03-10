@@ -156,6 +156,7 @@ def extraer_todo_futbol_libre():
                 item = en_vivo.pop(0)
                 nombre = sanitizar_nombre(item['nombre'])
                 logo = item['logo']
+                hora_inicio_evento = item['hora']
 
                 try:
                     driver.get(item['url'])
@@ -165,22 +166,28 @@ def extraer_todo_futbol_libre():
                     
                     if match:
                         link_stream = match.group(1)
-                        nombre_txt = f"[{item['hora']}] {nombre} - {item['canal']}"
+                        nombre_txt = f"[{hora_inicio_evento}] {nombre} - {item['canal']}"
                     else:
                         link_stream = SINTEL_URL
-                        nombre_txt = f"[{item['hora']}] {nombre} (Link no encontrado)"
+                        nombre_txt = f"[{hora_inicio_evento}] {nombre} (Link no encontrado)"
                 except:
                     link_stream = SINTEL_URL
-                    nombre_txt = f"[{item['hora']}] {nombre} (Error de carga)"
+                    nombre_txt = f"[{hora_inicio_evento}] {nombre} (Error de carga)"
                 
                 print(f"Slot {slot_id}: {nombre_txt}")
 
-                datos_para_xml.append({'slot': slot_id, 'nombre_guia': nombre_txt, 'logo': logo, 'hora_real': item['hora']})
+                # Parseamos la hora que viene del scraper (HH:MM)
+                hora_evento = datetime.strptime(hora_inicio_evento, "%H:%M").replace(
+                    year=ahora.year, month=ahora.month, day=ahora.day
+                )
+                if (hora_evento > datetime.now())
+                    hora_evento = (datetime.now() - timedelta(minutes=5)).strftime("%H:%M")
 
+                datos_para_xml.append({'slot': slot_id, 'nombre_guia': nombre_txt, 'logo': logo, 'hora_real': hora_evento})
 
                 driver.switch_to.default_content()
             else:
-                # Rellenar con "Próximamente"
+                # Rellenar con "Proximamente"
                 if len(proximos) > 0:
                     px = proximos.pop(0)
                     nombre = sanitizar_nombre(px['nombre'])
