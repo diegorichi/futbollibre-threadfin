@@ -62,8 +62,8 @@ def generar_xmltv(eventos_mapeados, xml_path):
 
     xml_lines = ['<?xml version="1.0" encoding="UTF-8"?>', '<tv>']
 
-    # Canales (E01-E30)
-    for i in range(1, 31):
+    # Canales (E01-E50)
+    for i in range(1, 51):
         xml_lines.append(f'  <channel id="E{i:02d}">')
         xml_lines.append(f'    <display-name>Evento {i}</display-name>')
         xml_lines.append(f'  </channel>')
@@ -146,8 +146,8 @@ def extraer_todo_futbol_libre():
 
         print("Armando canales y extrayendo info")
 
-        # 2. Iterar las 30 veces obligatorias
-        for i in range(1, 31):
+        # 2. Iterar las 50 veces obligatorias
+        for i in range(1, 51):
             slot_id = f"E{i:02d}"
             logo = ""
 
@@ -189,14 +189,14 @@ def extraer_todo_futbol_libre():
                 driver.switch_to.default_content()
             else:
                 # Rellenar con "Proximamente"
+                logo = ""
                 if len(proximos) > 0:
                     px = proximos.pop(0)
                     nombre = sanitizar_nombre(px['nombre'])
-
-                    nombre_txt = f"PROXIMAMENTE: [{px['hora']}] {nombre})"
+                    logo = px['logo']
+                    nombre_txt = f"PROXIMAMENTE: [{px['hora']}] {nombre}"
                 else:
                     nombre_txt = "Slot Libre - Sin Eventos"
-                logo = px['logo']
                 hora_inicio_proximo = (datetime.now() - timedelta(minutes=5)).strftime("%H:%M")
                 datos_para_xml.append({'slot': slot_id, 'nombre_guia': nombre_txt, 'logo': logo, 'hora_real': hora_inicio_proximo})
 
@@ -204,7 +204,7 @@ def extraer_todo_futbol_libre():
                 link_stream = SINTEL_URL
                 print(f"Slot {slot_id}: {nombre_txt}")
             # Escribir el canal al M3U (siempre con el mismo tvg-id para la tele)
-            m3u_content += f'#EXTINF:-1 tvg-id="{slot_id}" tvg-name="Evento {i}" tvg-logo="{logo}" group-title="Sports",{nombre_txt}\n'
+            m3u_content += f'#EXTINF:-1 tvg-id="{slot_id}" tvg-name="Evento {i}" tvg-logo="{logo}" group-title="Sports",{f"Evento {i:02d}"}\n'
             m3u_content += f'#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"\n'
             m3u_content += f'{link_stream}\n'
             
