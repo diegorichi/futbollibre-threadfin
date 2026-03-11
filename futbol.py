@@ -204,7 +204,9 @@ def extraer_todo_futbol_libre():
                 link_stream = SINTEL_URL
                 print(f"Slot {slot_id}: {nombre_txt}")
             # Escribir el canal al M3U (siempre con el mismo tvg-id para la tele)
-            m3u_content += f'#EXTINF:-1 tvg-id="{slot_id}" tvg-name="Evento {i}" tvg-logo="{logo}" group-title="Sports",{f"Evento {i:02d}"}\n'
+            logo = "https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd"
+
+            m3u_content += f'#EXTINF:-1 tvg-id="{slot_id}" tvg-name="Deporte {i}" tvg-logo="{logo}" group-title="Futbol Libre",{f"Deporte {i:02d}"}\n'
             m3u_content += f'#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"\n'
             m3u_content += f'{link_stream}\n'
             
