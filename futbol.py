@@ -103,6 +103,8 @@ def generar_xmltv(eventos_mapeados, xml_path):
 
 def extraer_todo_futbol_libre():
     options = webdriver.ChromeOptions()
+    user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+    options.add_argument(f'user-agent={user_agent}')
     options.add_argument("--window-size=1440,900")
     options.add_argument("--headless")
     options.add_argument("--no-sandbox")
