@@ -1,50 +1,55 @@
-from flask import Flask, request, jsonify
-import subprocess
-import threading
+import xml.etree.ElementTree as ET
+import re
 import os
+from flask import jsonify
 
-app = Flask(__name__)
+XML_PATH = "/opt/threadfin/eventos.xml"
 
-# Ruta al script de actualización y al log
-SCRIPT_PATH = "/root/bin/futbol/update-futbollibre.sh" 
-LOG_PATH = "/var/log/log_diario.txt"
-
-# Variable para controlar si ya se está ejecutando
-is_running = False
-
-def run_update(key):
-    global is_running
+@app.route('/grilla', methods=['GET'])
+def get_grilla():
+    if not os.path.exists(XML_PATH):
+        return jsonify([])
+    
     try:
-        with open(LOG_PATH, "w") as log_file:
-            # Ejecuta el script pasando la key como argumento
-            subprocess.run(["bash", SCRIPT_PATH, key], stdout=log_file, stderr=log_file)
-    finally:
-        is_running = False
+        tree = ET.parse(XML_PATH)
+        root = tree.getroot()
+        partidos = []
 
-@app.route('/update', methods=['POST'])
-def update():
-    global is_running
-    data = request.json
-    key = data.get('key', '')
+        # Diccionario para mapear ID de canal a Nombre (opcional si queres el nombre "Evento X")
+        canales = {child.get('id'): child.find('display-name').text 
+                   for child in root.findall('channel')}
 
-    if is_running:
-        return jsonify({"status": "error", "message": "Ejecución en curso"}), 429
+        for prog in root.findall('programme'):
+            titulo_raw = prog.find('title').text if prog.find('title') is not None else ""
+            
+            # 1. Filtrar "Slot Libre"
+            if "Slot Libre" in titulo_raw:
+                continue
+            
+            # 2. Limpiar el título y extraer la hora real
+            # Buscamos el patrón [HH:MM] y el resto del texto
+            match = re.search(r'\[(\d{2}:\d{2})\]\s*(.*)', titulo_raw)
+            
+            if match:
+                hora_real = match.group(1)
+                evento_limpio = match.group(2)
+                
+                # Quitar el prefijo "PROXIMAMENTE: " si existe
+                evento_limpio = evento_limpio.replace("PROXIMAMENTE: ", "").strip()
+                
+                canal_id = prog.get('channel')
+                nombre_canal = canales.get(canal_id, canal_id)
 
-    is_running = True
-    # Ejecutar en hilo separado para no bloquear el request de HA
-    thread = threading.Thread(target=run_update, args=(key,))
-    thread.start()
-    
-    return jsonify({"status": "success", "message": "Actualización iniciada"}), 202
+                partidos.append({
+                    "hora": hora_real,
+                    "evento": evento_limpio,
+                    "canal": nombre_canal
+                })
 
-@app.route('/log', methods=['GET'])
-def get_log():
-    if not os.path.exists(LOG_PATH):
-        return jsonify({"log": "No hay logs disponibles."})
-    
-    with open(LOG_PATH, "r") as f:
-        content = f.read()
-    return jsonify({"log": content, "running": is_running})
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+        # Ordenar por hora
+        partidos.sort(key=lambda x: x['hora'])
+        
+        return jsonify(partidos)
+        
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500

@@ -1,0 +1,28 @@
+{
+    "eventos": [
+        {
+            "hora": "14:45",
+            "torneo": "UEFA Champions League",
+            "equipos": "Bayer Leverkusen vs Arsenal",
+            "canal": ""
+        },
+        {
+            "hora": "15:00",
+            "torneo": "Copa de la Reina",
+            "equipos": "Atletico Madrid vs UD Tenerife",
+            "canal": ""
+        },
+        {
+            "hora": "17:00",
+            "torneo": "UEFA Champions League",
+            "equipos": "Real Madrid vs Manchester City",
+            "canal": ""
+        },
+        {
+            "hora": "19:45",
+            "torneo": "Liga Profesional",
+            "equipos": "Boca Juniors vs San Lorenzo",
+            "canal": ""
+        }
+    ]
+}
