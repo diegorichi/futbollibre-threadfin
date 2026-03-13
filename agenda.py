@@ -56,14 +56,14 @@ def agrupar_eventos(eventos_sucios):
             #    agrupados[id_evento]['canales'].append(canal_limpio)
 
     # Re-formateamos para el envío final
-    #lista_final = []
-    #for item in agrupados.values():
+    lista_final = []
+    for item in agrupados.values():
         #item['canal'] = ", ".join(item['canales']) # "ESPN, TV Pública, Disney+"
         #del item['canales'] # Limpiamos la lista temporal
-        #lista_final.append(item)
+        lista_final.append(item)
     
     # Ordenamos por hora para que en HA y ntfy quede prolijo
-    return sorted(agrupados, key=lambda x: x['hora'])
+    return sorted(lista_final, key=lambda x: x['hora'])
 
 def procesar_y_notificar():
     tree = ET.parse(XML_FILE)
