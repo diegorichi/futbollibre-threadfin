@@ -150,233 +150,241 @@
   <channel id="E50">
     <display-name>Evento 50</display-name>
   </channel>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E01">
-    <title lang="es">PROXIMAMENTE: [10:45] Ciclismo: Paris – Niza – Etapa #4</title>
-    <desc lang="es">Transmision en vivo: PROXIMAMENTE: [10:45] Ciclismo: Paris – Niza – Etapa #4</desc>
+  <programme start="20260313114349 -0300" stop="20260313134349 -0300" channel="E01">
+    <title lang="es">[11:00] Ciclismo: Paris – Niza – Etapa #6 ; ESPN 3</title>
+    <desc lang="es">[11:00] Ciclismo: Paris – Niza – Etapa #6 ; ESPN 3</desc>
     <icon src="https://cdn.pltvhd.com/uploads/Pngtree_logo_bike_cycling_mtb_isolated_5209109_fbde4a6148_0df2a2f68b.png" />
   </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E02">
-    <title lang="es">PROXIMAMENTE: [14:45] UEFA Champions League: Bayer Leverkusen vs Arsenal</title>
-    <desc lang="es">Transmision en vivo: PROXIMAMENTE: [14:45] UEFA Champions League: Bayer Leverkusen vs Arsenal</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/UEFA_Champions_L_e95eab40e4_9fff1e273b.png" />
+  <programme start="20260313114349 -0300" stop="20260313134349 -0300" channel="E02">
+    <title lang="es">[11:00] Ciclismo: Paris – Niza – Etapa #6 ; ESPN 3 | OP2</title>
+    <desc lang="es">[11:00] Ciclismo: Paris – Niza – Etapa #6 ; ESPN 3 | OP2</desc>
+    <icon src="https://cdn.pltvhd.com/uploads/Pngtree_logo_bike_cycling_mtb_isolated_5209109_fbde4a6148_0df2a2f68b.png" />
   </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E03">
-    <title lang="es">PROXIMAMENTE: [14:45] Eredivisie Femenina: Feyenoord vs Twente</title>
-    <desc lang="es">Transmision en vivo: PROXIMAMENTE: [14:45] Eredivisie Femenina: Feyenoord vs Twente</desc>
+  <programme start="20260313114349 -0300" stop="20260313134349 -0300" channel="E03">
+    <title lang="es">[11:00] Ciclismo: Paris – Niza – Etapa #6 ; ESPN 3 | OP3</title>
+    <desc lang="es">[11:00] Ciclismo: Paris – Niza – Etapa #6 ; ESPN 3 | OP3</desc>
+    <icon src="https://cdn.pltvhd.com/uploads/Pngtree_logo_bike_cycling_mtb_isolated_5209109_fbde4a6148_0df2a2f68b.png" />
+  </programme>
+  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E04">
+    <title lang="es">PROXIMAMENTE: [13:45] Golf: he Players Championship – Segunda Vuelta</title>
+    <desc lang="es">PROXIMAMENTE: [13:45] Golf: he Players Championship – Segunda Vuelta</desc>
+    <icon src="https://cdn.pltvhd.com/uploads/golf_4a8d942645_6c3bec75aa.png" />
+  </programme>
+  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E05">
+    <title lang="es">PROXIMAMENTE: [14:00] Super Lig: Fatih Karagümrük vs Fenerbahçe</title>
+    <desc lang="es">PROXIMAMENTE: [14:00] Super Lig: Fatih Karagümrük vs Fenerbahçe</desc>
+    <icon src="https://cdn.pltvhd.com/uploads/pavo_980d87b7ad_8827bbb7ba.png" />
+  </programme>
+  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E06">
+    <title lang="es">PROXIMAMENTE: [14:00] 2. Bundesliga: Greuther Fürth vs Elversberg</title>
+    <desc lang="es">PROXIMAMENTE: [14:00] 2. Bundesliga: Greuther Fürth vs Elversberg</desc>
+    <icon src="https://cdn.pltvhd.com/uploads/alemania_e50aa475de_965dccfbbd.png" />
+  </programme>
+  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E07">
+    <title lang="es">PROXIMAMENTE: [14:30] 2. Bundesliga: Magdeburg vs Darmstadt 98</title>
+    <desc lang="es">PROXIMAMENTE: [14:30] 2. Bundesliga: Magdeburg vs Darmstadt 98</desc>
+    <icon src="https://cdn.pltvhd.com/uploads/alemania_e50aa475de_965dccfbbd.png" />
+  </programme>
+  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E08">
+    <title lang="es">PROXIMAMENTE: [16:00] Pro League: Al Quadisiya vs Al-Ahli</title>
+    <desc lang="es">PROXIMAMENTE: [16:00] Pro League: Al Quadisiya vs Al-Ahli</desc>
+    <icon src="https://cdn.pltvhd.com/uploads/arabia_saudita_82c6f9c376_70d77b2bc2.png" />
+  </programme>
+  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E09">
+    <title lang="es">PROXIMAMENTE: [16:00] Eredivisie: PEC Zwolle vs Groningen</title>
+    <desc lang="es">PROXIMAMENTE: [16:00] Eredivisie: PEC Zwolle vs Groningen</desc>
     <icon src="https://cdn.pltvhd.com/uploads/paises_bajos_f773e994b9_3bb0d207d2.png" />
   </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E04">
-    <title lang="es">PROXIMAMENTE: [15:00] Copa de la Reina: Atletico Madrid vs UD Tenerife</title>
-    <desc lang="es">Transmision en vivo: PROXIMAMENTE: [15:00] Copa de la Reina: Atletico Madrid vs UD Tenerife</desc>
+  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E10">
+    <title lang="es">PROXIMAMENTE: [16:00] Eerste Divisie: Emmen vs ADO Den Haag</title>
+    <desc lang="es">PROXIMAMENTE: [16:00] Eerste Divisie: Emmen vs ADO Den Haag</desc>
+    <icon src="https://cdn.pltvhd.com/uploads/paises_bajos_f773e994b9_3bb0d207d2.png" />
+  </programme>
+  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E11">
+    <title lang="es">PROXIMAMENTE: [16:30] LaLiga SmartBank: Mirandés vs Cádiz</title>
+    <desc lang="es">PROXIMAMENTE: [16:30] LaLiga SmartBank: Mirandés vs Cádiz</desc>
     <icon src="https://cdn.pltvhd.com/uploads/espana_a8510f9b5f_9213b1e460.png" />
   </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E05">
-    <title lang="es">PROXIMAMENTE: [15:00] Tenis: Indian Wells – Octavos de Final</title>
-    <desc lang="es">Transmision en vivo: PROXIMAMENTE: [15:00] Tenis: Indian Wells – Octavos de Final</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/Tenis_a5d5fcd1d1_594ebf0186.png" />
+  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E12">
+    <title lang="es">PROXIMAMENTE: [16:30] Bundesliga: Borussia M'gladbach vs St. Pauli</title>
+    <desc lang="es">PROXIMAMENTE: [16:30] Bundesliga: Borussia M'gladbach vs St. Pauli</desc>
+    <icon src="https://cdn.pltvhd.com/uploads/alemania_e50aa475de_965dccfbbd.png" />
   </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E06">
-    <title lang="es">PROXIMAMENTE: [17:00] UEFA Champions League: PSG vs Chelsea</title>
-    <desc lang="es">Transmision en vivo: PROXIMAMENTE: [17:00] UEFA Champions League: PSG vs Chelsea</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/UEFA_Champions_L_e95eab40e4_9fff1e273b.png" />
+  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E13">
+    <title lang="es">PROXIMAMENTE: [16:45] Serie A: Torino vs Parma</title>
+    <desc lang="es">PROXIMAMENTE: [16:45] Serie A: Torino vs Parma</desc>
+    <icon src="https://cdn.pltvhd.com/uploads/italia_cb19445d70_41852551f1.png" />
   </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E07">
-    <title lang="es">PROXIMAMENTE: [17:00] UEFA Champions League: Bodø / Glimt vs Sporting CP</title>
-    <desc lang="es">Transmision en vivo: PROXIMAMENTE: [17:00] UEFA Champions League: Bodø / Glimt vs Sporting CP</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/UEFA_Champions_L_e95eab40e4_9fff1e273b.png" />
+  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E14">
+    <title lang="es">PROXIMAMENTE: [16:45] Ligue 1: Olympique Marseille vs Auxerre</title>
+    <desc lang="es">PROXIMAMENTE: [16:45] Ligue 1: Olympique Marseille vs Auxerre</desc>
+    <icon src="https://cdn.pltvhd.com/uploads/bandera_francia_9e29308ee7.png" />
   </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E08">
-    <title lang="es">PROXIMAMENTE: [17:00] UEFA Champions League: Real Madrid vs Manchester City</title>
-    <desc lang="es">Transmision en vivo: PROXIMAMENTE: [17:00] UEFA Champions League: Real Madrid vs Manchester City</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/UEFA_Champions_L_e95eab40e4_9fff1e273b.png" />
+  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E15">
+    <title lang="es">PROXIMAMENTE: [17:00] Liga 1: FC Cajamarca vs Comerciantes Unidos</title>
+    <desc lang="es">PROXIMAMENTE: [17:00] Liga 1: FC Cajamarca vs Comerciantes Unidos</desc>
+    <icon src="https://cdn.pltvhd.com/uploads/peru_ddc4e685cf_43831ed9b0.png" />
   </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E09">
-    <title lang="es">PROXIMAMENTE: [17:00] Championship: Coventry City vs Preston North End</title>
-    <desc lang="es">Transmision en vivo: PROXIMAMENTE: [17:00] Championship: Coventry City vs Preston North End</desc>
+  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E16">
+    <title lang="es">PROXIMAMENTE: [17:00] LaLiga: Deportivo Alavés vs Villarreal</title>
+    <desc lang="es">PROXIMAMENTE: [17:00] LaLiga: Deportivo Alavés vs Villarreal</desc>
+    <icon src="https://cdn.pltvhd.com/uploads/espana_a8510f9b5f_9213b1e460.png" />
+  </programme>
+  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E17">
+    <title lang="es">PROXIMAMENTE: [17:00] Championship: Wrexham vs Swansea City</title>
+    <desc lang="es">PROXIMAMENTE: [17:00] Championship: Wrexham vs Swansea City</desc>
     <icon src="https://cdn.pltvhd.com/uploads/inglaterra_823176495f_fc4f47c43e.png" />
   </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E10">
-    <title lang="es">PROXIMAMENTE: [17:30] Liga Profesional: Argentinos Juniors vs Rosario Central</title>
-    <desc lang="es">Transmision en vivo: PROXIMAMENTE: [17:30] Liga Profesional: Argentinos Juniors vs Rosario Central</desc>
+  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E18">
+    <title lang="es">PROXIMAMENTE: [18:30] Serie A : Técnico Universitario vs Libertad</title>
+    <desc lang="es">PROXIMAMENTE: [18:30] Serie A : Técnico Universitario vs Libertad</desc>
+    <icon src="https://cdn.pltvhd.com/uploads/ecuador_6b5e87e044_2fd81bc301.png" />
+  </programme>
+  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E19">
+    <title lang="es">PROXIMAMENTE: [18:30] Primera División: Sportivo Luqueño vs Sportivo San Lorenzo</title>
+    <desc lang="es">PROXIMAMENTE: [18:30] Primera División: Sportivo Luqueño vs Sportivo San Lorenzo</desc>
+    <icon src="https://cdn.pltvhd.com/uploads/paraguay_fc9dd78de7_fda39878d0.png" />
+  </programme>
+  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E20">
+    <title lang="es">PROXIMAMENTE: [18:55] Rugby: SR Americas – Peñarol Rugby vs Cobras Brasil Rugby</title>
+    <desc lang="es">PROXIMAMENTE: [18:55] Rugby: SR Americas – Peñarol Rugby vs Cobras Brasil Rugby</desc>
+    <icon src="https://cdn.pltvhd.com/uploads/Rugby_f99a2b54da.png" />
+  </programme>
+  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E21">
+    <title lang="es">PROXIMAMENTE: [20:00] Liga Profesional: Estudiantes vs Lanús</title>
+    <desc lang="es">PROXIMAMENTE: [20:00] Liga Profesional: Estudiantes vs Lanús</desc>
     <icon src="https://cdn.pltvhd.com/uploads/argentina_2bd748026e_628913fc18.png" />
   </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E11">
-    <title lang="es">PROXIMAMENTE: [17:30] Liga Profesional: Banfield vs Gimnasia La Plata</title>
-    <desc lang="es">Transmision en vivo: PROXIMAMENTE: [17:30] Liga Profesional: Banfield vs Gimnasia La Plata</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/argentina_2bd748026e_628913fc18.png" />
-  </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E12">
-    <title lang="es">PROXIMAMENTE: [19:00] Brasileirão: Atlético Mineiro vs Internacional</title>
-    <desc lang="es">Transmision en vivo: PROXIMAMENTE: [19:00] Brasileirão: Atlético Mineiro vs Internacional</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/brasil_25a533e5f7_a1a1ef7a7c.png" />
-  </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E13">
-    <title lang="es">PROXIMAMENTE: [19:00] Copa Libertadores Sub-20: Olimpia vs Palmeiras</title>
-    <desc lang="es">Transmision en vivo: PROXIMAMENTE: [19:00] Copa Libertadores Sub-20: Olimpia vs Palmeiras</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/copa_libertadores_f60faf808a_6fb4deda1f.png" />
-  </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E14">
-    <title lang="es">PROXIMAMENTE: [19:00] Copa Libertadores: Sporting Cristal vs Carabobo</title>
-    <desc lang="es">Transmision en vivo: PROXIMAMENTE: [19:00] Copa Libertadores: Sporting Cristal vs Carabobo</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/copa_libertadores_f60faf808a_6fb4deda1f.png" />
-  </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E15">
-    <title lang="es">PROXIMAMENTE: [19:45] Liga Profesional: Boca Juniors vs San Lorenzo</title>
-    <desc lang="es">Transmision en vivo: PROXIMAMENTE: [19:45] Liga Profesional: Boca Juniors vs San Lorenzo</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/argentina_2bd748026e_628913fc18.png" />
-  </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E16">
-    <title lang="es">PROXIMAMENTE: [20:00] Brasileirão: Bahia vs Vitória</title>
-    <desc lang="es">Transmision en vivo: PROXIMAMENTE: [20:00] Brasileirão: Bahia vs Vitória</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/brasil_25a533e5f7_a1a1ef7a7c.png" />
-  </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E17">
-    <title lang="es">PROXIMAMENTE: [20:30] Copa de Campeones de la Concacaf: Nashville SC vs Inter Miami</title>
-    <desc lang="es">Transmision en vivo: PROXIMAMENTE: [20:30] Copa de Campeones de la Concacaf: Nashville SC vs Inter Miami</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/concacaf_liga_campeones_fad6673376_904ea61955.png" />
-  </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E18">
-    <title lang="es">PROXIMAMENTE: [20:30] NBA: Orlando Magic vs Cleveland Cavaliers</title>
-    <desc lang="es">Transmision en vivo: PROXIMAMENTE: [20:30] NBA: Orlando Magic vs Cleveland Cavaliers</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/nba_b6210b97b6_06c9c65d5f.png" />
-  </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E19">
-    <title lang="es">PROXIMAMENTE: [20:30] Torneo amistoso de Verano - Repechaje: The Strongest vs Oriente Petrolero</title>
-    <desc lang="es">Transmision en vivo: PROXIMAMENTE: [20:30] Torneo amistoso de Verano - Repechaje: The Strongest vs Oriente Petrolero</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/bolivia_png_81cfc9f71f.png" />
-  </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E20">
-    <title lang="es">PROXIMAMENTE: [21:00] Copa Libertadores Sub-20: Sporting Cristal vs U. CatoliCA</title>
-    <desc lang="es">Transmision en vivo: PROXIMAMENTE: [21:00] Copa Libertadores Sub-20: Sporting Cristal vs U. CatoliCA</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/copa_libertadores_f60faf808a_6fb4deda1f.png" />
-  </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E21">
-    <title lang="es">PROXIMAMENTE: [21:30] Brasileirão: Corinthians vs Coritiba</title>
-    <desc lang="es">Transmision en vivo: PROXIMAMENTE: [21:30] Brasileirão: Corinthians vs Coritiba</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/brasil_25a533e5f7_a1a1ef7a7c.png" />
-  </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E22">
-    <title lang="es">PROXIMAMENTE: [21:30] Brasileirão: Flamengo vs Cruzeiro</title>
-    <desc lang="es">Transmision en vivo: PROXIMAMENTE: [21:30] Brasileirão: Flamengo vs Cruzeiro</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/brasil_25a533e5f7_a1a1ef7a7c.png" />
-  </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E23">
-    <title lang="es">PROXIMAMENTE: [21:30] Copa Libertadores: Deportes Tolima vs O'Higgins</title>
-    <desc lang="es">Transmision en vivo: PROXIMAMENTE: [21:30] Copa Libertadores: Deportes Tolima vs O'Higgins</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/copa_libertadores_f60faf808a_6fb4deda1f.png" />
-  </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E24">
-    <title lang="es">PROXIMAMENTE: [22:00] Liga MX Femenil: Atlético San Luis vs Puebla</title>
-    <desc lang="es">Transmision en vivo: PROXIMAMENTE: [22:00] Liga MX Femenil: Atlético San Luis vs Puebla</desc>
+  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E22">
+    <title lang="es">PROXIMAMENTE: [20:00] Liga de Expansión MX: Alebrijes de Oaxaca vs Tapatío</title>
+    <desc lang="es">PROXIMAMENTE: [20:00] Liga de Expansión MX: Alebrijes de Oaxaca vs Tapatío</desc>
     <icon src="https://cdn.pltvhd.com/uploads/bandera_fbc29cb609_69a4b8272a.png" />
   </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E25">
-    <title lang="es">PROXIMAMENTE: [22:00] Tenis: Indian Wells – Octavos de Final</title>
-    <desc lang="es">Transmision en vivo: PROXIMAMENTE: [22:00] Tenis: Indian Wells – Octavos de Final</desc>
+  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E23">
+    <title lang="es">PROXIMAMENTE: [20:00] Primera División: Audax Italiano vs Deportes Concepción</title>
+    <desc lang="es">PROXIMAMENTE: [20:00] Primera División: Audax Italiano vs Deportes Concepción</desc>
+    <icon src="https://cdn.pltvhd.com/uploads/chile_86c07a7b38_fad5126fd0.png" />
+  </programme>
+  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E24">
+    <title lang="es">PROXIMAMENTE: [20:00] Primera División: Nacional vs Wanderers</title>
+    <desc lang="es">PROXIMAMENTE: [20:00] Primera División: Nacional vs Wanderers</desc>
+    <icon src="https://cdn.pltvhd.com/uploads/uruguay_e2b9597af8_6abda609fb.png" />
+  </programme>
+  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E25">
+    <title lang="es">PROXIMAMENTE: [20:00] Tenis: Indian Wells – Semifinal Femenina #1</title>
+    <desc lang="es">PROXIMAMENTE: [20:00] Tenis: Indian Wells – Semifinal Femenina #1</desc>
     <icon src="https://cdn.pltvhd.com/uploads/Tenis_a5d5fcd1d1_594ebf0186.png" />
   </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E26">
-    <title lang="es">PROXIMAMENTE: [22:00] Liga Profesional: Independiente Rivadavia vs Barracas Central</title>
-    <desc lang="es">Transmision en vivo: PROXIMAMENTE: [22:00] Liga Profesional: Independiente Rivadavia vs Barracas Central</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/argentina_2bd748026e_628913fc18.png" />
+  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E26">
+    <title lang="es">PROXIMAMENTE: [20:20] Categoría Primera A: Once Caldas vs Deportivo Pasto</title>
+    <desc lang="es">PROXIMAMENTE: [20:20] Categoría Primera A: Once Caldas vs Deportivo Pasto</desc>
+    <icon src="https://cdn.pltvhd.com/uploads/colombia_dcf9cc2637_a1661b26da.png" />
   </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E27">
-    <title lang="es">PROXIMAMENTE: [22:00] Liga Profesional: Atlético Tucumán vs Aldosivi</title>
-    <desc lang="es">Transmision en vivo: PROXIMAMENTE: [22:00] Liga Profesional: Atlético Tucumán vs Aldosivi</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/argentina_2bd748026e_628913fc18.png" />
+  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E27">
+    <title lang="es">PROXIMAMENTE: [20:30] Primera División: 2 de Mayo vs Libertad</title>
+    <desc lang="es">PROXIMAMENTE: [20:30] Primera División: 2 de Mayo vs Libertad</desc>
+    <icon src="https://cdn.pltvhd.com/uploads/paraguay_fc9dd78de7_fda39878d0.png" />
   </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E28">
-    <title lang="es">PROXIMAMENTE: [22:30] Copa de Campeones de la Concacaf: LA Galaxy vs Mount Pleasant Academy</title>
-    <desc lang="es">Transmision en vivo: PROXIMAMENTE: [22:30] Copa de Campeones de la Concacaf: LA Galaxy vs Mount Pleasant Academy</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/concacaf_liga_campeones_fad6673376_904ea61955.png" />
+  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E28">
+    <title lang="es">PROXIMAMENTE: [21:00] BOXEO: Najee Lopez vs Manuel Gallegos</title>
+    <desc lang="es">PROXIMAMENTE: [21:00] BOXEO: Najee Lopez vs Manuel Gallegos</desc>
+    <icon src="https://cdn.pltvhd.com/uploads/boxeo_2024_b15889ae93_ae58e10dcb.png" />
   </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E29">
-    <title lang="es">PROXIMAMENTE: [23:00] NBA: Denver Nuggets vs Houston Rockets</title>
-    <desc lang="es">Transmision en vivo: PROXIMAMENTE: [23:00] NBA: Denver Nuggets vs Houston Rockets</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/nba_b6210b97b6_06c9c65d5f.png" />
+  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E29">
+    <title lang="es">PROXIMAMENTE: [21:00] Rugby: SR Americas – Tarucas vs Pampas</title>
+    <desc lang="es">PROXIMAMENTE: [21:00] Rugby: SR Americas – Tarucas vs Pampas</desc>
+    <icon src="https://cdn.pltvhd.com/uploads/Rugby_f99a2b54da.png" />
   </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E30">
+  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E30">
+    <title lang="es">PROXIMAMENTE: [21:00] Serie A : Deportivo Cuenca vs Leones del Norte</title>
+    <desc lang="es">PROXIMAMENTE: [21:00] Serie A : Deportivo Cuenca vs Leones del Norte</desc>
+    <icon src="https://cdn.pltvhd.com/uploads/ecuador_6b5e87e044_2fd81bc301.png" />
+  </programme>
+  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E31">
+    <title lang="es">PROXIMAMENTE: [22:00] Liga de Expansión MX: Correcaminos UAT vs Irapuato</title>
+    <desc lang="es">PROXIMAMENTE: [22:00] Liga de Expansión MX: Correcaminos UAT vs Irapuato</desc>
+    <icon src="https://cdn.pltvhd.com/uploads/bandera_fbc29cb609_69a4b8272a.png" />
+  </programme>
+  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E32">
+    <title lang="es">PROXIMAMENTE: [22:00] Tenis: Indian Wells – Semifinal Femenina #2</title>
+    <desc lang="es">PROXIMAMENTE: [22:00] Tenis: Indian Wells – Semifinal Femenina #2</desc>
+    <icon src="https://cdn.pltvhd.com/uploads/Tenis_a5d5fcd1d1_594ebf0186.png" />
+  </programme>
+  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E33">
+    <title lang="es">PROXIMAMENTE: [22:00] Liga de Expansión MX: Mineros de Zacatecas vs CDS Tampico Madero</title>
+    <desc lang="es">PROXIMAMENTE: [22:00] Liga de Expansión MX: Mineros de Zacatecas vs CDS Tampico Madero</desc>
+    <icon src="https://cdn.pltvhd.com/uploads/bandera_fbc29cb609_69a4b8272a.png" />
+  </programme>
+  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E34">
+    <title lang="es">PROXIMAMENTE: [22:00] Liga MX: Puebla vs Necaxa</title>
+    <desc lang="es">PROXIMAMENTE: [22:00] Liga MX: Puebla vs Necaxa</desc>
+    <icon src="https://cdn.pltvhd.com/uploads/bandera_fbc29cb609_69a4b8272a.png" />
+  </programme>
+  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E35">
+    <title lang="es">PROXIMAMENTE: [22:30] Categoría Primera A: Atlético Nacional vs Llaneros</title>
+    <desc lang="es">PROXIMAMENTE: [22:30] Categoría Primera A: Atlético Nacional vs Llaneros</desc>
+    <icon src="https://cdn.pltvhd.com/uploads/colombia_dcf9cc2637_a1661b26da.png" />
+  </programme>
+  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E36">
+    <title lang="es">PROXIMAMENTE: [23:00] Primera División: Alajuelense vs Pérez Zeledón</title>
+    <desc lang="es">PROXIMAMENTE: [23:00] Primera División: Alajuelense vs Pérez Zeledón</desc>
+    <icon src="https://cdn.pltvhd.com/uploads/costa_rica_cb5e6c6746_67d705d4bb.png" />
+  </programme>
+  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E37">
+    <title lang="es">PROXIMAMENTE: [23:59] Liga MX: Juárez vs Monterrey</title>
+    <desc lang="es">PROXIMAMENTE: [23:59] Liga MX: Juárez vs Monterrey</desc>
+    <icon src="https://cdn.pltvhd.com/uploads/bandera_fbc29cb609_69a4b8272a.png" />
+  </programme>
+  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E38">
     <title lang="es">Slot Libre - Sin Eventos</title>
-    <desc lang="es">Transmision en vivo: Slot Libre - Sin Eventos</desc>
+    <desc lang="es">Slot Libre - Sin Eventos</desc>
   </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E31">
+  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E39">
     <title lang="es">Slot Libre - Sin Eventos</title>
-    <desc lang="es">Transmision en vivo: Slot Libre - Sin Eventos</desc>
+    <desc lang="es">Slot Libre - Sin Eventos</desc>
   </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E32">
+  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E40">
     <title lang="es">Slot Libre - Sin Eventos</title>
-    <desc lang="es">Transmision en vivo: Slot Libre - Sin Eventos</desc>
+    <desc lang="es">Slot Libre - Sin Eventos</desc>
   </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E33">
+  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E41">
     <title lang="es">Slot Libre - Sin Eventos</title>
-    <desc lang="es">Transmision en vivo: Slot Libre - Sin Eventos</desc>
+    <desc lang="es">Slot Libre - Sin Eventos</desc>
   </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E34">
+  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E42">
     <title lang="es">Slot Libre - Sin Eventos</title>
-    <desc lang="es">Transmision en vivo: Slot Libre - Sin Eventos</desc>
+    <desc lang="es">Slot Libre - Sin Eventos</desc>
   </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E35">
+  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E43">
     <title lang="es">Slot Libre - Sin Eventos</title>
-    <desc lang="es">Transmision en vivo: Slot Libre - Sin Eventos</desc>
+    <desc lang="es">Slot Libre - Sin Eventos</desc>
   </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E36">
+  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E44">
     <title lang="es">Slot Libre - Sin Eventos</title>
-    <desc lang="es">Transmision en vivo: Slot Libre - Sin Eventos</desc>
+    <desc lang="es">Slot Libre - Sin Eventos</desc>
   </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E37">
+  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E45">
     <title lang="es">Slot Libre - Sin Eventos</title>
-    <desc lang="es">Transmision en vivo: Slot Libre - Sin Eventos</desc>
+    <desc lang="es">Slot Libre - Sin Eventos</desc>
   </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E38">
+  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E46">
     <title lang="es">Slot Libre - Sin Eventos</title>
-    <desc lang="es">Transmision en vivo: Slot Libre - Sin Eventos</desc>
+    <desc lang="es">Slot Libre - Sin Eventos</desc>
   </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E39">
+  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E47">
     <title lang="es">Slot Libre - Sin Eventos</title>
-    <desc lang="es">Transmision en vivo: Slot Libre - Sin Eventos</desc>
+    <desc lang="es">Slot Libre - Sin Eventos</desc>
   </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E40">
+  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E48">
     <title lang="es">Slot Libre - Sin Eventos</title>
-    <desc lang="es">Transmision en vivo: Slot Libre - Sin Eventos</desc>
+    <desc lang="es">Slot Libre - Sin Eventos</desc>
   </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E41">
+  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E49">
     <title lang="es">Slot Libre - Sin Eventos</title>
-    <desc lang="es">Transmision en vivo: Slot Libre - Sin Eventos</desc>
+    <desc lang="es">Slot Libre - Sin Eventos</desc>
   </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E42">
+  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E50">
     <title lang="es">Slot Libre - Sin Eventos</title>
-    <desc lang="es">Transmision en vivo: Slot Libre - Sin Eventos</desc>
-  </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E43">
-    <title lang="es">Slot Libre - Sin Eventos</title>
-    <desc lang="es">Transmision en vivo: Slot Libre - Sin Eventos</desc>
-  </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E44">
-    <title lang="es">Slot Libre - Sin Eventos</title>
-    <desc lang="es">Transmision en vivo: Slot Libre - Sin Eventos</desc>
-  </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E45">
-    <title lang="es">Slot Libre - Sin Eventos</title>
-    <desc lang="es">Transmision en vivo: Slot Libre - Sin Eventos</desc>
-  </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E46">
-    <title lang="es">Slot Libre - Sin Eventos</title>
-    <desc lang="es">Transmision en vivo: Slot Libre - Sin Eventos</desc>
-  </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E47">
-    <title lang="es">Slot Libre - Sin Eventos</title>
-    <desc lang="es">Transmision en vivo: Slot Libre - Sin Eventos</desc>
-  </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E48">
-    <title lang="es">Slot Libre - Sin Eventos</title>
-    <desc lang="es">Transmision en vivo: Slot Libre - Sin Eventos</desc>
-  </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E49">
-    <title lang="es">Slot Libre - Sin Eventos</title>
-    <desc lang="es">Transmision en vivo: Slot Libre - Sin Eventos</desc>
-  </programme>
-  <programme start="20260311093700 -0300" stop="20260311123700 -0300" channel="E50">
-    <title lang="es">Slot Libre - Sin Eventos</title>
-    <desc lang="es">Transmision en vivo: Slot Libre - Sin Eventos</desc>
+    <desc lang="es">Slot Libre - Sin Eventos</desc>
   </programme>
 </tv>

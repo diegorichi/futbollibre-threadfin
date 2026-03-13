@@ -1,178 +1,214 @@
 {
     "eventos": [
         {
-            "hora": "10:45",
+            "hora": "11:00",
             "torneo": "Ciclismo",
-            "equipos": "Paris – Niza – Etapa #4",
-            "canal": ""
+            "equipos": "Paris – Niza – Etapa #6",
+            "canal": "ESPN 3"
         },
         {
-            "hora": "14:45",
-            "torneo": "UEFA Champions League",
-            "equipos": "Bayer Leverkusen vs Arsenal",
-            "canal": ""
+            "hora": "13:45",
+            "torneo": "Golf",
+            "equipos": "he Players Championship – Segunda Vuelta",
+            "canal": null
         },
         {
-            "hora": "14:45",
-            "torneo": "Eredivisie Femenina",
-            "equipos": "Feyenoord vs Twente",
-            "canal": ""
+            "hora": "14:00",
+            "torneo": "Super Lig",
+            "equipos": "Fatih Karagümrük vs Fenerbahçe",
+            "canal": null
         },
         {
-            "hora": "15:00",
-            "torneo": "Copa de la Reina",
-            "equipos": "Atletico Madrid vs UD Tenerife",
-            "canal": ""
+            "hora": "14:00",
+            "torneo": "2. Bundesliga",
+            "equipos": "Greuther Fürth vs Elversberg",
+            "canal": null
         },
         {
-            "hora": "15:00",
-            "torneo": "Tenis",
-            "equipos": "Indian Wells – Octavos de Final",
-            "canal": ""
+            "hora": "14:30",
+            "torneo": "2. Bundesliga",
+            "equipos": "Magdeburg vs Darmstadt 98",
+            "canal": null
+        },
+        {
+            "hora": "16:00",
+            "torneo": "Pro League",
+            "equipos": "Al Quadisiya vs Al-Ahli",
+            "canal": null
+        },
+        {
+            "hora": "16:00",
+            "torneo": "Eredivisie",
+            "equipos": "PEC Zwolle vs Groningen",
+            "canal": null
+        },
+        {
+            "hora": "16:00",
+            "torneo": "Eerste Divisie",
+            "equipos": "Emmen vs ADO Den Haag",
+            "canal": null
+        },
+        {
+            "hora": "16:30",
+            "torneo": "LaLiga SmartBank",
+            "equipos": "Mirandés vs Cádiz",
+            "canal": null
+        },
+        {
+            "hora": "16:30",
+            "torneo": "Bundesliga",
+            "equipos": "Borussia M'gladbach vs St. Pauli",
+            "canal": null
+        },
+        {
+            "hora": "16:45",
+            "torneo": "Serie A",
+            "equipos": "Torino vs Parma",
+            "canal": null
+        },
+        {
+            "hora": "16:45",
+            "torneo": "Ligue 1",
+            "equipos": "Olympique Marseille vs Auxerre",
+            "canal": null
         },
         {
             "hora": "17:00",
-            "torneo": "UEFA Champions League",
-            "equipos": "PSG vs Chelsea",
-            "canal": ""
+            "torneo": "Liga 1",
+            "equipos": "FC Cajamarca vs Comerciantes Unidos",
+            "canal": null
         },
         {
             "hora": "17:00",
-            "torneo": "UEFA Champions League",
-            "equipos": "Bodø / Glimt vs Sporting CP",
-            "canal": ""
-        },
-        {
-            "hora": "17:00",
-            "torneo": "UEFA Champions League",
-            "equipos": "Real Madrid vs Manchester City",
-            "canal": ""
+            "torneo": "LaLiga",
+            "equipos": "Deportivo Alavés vs Villarreal",
+            "canal": null
         },
         {
             "hora": "17:00",
             "torneo": "Championship",
-            "equipos": "Coventry City vs Preston North End",
-            "canal": ""
+            "equipos": "Wrexham vs Swansea City",
+            "canal": null
         },
         {
-            "hora": "17:30",
-            "torneo": "Liga Profesional",
-            "equipos": "Argentinos Juniors vs Rosario Central",
-            "canal": ""
+            "hora": "18:30",
+            "torneo": "Serie A ",
+            "equipos": "Técnico Universitario vs Libertad",
+            "canal": null
         },
         {
-            "hora": "17:30",
-            "torneo": "Liga Profesional",
-            "equipos": "Banfield vs Gimnasia La Plata",
-            "canal": ""
+            "hora": "18:30",
+            "torneo": "Primera División",
+            "equipos": "Sportivo Luqueño vs Sportivo San Lorenzo",
+            "canal": null
         },
         {
-            "hora": "19:00",
-            "torneo": "Brasileirão",
-            "equipos": "Atlético Mineiro vs Internacional",
-            "canal": ""
-        },
-        {
-            "hora": "19:00",
-            "torneo": "Copa Libertadores Sub-20",
-            "equipos": "Olimpia vs Palmeiras",
-            "canal": ""
-        },
-        {
-            "hora": "19:00",
-            "torneo": "Copa Libertadores",
-            "equipos": "Sporting Cristal vs Carabobo",
-            "canal": ""
-        },
-        {
-            "hora": "19:45",
-            "torneo": "Liga Profesional",
-            "equipos": "Boca Juniors vs San Lorenzo",
-            "canal": ""
+            "hora": "18:55",
+            "torneo": "Rugby",
+            "equipos": "SR Americas – Peñarol Rugby vs Cobras Brasil Rugby",
+            "canal": null
         },
         {
             "hora": "20:00",
-            "torneo": "Brasileirão",
-            "equipos": "Bahia vs Vitória",
-            "canal": ""
+            "torneo": "Liga Profesional",
+            "equipos": "Estudiantes vs Lanús",
+            "canal": null
+        },
+        {
+            "hora": "20:00",
+            "torneo": "Liga de Expansión MX",
+            "equipos": "Alebrijes de Oaxaca vs Tapatío",
+            "canal": null
+        },
+        {
+            "hora": "20:00",
+            "torneo": "Primera División",
+            "equipos": "Audax Italiano vs Deportes Concepción",
+            "canal": null
+        },
+        {
+            "hora": "20:00",
+            "torneo": "Primera División",
+            "equipos": "Nacional vs Wanderers",
+            "canal": null
+        },
+        {
+            "hora": "20:00",
+            "torneo": "Tenis",
+            "equipos": "Indian Wells – Semifinal Femenina #1",
+            "canal": null
+        },
+        {
+            "hora": "20:20",
+            "torneo": "Categoría Primera A",
+            "equipos": "Once Caldas vs Deportivo Pasto",
+            "canal": null
         },
         {
             "hora": "20:30",
-            "torneo": "Copa de Campeones de la Concacaf",
-            "equipos": "Nashville SC vs Inter Miami",
-            "canal": ""
-        },
-        {
-            "hora": "20:30",
-            "torneo": "NBA",
-            "equipos": "Orlando Magic vs Cleveland Cavaliers",
-            "canal": ""
-        },
-        {
-            "hora": "20:30",
-            "torneo": "Torneo amistoso de Verano - Repechaje",
-            "equipos": "The Strongest vs Oriente Petrolero",
-            "canal": ""
+            "torneo": "Primera División",
+            "equipos": "2 de Mayo vs Libertad",
+            "canal": null
         },
         {
             "hora": "21:00",
-            "torneo": "Copa Libertadores Sub-20",
-            "equipos": "Sporting Cristal vs U. CatoliCA",
-            "canal": ""
+            "torneo": "BOXEO",
+            "equipos": "Najee Lopez vs Manuel Gallegos",
+            "canal": null
         },
         {
-            "hora": "21:30",
-            "torneo": "Brasileirão",
-            "equipos": "Corinthians vs Coritiba",
-            "canal": ""
+            "hora": "21:00",
+            "torneo": "Rugby",
+            "equipos": "SR Americas – Tarucas vs Pampas",
+            "canal": null
         },
         {
-            "hora": "21:30",
-            "torneo": "Brasileirão",
-            "equipos": "Flamengo vs Cruzeiro",
-            "canal": ""
-        },
-        {
-            "hora": "21:30",
-            "torneo": "Copa Libertadores",
-            "equipos": "Deportes Tolima vs O'Higgins",
-            "canal": ""
+            "hora": "21:00",
+            "torneo": "Serie A ",
+            "equipos": "Deportivo Cuenca vs Leones del Norte",
+            "canal": null
         },
         {
             "hora": "22:00",
-            "torneo": "Liga MX Femenil",
-            "equipos": "Atlético San Luis vs Puebla",
-            "canal": ""
+            "torneo": "Liga de Expansión MX",
+            "equipos": "Correcaminos UAT vs Irapuato",
+            "canal": null
         },
         {
             "hora": "22:00",
             "torneo": "Tenis",
-            "equipos": "Indian Wells – Octavos de Final",
-            "canal": ""
+            "equipos": "Indian Wells – Semifinal Femenina #2",
+            "canal": null
         },
         {
             "hora": "22:00",
-            "torneo": "Liga Profesional",
-            "equipos": "Independiente Rivadavia vs Barracas Central",
-            "canal": ""
+            "torneo": "Liga de Expansión MX",
+            "equipos": "Mineros de Zacatecas vs CDS Tampico Madero",
+            "canal": null
         },
         {
             "hora": "22:00",
-            "torneo": "Liga Profesional",
-            "equipos": "Atlético Tucumán vs Aldosivi",
-            "canal": ""
+            "torneo": "Liga MX",
+            "equipos": "Puebla vs Necaxa",
+            "canal": null
         },
         {
             "hora": "22:30",
-            "torneo": "Copa de Campeones de la Concacaf",
-            "equipos": "LA Galaxy vs Mount Pleasant Academy",
-            "canal": ""
+            "torneo": "Categoría Primera A",
+            "equipos": "Atlético Nacional vs Llaneros",
+            "canal": null
         },
         {
             "hora": "23:00",
-            "torneo": "NBA",
-            "equipos": "Denver Nuggets vs Houston Rockets",
-            "canal": ""
+            "torneo": "Primera División",
+            "equipos": "Alajuelense vs Pérez Zeledón",
+            "canal": null
+        },
+        {
+            "hora": "23:59",
+            "torneo": "Liga MX",
+            "equipos": "Juárez vs Monterrey",
+            "canal": null
         }
     ]
 }

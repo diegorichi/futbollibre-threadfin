@@ -21,6 +21,7 @@ SINTEL_URL = "https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8"
 def sanitizar_nombre(texto):
     if not texto:
         return ""
+
     # 1. Normalizar Unicode (convierte caracteres raros a su forma base)
     texto = unicodedata.normalize('NFKC', texto)
 
@@ -39,7 +40,7 @@ def es_proximo(hora_str):
             year=ahora.year, month=ahora.month, day=ahora.day
         )
         # Eventos activos: desde hace 2.5 horas hasta 30 mins en el futuro
-        return (ahora + timedelta(minutes=30)) <= hora_obj
+        return (ahora + timedelta(minutes=30)) <= hora_obj or hora_str == "23:59"
     except:
         return False
 
@@ -91,7 +92,7 @@ def generar_xmltv(eventos_mapeados, xml_path):
 
         xml_lines.append(f'  <programme start="{inicio_xml}" stop="{fin_xml}" channel="{ev["slot"]}">')
         xml_lines.append(f'    <title lang="es">{ev["nombre_guia"]}</title>')
-        xml_lines.append(f'    <desc lang="es">Transmision en vivo: {ev["nombre_guia"]}</desc>')
+        xml_lines.append(f'    <desc lang="es">{ev["nombre_guia"]}</desc>')
         if ev.get('logo'):
             xml_lines.append(f'    <icon src="{ev["logo"]}" />')
         xml_lines.append(f'  </programme>')
@@ -135,6 +136,9 @@ def extraer_todo_futbol_libre():
         proximos = []
         
         for ev in eventos_raw:
+            ev['nombre'] = sanitizar_nombre(ev['nombre'])
+            if ev['hora'] == '00:00': 
+                ev['hora'] = '23:59'
             if es_activo(ev['hora']):
                 for opt in ev['opciones']:
                     en_vivo.append({'nombre': ev['nombre'], 'hora': ev['hora'], 'canal': opt['canal'], 'logo': ev['logo'], 'url': opt['url']})
@@ -142,7 +146,9 @@ def extraer_todo_futbol_libre():
                 if (es_proximo(ev['hora'])):
                     # Guardamos los proximos para rellenar si sobran slots
                     proximos.append(ev)
-
+                else:
+                    print(f"ignored: {ev}")
+        
         m3u_content = "#EXTM3U\n"
         datos_para_xml = []
 
@@ -156,11 +162,11 @@ def extraer_todo_futbol_libre():
             if len(en_vivo) > 0:
                 # Ocupar slot con evento en vivo
                 item = en_vivo.pop(0)
-                nombre = sanitizar_nombre(item['nombre'])
                 logo = item['logo']
                 hora_inicio_evento = item['hora']
 
                 try:
+                    print(f"buscando m3u de: {item['nombre']}")
                     driver.get(item['url'])
                     wait.until(EC.frame_to_be_available_and_switch_to_it((By.ID, "embedIframe")))
                     time.sleep(2)
@@ -168,16 +174,14 @@ def extraer_todo_futbol_libre():
                     
                     if match:
                         link_stream = match.group(1)
-                        nombre_txt = f"[{hora_inicio_evento}] {nombre} - {item['canal']}"
+                        nombre_txt = f"[{hora_inicio_evento}] {item['nombre']} ; {item['canal']}"
                     else:
                         link_stream = SINTEL_URL
-                        nombre_txt = f"[{hora_inicio_evento}] {nombre} (Link no encontrado)"
+                        nombre_txt = f"[{hora_inicio_evento}] {item['nombre']} ; (Link no encontrado)"
                 except:
                     link_stream = SINTEL_URL
-                    nombre_txt = f"[{hora_inicio_evento}] {nombre} (Error de carga)"
+                    nombre_txt = f"[{hora_inicio_evento}] {item['nombre']} ; (Error de carga)"
                 
-                print(f"Slot {slot_id}: {nombre_txt}")
-
                 # Parseamos la hora que viene del scraper (HH:MM)
                 ahora = datetime.now()
                 hora_evento = datetime.strptime(hora_inicio_evento, "%H:%M").replace(
@@ -194,17 +198,14 @@ def extraer_todo_futbol_libre():
                 logo = ""
                 if len(proximos) > 0:
                     px = proximos.pop(0)
-                    nombre = sanitizar_nombre(px['nombre'])
                     logo = px['logo']
-                    nombre_txt = f"PROXIMAMENTE: [{px['hora']}] {nombre}"
+                    nombre_txt = f"PROXIMAMENTE: [{px['hora']}] {px['nombre']}"
                 else:
                     nombre_txt = "Slot Libre - Sin Eventos"
                 hora_inicio_proximo = (datetime.now() - timedelta(minutes=5)).strftime("%H:%M")
                 datos_para_xml.append({'slot': slot_id, 'nombre_guia': nombre_txt, 'logo': logo, 'hora_real': hora_inicio_proximo})
-
-
                 link_stream = SINTEL_URL
-                print(f"Slot {slot_id}: {nombre_txt}")
+            
             # Escribir el canal al M3U (siempre con el mismo tvg-id para la tele)
             logo = "https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd"
 
@@ -212,15 +213,16 @@ def extraer_todo_futbol_libre():
             m3u_content += f'#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"\n'
             m3u_content += f'{link_stream}\n'
             
-            XML_FILE = M3U_FILE.replace(".m3u", ".xml")
-            # Guardamos para el XML
+        print("Escribiendo archivos M3U y XML")
+        XML_FILE = M3U_FILE.replace(".m3u", ".xml")
+        # Guardamos para el XML
+        generar_xmltv(datos_para_xml, XML_FILE)
 
-            generar_xmltv(datos_para_xml, XML_FILE)
-
-        # 3. Guardar y Notificar
         with open(M3U_FILE, "w", encoding="utf-8") as f:
             f.write(m3u_content)
         
+        print("Actualizando Threadfin")
+
         comandos = [
             {"cmd": "update.m3u"},
             {"cmd": "update.xmltv"},
