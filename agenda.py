@@ -42,9 +42,9 @@ def agrupar_eventos(eventos_sucios):
     for ev in eventos_sucios:
         # Usamos Hora + Equipos como llave para identificar el mismo partido
         id_evento = f"{ev['hora']}_{ev['equipos']}"
-        
+        print(id_evento)
         # Limpiamos el canal (solo lo que está antes del |)
-        canal_limpio = ev['canal'].split('|')[0].strip()
+        #canal_limpio = ev['canal'].split('|')[0].strip()
 
         if id_evento not in agrupados:
             # Si es la primera vez que vemos el partido, lo guardamos
@@ -125,7 +125,7 @@ def procesar_y_notificar():
         with open(JSON_FILE, 'w', encoding='utf-8') as f:
             json.dump({"eventos": agenda_json}, f, ensure_ascii=False, indent=4)
 
-        enviar_a_home_assistant(agenda_json)
+        #enviar_a_home_assistant(agenda_json)
 
 if __name__ == "__main__":
     procesar_y_notificar()
