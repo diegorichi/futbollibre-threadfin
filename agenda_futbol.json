@@ -1,9 +1,21 @@
 {
     "eventos": [
         {
+            "hora": "10:45",
+            "torneo": "Ciclismo",
+            "equipos": "Paris – Niza – Etapa #4",
+            "canal": ""
+        },
+        {
             "hora": "14:45",
             "torneo": "UEFA Champions League",
             "equipos": "Bayer Leverkusen vs Arsenal",
+            "canal": ""
+        },
+        {
+            "hora": "14:45",
+            "torneo": "Eredivisie Femenina",
+            "equipos": "Feyenoord vs Twente",
             "canal": ""
         },
         {
@@ -13,15 +25,153 @@
             "canal": ""
         },
         {
+            "hora": "15:00",
+            "torneo": "Tenis",
+            "equipos": "Indian Wells – Octavos de Final",
+            "canal": ""
+        },
+        {
+            "hora": "17:00",
+            "torneo": "UEFA Champions League",
+            "equipos": "PSG vs Chelsea",
+            "canal": ""
+        },
+        {
+            "hora": "17:00",
+            "torneo": "UEFA Champions League",
+            "equipos": "Bodø / Glimt vs Sporting CP",
+            "canal": ""
+        },
+        {
             "hora": "17:00",
             "torneo": "UEFA Champions League",
             "equipos": "Real Madrid vs Manchester City",
             "canal": ""
         },
         {
+            "hora": "17:00",
+            "torneo": "Championship",
+            "equipos": "Coventry City vs Preston North End",
+            "canal": ""
+        },
+        {
+            "hora": "17:30",
+            "torneo": "Liga Profesional",
+            "equipos": "Argentinos Juniors vs Rosario Central",
+            "canal": ""
+        },
+        {
+            "hora": "17:30",
+            "torneo": "Liga Profesional",
+            "equipos": "Banfield vs Gimnasia La Plata",
+            "canal": ""
+        },
+        {
+            "hora": "19:00",
+            "torneo": "Brasileirão",
+            "equipos": "Atlético Mineiro vs Internacional",
+            "canal": ""
+        },
+        {
+            "hora": "19:00",
+            "torneo": "Copa Libertadores Sub-20",
+            "equipos": "Olimpia vs Palmeiras",
+            "canal": ""
+        },
+        {
+            "hora": "19:00",
+            "torneo": "Copa Libertadores",
+            "equipos": "Sporting Cristal vs Carabobo",
+            "canal": ""
+        },
+        {
             "hora": "19:45",
             "torneo": "Liga Profesional",
             "equipos": "Boca Juniors vs San Lorenzo",
+            "canal": ""
+        },
+        {
+            "hora": "20:00",
+            "torneo": "Brasileirão",
+            "equipos": "Bahia vs Vitória",
+            "canal": ""
+        },
+        {
+            "hora": "20:30",
+            "torneo": "Copa de Campeones de la Concacaf",
+            "equipos": "Nashville SC vs Inter Miami",
+            "canal": ""
+        },
+        {
+            "hora": "20:30",
+            "torneo": "NBA",
+            "equipos": "Orlando Magic vs Cleveland Cavaliers",
+            "canal": ""
+        },
+        {
+            "hora": "20:30",
+            "torneo": "Torneo amistoso de Verano - Repechaje",
+            "equipos": "The Strongest vs Oriente Petrolero",
+            "canal": ""
+        },
+        {
+            "hora": "21:00",
+            "torneo": "Copa Libertadores Sub-20",
+            "equipos": "Sporting Cristal vs U. CatoliCA",
+            "canal": ""
+        },
+        {
+            "hora": "21:30",
+            "torneo": "Brasileirão",
+            "equipos": "Corinthians vs Coritiba",
+            "canal": ""
+        },
+        {
+            "hora": "21:30",
+            "torneo": "Brasileirão",
+            "equipos": "Flamengo vs Cruzeiro",
+            "canal": ""
+        },
+        {
+            "hora": "21:30",
+            "torneo": "Copa Libertadores",
+            "equipos": "Deportes Tolima vs O'Higgins",
+            "canal": ""
+        },
+        {
+            "hora": "22:00",
+            "torneo": "Liga MX Femenil",
+            "equipos": "Atlético San Luis vs Puebla",
+            "canal": ""
+        },
+        {
+            "hora": "22:00",
+            "torneo": "Tenis",
+            "equipos": "Indian Wells – Octavos de Final",
+            "canal": ""
+        },
+        {
+            "hora": "22:00",
+            "torneo": "Liga Profesional",
+            "equipos": "Independiente Rivadavia vs Barracas Central",
+            "canal": ""
+        },
+        {
+            "hora": "22:00",
+            "torneo": "Liga Profesional",
+            "equipos": "Atlético Tucumán vs Aldosivi",
+            "canal": ""
+        },
+        {
+            "hora": "22:30",
+            "torneo": "Copa de Campeones de la Concacaf",
+            "equipos": "LA Galaxy vs Mount Pleasant Academy",
+            "canal": ""
+        },
+        {
+            "hora": "23:00",
+            "torneo": "NBA",
+            "equipos": "Denver Nuggets vs Houston Rockets",
             "canal": ""
         }
     ]

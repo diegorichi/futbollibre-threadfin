@@ -36,6 +36,34 @@ def enviar_a_home_assistant(eventos):
     else:
         print(f"-> Error HA: {response.text}")
 
+def agrupar_eventos(eventos_sucios):
+    agrupados = {}
+
+    for ev in eventos_sucios:
+        # Usamos Hora + Equipos como llave para identificar el mismo partido
+        id_evento = f"{ev['hora']}_{ev['equipos']}"
+        
+        # Limpiamos el canal (solo lo que está antes del |)
+        canal_limpio = ev['canal'].split('|')[0].strip()
+
+        if id_evento not in agrupados:
+            # Si es la primera vez que vemos el partido, lo guardamos
+            ev['canales'] = [canal_limpio]
+            agrupados[id_evento] = ev
+        else:
+            # Si ya existe, solo agregamos el canal si no está repetido
+            if canal_limpio not in agrupados[id_evento]['canales']:
+                agrupados[id_evento]['canales'].append(canal_limpio)
+
+    # Re-formateamos para el envío final
+    lista_final = []
+    for item in agrupados.values():
+        item['canal'] = ", ".join(item['canales']) # "ESPN, TV Pública, Disney+"
+        del item['canales'] # Limpiamos la lista temporal
+        lista_final.append(item)
+    
+    # Ordenamos por hora para que en HA y ntfy quede prolijo
+    return sorted(lista_final, key=lambda x: x['hora'])
 
 def procesar_y_notificar():
     tree = ET.parse(XML_FILE)
@@ -73,9 +101,6 @@ def procesar_y_notificar():
                 # Limpiamos el canal si tiene el sufijo "| OPX"
                 canal_raw = match.group("canal")
                 canal = canal_raw.split("|")[0].strip() if canal_raw else ""
-
-                info_evento = f"{hora} | {torneo}\n {equipos}\n {canal}"
-                agenda_match.append(info_evento)
                 agenda_json.append({
                     "hora": hora,
                     "torneo": torneo,
@@ -83,10 +108,15 @@ def procesar_y_notificar():
                     "canal": canal
                 })
 
+    agenda_json = agrupar_eventos(agenda_json)
+
+    for ev in agenda_json:
+        info_evento = f"{ev['hora']} | {ev['equipos']}"
+        agenda_match.append(info_evento)
 
     # Enviar a ntfy si hay resultados
     if agenda_match:
-        mensaje = "\n" + "\n---\n".join(agenda_match)
+        mensaje = "\n".join(agenda_match)
         requests.post(NTFY_URL, 
                       data=mensaje.encode('utf-8'), 
                       headers={"Title": "Grilla Deportiva"})
