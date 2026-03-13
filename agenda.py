@@ -48,22 +48,22 @@ def agrupar_eventos(eventos_sucios):
 
         if id_evento not in agrupados:
             # Si es la primera vez que vemos el partido, lo guardamos
-            ev['canales'] = [canal_limpio]
+            # ev['canal'] = [canal_limpio]
             agrupados[id_evento] = ev
-        else:
+        #else:
             # Si ya existe, solo agregamos el canal si no está repetido
-            if canal_limpio not in agrupados[id_evento]['canales']:
-                agrupados[id_evento]['canales'].append(canal_limpio)
+            #if canal_limpio not in agrupados[id_evento]['canales']:
+            #    agrupados[id_evento]['canales'].append(canal_limpio)
 
     # Re-formateamos para el envío final
-    lista_final = []
-    for item in agrupados.values():
-        item['canal'] = ", ".join(item['canales']) # "ESPN, TV Pública, Disney+"
-        del item['canales'] # Limpiamos la lista temporal
-        lista_final.append(item)
+    #lista_final = []
+    #for item in agrupados.values():
+        #item['canal'] = ", ".join(item['canales']) # "ESPN, TV Pública, Disney+"
+        #del item['canales'] # Limpiamos la lista temporal
+        #lista_final.append(item)
     
     # Ordenamos por hora para que en HA y ntfy quede prolijo
-    return sorted(lista_final, key=lambda x: x['hora'])
+    return sorted(agrupados, key=lambda x: x['hora'])
 
 def procesar_y_notificar():
     tree = ET.parse(XML_FILE)
