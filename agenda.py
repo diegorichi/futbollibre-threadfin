@@ -49,6 +49,7 @@ def agrupar_eventos(eventos_sucios):
         if id_evento not in agrupados:
             # Si es la primera vez que vemos el partido, lo guardamos
             # ev['canal'] = [canal_limpio]
+            print(ev)
             agrupados[id_evento] = ev
         #else:
             # Si ya existe, solo agregamos el canal si no está repetido
@@ -83,7 +84,6 @@ def procesar_y_notificar():
         # Si machea con alguna key
 
         if any(key in title_lower for key in KEYS) or not tiene_filtro:
-            print(f"{title_text}")
             # Regex para capturar: Hora, Torneo, Equipos y opcionalmente el Canal
             # Explicación: 
             # \[(?P<hora>\d{2}:\d{2})\] -> Captura la hora entre corchetes
