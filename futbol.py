@@ -6,6 +6,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import WebDriverException
 import unicodedata
 import re
 import time
@@ -114,7 +115,30 @@ def extraer_todo_futbol_libre():
     wait = WebDriverWait(driver, 10)
 
     try:
-        driver.get(FUTBOL_LIBRE_URL)
+
+        urls_to_try = [url.strip() for url in FUTBOL_LIBRE_URL.split(",") if url.strip()]
+
+        driver_success = False
+        
+        for url in urls_to_try:
+            try:
+                print(f"Probando dominio: {url}...")            
+                driver.get(url)
+                if "Sitio no disponible" in driver.title or not driver.title:
+                    raise WebDriverException("Dominio activo pero sin contenido válido")
+                    
+                print(f"¡Éxito! Conectado a {url}")
+                driver_success = True
+                break
+            except WebDriverException as e:
+                    print(f"Fallo en {url}: {e.msg if hasattr(e, 'msg') else 'Error de conexión'}")
+                    continue # Probamos el siguiente                
+        
+        if not driver_success:
+            print("Ningún dominio de la lista está operativo. Revisar el .env.")
+            driver.quit()
+            exit(1)
+        
         print("levantando futbol libre y esperando 4 segundos")
         time.sleep(4)
 
