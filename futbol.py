@@ -190,9 +190,13 @@ def extraer_todo_futbol_libre():
                 hora_inicio_evento = item['hora']
 
                 try:
-                    print(f"buscando m3u de: {item['nombre']}")
+                    print(f"buscando m3u de: {item['nombre']}, {item['url']}")
                     driver.get(item['url'])
                     wait.until(EC.frame_to_be_available_and_switch_to_it((By.ID, "embedIframe")))
+                    try:
+                        wait.until(EC.frame_to_be_available_and_switch_to_it((By.TAG_NAME, "iframe")))
+                    except:
+                        pass                        
                     time.sleep(2)
                     match = re.search(r'["\'](https?://.*?\.m3u8\?token=.*?)["\']', driver.page_source)
                     
