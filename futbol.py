@@ -139,21 +139,45 @@ def extraer_todo_futbol_libre():
             driver.quit()
             exit(1)
         
-        print("levantando futbol libre y esperando 4 segundos")
-        time.sleep(4)
-
-        eventos_raw = driver.execute_script("""
-            return Array.from(document.querySelectorAll('#menu > li')).map(li => ({
-                nombre: li.querySelector('div span') ? li.querySelector('div span').textContent.trim() : "",
-                hora: li.querySelector('div div time') ? li.querySelector('div div time').textContent.trim() : "00:00",
-                logo: li.querySelector('div div img').src, // Ruta del logo
-                opciones: Array.from(li.querySelectorAll('ul a')).map(a => ({
-                    url: a.href,
-                    canal: a.querySelector('span') ? a.querySelector('span').textContent.trim() : "Opción"
-                }))
-            }));
-        """)
-        print("eventos obtenidos")
+        print("Esperando unos segundos para asentar la carga de la página...")
+        time.sleep(5)
+        
+        def extraer_eventos(d):
+            return d.execute_script("""
+                return Array.from(document.querySelectorAll('#menu > li')).map(li => ({
+                    nombre: li.querySelector('div span') ? li.querySelector('div span').textContent.trim() : "",
+                    hora: li.querySelector('div div time') ? li.querySelector('div div time').textContent.trim() : "00:00",
+                    logo: li.querySelector('div div img') ? li.querySelector('div div img').src : "",
+                    opciones: Array.from(li.querySelectorAll('ul a')).map(a => ({
+                        url: a.href,
+                        canal: a.querySelector('span') ? a.querySelector('span').textContent.trim() : "Opción"
+                    }))
+                }));
+            """)
+            
+        eventos_raw = extraer_eventos(driver)
+        
+        if not eventos_raw:
+            iframes = driver.find_elements(By.TAG_NAME, "iframe")
+            print(f"No hay eventos en la página principal, buscando en {len(iframes)} iframes...")
+            for idx, iframe in enumerate(iframes):
+                try:
+                    driver.switch_to.frame(iframe)
+                    time.sleep(1)
+                    eventos_raw = extraer_eventos(driver)
+                    if eventos_raw:
+                        print(f"¡Eventos encontrados en el iframe interno (índice {idx})!")
+                        driver.switch_to.default_content()
+                        break
+                    driver.switch_to.default_content()
+                except Exception:
+                    driver.switch_to.default_content()
+                    pass
+        
+        if not eventos_raw:
+            print("ADVERTENCIA: No se pudieron obtener los eventos ni en la página ni en los iframes.")
+        else:
+            print(f"Se obtuvieron {len(eventos_raw)} eventos exitosamente.")
 
         # 1. Separar los que estan EN VIVO de los que son PROXIMAMENTE
         en_vivo = []
