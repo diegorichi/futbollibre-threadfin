@@ -193,12 +193,27 @@ def extraer_todo_futbol_libre():
                     print(f"buscando m3u de: {item['nombre']}, {item['url']}")
                     driver.get(item['url'])
                     wait.until(EC.frame_to_be_available_and_switch_to_it((By.ID, "embedIframe")))
-                    try:
-                        wait.until(EC.frame_to_be_available_and_switch_to_it((By.TAG_NAME, "iframe")))
-                    except:
-                        pass                        
-                    time.sleep(2)
-                    match = re.search(r'["\'](https?://.*?\.m3u8\?token=.*?)["\']', driver.page_source)
+                    time.sleep(5) # Esperar a que cargue el contenido y scripts iniciales
+
+                    # Primero buscamos en el mismo embedIframe
+                    match = re.search(r'["\'](https?://[^\s"\'<>]+?\.m3u8[^\s"\'<>]*)["\']', driver.page_source)
+
+                    # Si no está, recorremos los iframes hijos
+                    if not match:
+                        iframes = driver.find_elements(By.TAG_NAME, "iframe")
+                        print(f"Buscando en {len(iframes)} iframes internos...")
+                        for idx, iframe in enumerate(iframes):
+                            try:
+                                driver.switch_to.frame(iframe)
+                                time.sleep(3) # Tiempo para que cargue este sub-iframe
+                                match = re.search(r'["\'](https?://[^\s"\'<>]+?\.m3u8[^\s"\'<>]*)["\']', driver.page_source)
+                                if match:
+                                    print(f"IFRAME CON M3U8 ENCONTRADO (índice {idx})")
+                                    break
+                                driver.switch_to.parent_frame()
+                            except Exception as e:
+                                driver.switch_to.parent_frame()
+                                pass
                     
                     if match:
                         link_stream = match.group(1)
