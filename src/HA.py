@@ -1,6 +1,5 @@
 import os
 import requests
-import json
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -30,6 +29,3 @@ def enviar_a_home_assistant(eventos):
         print("✅ Enviado a Home Assistant")
     else:
         print(f"❌ Error HA: {response.text}")
-
-# ... (Al final de tu lógica de parseo cuando ya tenés la lista 'eventos_finales')
-enviar_a_home_assistant(eventos_finales)

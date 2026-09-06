@@ -2,15 +2,14 @@ import os
 import requests
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import WebDriverException
 import unicodedata
 import re
 import time
-import sys
+from scraping import extraer_eventos
+from scraping.browser_driver import USER_AGENT, crear_driver
+from scraping.site_scraper import extraer_eventos_de_sitios
+from scraping.stream_extractor import StreamExtractionPool
 
 load_dotenv()
 
@@ -18,6 +17,8 @@ FUTBOL_LIBRE_URL = os.getenv("FUTBOL_LIBRE_URL")
 M3U_FILE = os.getenv("M3U_FILE")
 THREADFIN_API_URL = os.getenv("THREADFIN_API_URL", "http://localhost:34400/api/")
 SINTEL_URL = "https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8"
+PARALLEL_STREAM_EXTRACTION = os.getenv("PARALLEL_STREAM_EXTRACTION", "0").lower() in {"1", "true", "yes", "on"}
+STREAM_EXTRACTION_WORKERS = max(1, int(os.getenv("STREAM_EXTRACTION_WORKERS", "4")))
 
 def sanitizar_nombre(texto):
     if not texto:
@@ -104,37 +105,26 @@ def generar_xmltv(eventos_mapeados, xml_path):
         f.write("\n".join(xml_lines))
 
 def extraer_todo_futbol_libre():
-    options = webdriver.ChromeOptions()
-    user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-    options.add_argument(f'user-agent={user_agent}')
-    options.add_argument("--window-size=1440,900")
-    options.add_argument("--headless")
-    options.add_argument("--no-sandbox")
-    options.add_argument("--disable-dev-shm-usage")
-    driver = webdriver.Chrome(options=options)
-    wait = WebDriverWait(driver, 10)
+    driver = crear_driver()
+    stream_pool = None
 
     try:
 
         urls_to_try = [url.strip() for url in FUTBOL_LIBRE_URL.split(",") if url.strip()]
 
-        driver_success = False
-        
+        urls_validas = []
         for url in urls_to_try:
             try:
-                print(f"Probando dominio: {url}...")            
+                print(f"Probando dominio: {url}...")
                 driver.get(url)
                 if "Sitio no disponible" in driver.title or not driver.title:
                     raise WebDriverException("Dominio activo pero sin contenido válido")
-                    
                 print(f"¡Éxito! Conectado a {url}")
-                driver_success = True
-                break
+                urls_validas.append(url)
             except WebDriverException as e:
-                    print(f"Fallo en {url}: {e.msg if hasattr(e, 'msg') else 'Error de conexión'}")
-                    continue # Probamos el siguiente                
-        
-        if not driver_success:
+                print(f"Fallo en {url}: {e.msg if hasattr(e, 'msg') else 'Error de conexión'}")
+
+        if not urls_validas:
             print("Ningún dominio de la lista está operativo. Revisar el .env.")
             driver.quit()
             exit(1)
@@ -142,42 +132,16 @@ def extraer_todo_futbol_libre():
         print("Esperando unos segundos para asentar la carga de la página...")
         time.sleep(5)
         
-        def extraer_eventos(d):
-            return d.execute_script("""
-                return Array.from(document.querySelectorAll('#menu > li')).map(li => ({
-                    nombre: li.querySelector('div span') ? li.querySelector('div span').textContent.trim() : "",
-                    hora: li.querySelector('div div time') ? li.querySelector('div div time').textContent.trim() : "00:00",
-                    logo: li.querySelector('div div img') ? li.querySelector('div div img').src : "",
-                    opciones: Array.from(li.querySelectorAll('ul a')).map(a => ({
-                        url: a.href,
-                        canal: a.querySelector('span') ? a.querySelector('span').textContent.trim() : "Opción"
-                    }))
-                }));
-            """)
-            
-        eventos_raw = extraer_eventos(driver)
-        
-        if not eventos_raw:
-            iframes = driver.find_elements(By.TAG_NAME, "iframe")
-            print(f"No hay eventos en la página principal, buscando en {len(iframes)} iframes...")
-            for idx, iframe in enumerate(iframes):
-                try:
-                    driver.switch_to.frame(iframe)
-                    time.sleep(1)
-                    eventos_raw = extraer_eventos(driver)
-                    if eventos_raw:
-                        print(f"¡Eventos encontrados en el iframe interno (índice {idx})!")
-                        driver.switch_to.default_content()
-                        break
-                    driver.switch_to.default_content()
-                except Exception:
-                    driver.switch_to.default_content()
-                    pass
-        
+        eventos_raw, sitios_ok, errores_sitios = extraer_eventos_de_sitios(driver, urls_validas)
+        total_eventos_extraidos = sum(sitio["eventos"] for sitio in sitios_ok)
+        print(f"Eventos detectados sin filtros: {total_eventos_extraidos}")
+        print(f"Eventos únicos después de agrupar sitios: {len(eventos_raw)}")
+        for sitio in sitios_ok:
+            print(f"  {sitio['url']}: {sitio['eventos']} eventos")
         if not eventos_raw:
             print("ADVERTENCIA: No se pudieron obtener los eventos ni en la página ni en los iframes.")
-        else:
-            print(f"Se obtuvieron {len(eventos_raw)} eventos exitosamente.")
+        for error in errores_sitios:
+            print(f"Error en {error['url']}: {error['error']}")
 
         # 1. Separar los que estan EN VIVO de los que son PROXIMAMENTE
         en_vivo = []
@@ -196,9 +160,43 @@ def extraer_todo_futbol_libre():
                     proximos.append(ev)
                 else:
                     print(f"ignored: {ev}")
-        
+
+        stream_pool = StreamExtractionPool(
+            driver,
+            paralelo=PARALLEL_STREAM_EXTRACTION,
+            workers=STREAM_EXTRACTION_WORKERS,
+        )
+        for item in en_vivo:
+            stream_pool.submit(item["url"])
+        if PARALLEL_STREAM_EXTRACTION:
+            print(f"Seguimiento paralelo activado: {STREAM_EXTRACTION_WORKERS} workers.")
+
+        resultados_stream = {}
+        for item in en_vivo:
+            if item["url"] not in resultados_stream:
+                try:
+                    resultados_stream[item["url"]] = stream_pool.result(item["url"])
+                except Exception as error:
+                    print(f"[Stream] Error en {item['url']}: {type(error).__name__}: {error}")
+                    resultados_stream[item["url"]] = (None, None)
+
+        streams_antes_del_filtro = len(en_vivo)
+        en_vivo = [
+            item for item in en_vivo
+            if resultados_stream[item["url"]][0]
+        ]
+        streams_sin_resultado = streams_antes_del_filtro - len(en_vivo)
+        print(f"Streams candidatos activos: {streams_antes_del_filtro}")
+        print(f"Streams válidos encontrados: {len(en_vivo)}")
+        print(f"Streams descartados por falta de URL: {streams_sin_resultado}")
+        if len(en_vivo) > 50:
+            print(f"ADVERTENCIA: {len(en_vivo) - 50} streams válidos quedan fuera de los 50 slots.")
+        print(f"Streams que entran en los slots actuales: {min(len(en_vivo), 50)}")
+
         m3u_content = "#EXTM3U\n"
         datos_para_xml = []
+        eventos_descartados_sin_stream = 0
+        streams_finales = 0
 
         print("Armando canales y extrayendo info")
 
@@ -210,56 +208,48 @@ def extraer_todo_futbol_libre():
             if len(en_vivo) > 0:
                 # Ocupar slot con evento en vivo
                 item = en_vivo.pop(0)
+                streams_finales += 1
                 logo = item['logo']
                 hora_inicio_evento = item['hora']
+                evento_descartado = False
 
                 try:
                     print(f"buscando m3u de: {item['nombre']}, {item['url']}")
-                    driver.get(item['url'])
-                    wait.until(EC.frame_to_be_available_and_switch_to_it((By.ID, "embedIframe")))
-                    time.sleep(5) # Esperar a que cargue el contenido y scripts iniciales
-
-                    # Primero buscamos en el mismo embedIframe
-                    match = re.search(r'["\'](https?://[^\s"\'<>]+?\.m3u8[^\s"\'<>]*)["\']', driver.page_source)
-
-                    # Si no está, recorremos los iframes hijos
-                    if not match:
-                        iframes = driver.find_elements(By.TAG_NAME, "iframe")
-                        print(f"Buscando en {len(iframes)} iframes internos...")
-                        for idx, iframe in enumerate(iframes):
-                            try:
-                                driver.switch_to.frame(iframe)
-                                time.sleep(3) # Tiempo para que cargue este sub-iframe
-                                match = re.search(r'["\'](https?://[^\s"\'<>]+?\.m3u8[^\s"\'<>]*)["\']', driver.page_source)
-                                if match:
-                                    print(f"IFRAME CON M3U8 ENCONTRADO (índice {idx})")
-                                    break
-                                driver.switch_to.parent_frame()
-                            except Exception as e:
-                                driver.switch_to.parent_frame()
-                                pass
-                    
-                    if match:
-                        link_stream = match.group(1)
+                    link_stream, origen = stream_pool.result(item['url'])
+                    if link_stream:
+                        print(f"Stream encontrado vía {origen}: {link_stream}")
                         nombre_txt = f"[{hora_inicio_evento}] {item['nombre']} ; {item['canal']}"
                     else:
+                        evento_descartado = True
+                        eventos_descartados_sin_stream += 1
                         link_stream = SINTEL_URL
-                        nombre_txt = f"[{hora_inicio_evento}] {item['nombre']} ; (Link no encontrado)"
-                except:
+                        nombre_txt = "Slot Libre - Sin Eventos"
+                except Exception as error:
+                    print(f"[Stream] Error en {item['url']}: {type(error).__name__}: {error}")
+                    evento_descartado = True
+                    eventos_descartados_sin_stream += 1
                     link_stream = SINTEL_URL
-                    nombre_txt = f"[{hora_inicio_evento}] {item['nombre']} ; (Error de carga)"
+                    nombre_txt = "Slot Libre - Sin Eventos"
                 
-                # Parseamos la hora que viene del scraper (HH:MM)
-                ahora = datetime.now()
-                hora_evento = datetime.strptime(hora_inicio_evento, "%H:%M").replace(
-                    year=ahora.year, month=ahora.month, day=ahora.day
-                )
-                if (hora_evento > ahora):
-                    hora_evento = (ahora - timedelta(minutes=5)).strftime("%H:%M")
+                print(nombre_txt)
+                if evento_descartado:
+                    logo = ""
+                    hora_real = (datetime.now() - timedelta(minutes=5)).strftime("%H:%M")
+                else:
+                    # Parseamos la hora que viene del scraper (HH:MM)
+                    ahora = datetime.now()
+                    hora_real = datetime.strptime(hora_inicio_evento, "%H:%M").replace(
+                        year=ahora.year, month=ahora.month, day=ahora.day
+                    )
+                    if (hora_real > ahora):
+                        hora_real = (ahora - timedelta(minutes=5)).strftime("%H:%M")
 
-                datos_para_xml.append({'slot': slot_id, 'nombre_guia': nombre_txt, 'logo': logo, 'hora_real': hora_evento})
+                datos_para_xml.append({'slot': slot_id, 'nombre_guia': nombre_txt, 'logo': logo, 'hora_real': hora_real})
 
-                driver.switch_to.default_content()
+                try:
+                    driver.switch_to.default_content()
+                except WebDriverException as error:
+                    print(f"[Chrome] Sesión no disponible: {error}")
             else:
                 # Rellenar con "Proximamente"
                 logo = ""
@@ -277,10 +267,12 @@ def extraer_todo_futbol_libre():
             logo = "https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd"
 
             m3u_content += f'#EXTINF:-1 tvg-id="{slot_id}" tvg-name="Deporte {i}" tvg-logo="{logo}" group-title="Futbol Libre",{f"Deporte {i:02d}"}\n'
-            m3u_content += f'#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"\n'
+            m3u_content += f'#EXTVLCOPT:http-user-agent="{USER_AGENT}"\n'
             m3u_content += f'{link_stream}\n'
             
         print("Escribiendo archivos M3U y XML")
+        print(f"Eventos descartados por falta de stream: {eventos_descartados_sin_stream}")
+        print(f"Streams finales escritos en M3U: {streams_finales}")
         XML_FILE = M3U_FILE.replace(".m3u", ".xml")
         # Guardamos para el XML
         generar_xmltv(datos_para_xml, XML_FILE)
@@ -309,11 +301,22 @@ def extraer_todo_futbol_libre():
             except Exception as e:
                 print(f"[Threadfin] Error de conexion: {e}")
             time.sleep(2)
+
+        stream_pool.close()
+        stream_pool = None
             
         print("\nGrilla de 30 canales actualizada en Threadfin.")
 
     finally:
-        driver.quit()
+        if stream_pool is not None:
+            try:
+                stream_pool.close()
+            except Exception as error:
+                print(f"[Stream] Error cerrando workers: {error}")
+        try:
+            driver.quit()
+        except WebDriverException:
+            pass
 
 if __name__ == "__main__":
     extraer_todo_futbol_libre()

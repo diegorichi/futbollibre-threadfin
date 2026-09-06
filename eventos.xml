@@ -150,241 +150,204 @@
   <channel id="E50">
     <display-name>Evento 50</display-name>
   </channel>
-  <programme start="20260313114349 -0300" stop="20260313134349 -0300" channel="E01">
-    <title lang="es">[11:00] Ciclismo: Paris – Niza – Etapa #6 ; ESPN 3</title>
-    <desc lang="es">[11:00] Ciclismo: Paris – Niza – Etapa #6 ; ESPN 3</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/Pngtree_logo_bike_cycling_mtb_isolated_5209109_fbde4a6148_0df2a2f68b.png" />
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E01">
+    <title lang="es">[18:00] Liga BetPlay: Inter Bogotá vs Rionegro Águilas ; Win+ Fútbol</title>
+    <desc lang="es">[18:00] Liga BetPlay: Inter Bogotá vs Rionegro Águilas ; Win+ Fútbol</desc>
   </programme>
-  <programme start="20260313114349 -0300" stop="20260313134349 -0300" channel="E02">
-    <title lang="es">[11:00] Ciclismo: Paris – Niza – Etapa #6 ; ESPN 3 | OP2</title>
-    <desc lang="es">[11:00] Ciclismo: Paris – Niza – Etapa #6 ; ESPN 3 | OP2</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/Pngtree_logo_bike_cycling_mtb_isolated_5209109_fbde4a6148_0df2a2f68b.png" />
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E02">
+    <title lang="es">[18:00] Liga BetPlay: Inter Bogotá vs Rionegro Águilas ; Win Sports+</title>
+    <desc lang="es">[18:00] Liga BetPlay: Inter Bogotá vs Rionegro Águilas ; Win Sports+</desc>
   </programme>
-  <programme start="20260313114349 -0300" stop="20260313134349 -0300" channel="E03">
-    <title lang="es">[11:00] Ciclismo: Paris – Niza – Etapa #6 ; ESPN 3 | OP3</title>
-    <desc lang="es">[11:00] Ciclismo: Paris – Niza – Etapa #6 ; ESPN 3 | OP3</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/Pngtree_logo_bike_cycling_mtb_isolated_5209109_fbde4a6148_0df2a2f68b.png" />
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E03">
+    <title lang="es">[18:00] Liga BetPlay: Inter Bogotá vs Rionegro Águilas ; (Link no encontrado)</title>
+    <desc lang="es">[18:00] Liga BetPlay: Inter Bogotá vs Rionegro Águilas ; (Link no encontrado)</desc>
   </programme>
-  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E04">
-    <title lang="es">PROXIMAMENTE: [13:45] Golf: he Players Championship – Segunda Vuelta</title>
-    <desc lang="es">PROXIMAMENTE: [13:45] Golf: he Players Championship – Segunda Vuelta</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/golf_4a8d942645_6c3bec75aa.png" />
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E04">
+    <title lang="es">[18:00] Liga BetPlay: Inter Bogotá vs Rionegro Águilas ; Win Sports + HD</title>
+    <desc lang="es">[18:00] Liga BetPlay: Inter Bogotá vs Rionegro Águilas ; Win Sports + HD</desc>
   </programme>
-  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E05">
-    <title lang="es">PROXIMAMENTE: [14:00] Super Lig: Fatih Karagümrük vs Fenerbahçe</title>
-    <desc lang="es">PROXIMAMENTE: [14:00] Super Lig: Fatih Karagümrük vs Fenerbahçe</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/pavo_980d87b7ad_8827bbb7ba.png" />
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E05">
+    <title lang="es">[18:00] Liga BetPlay: Inter Bogotá vs Rionegro Águilas ; (Link no encontrado)</title>
+    <desc lang="es">[18:00] Liga BetPlay: Inter Bogotá vs Rionegro Águilas ; (Link no encontrado)</desc>
   </programme>
-  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E06">
-    <title lang="es">PROXIMAMENTE: [14:00] 2. Bundesliga: Greuther Fürth vs Elversberg</title>
-    <desc lang="es">PROXIMAMENTE: [14:00] 2. Bundesliga: Greuther Fürth vs Elversberg</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/alemania_e50aa475de_965dccfbbd.png" />
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E06">
+    <title lang="es">[18:00] Liga BetPlay: Inter Bogotá vs Rionegro Águilas ; Win Sports + HD</title>
+    <desc lang="es">[18:00] Liga BetPlay: Inter Bogotá vs Rionegro Águilas ; Win Sports + HD</desc>
   </programme>
-  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E07">
-    <title lang="es">PROXIMAMENTE: [14:30] 2. Bundesliga: Magdeburg vs Darmstadt 98</title>
-    <desc lang="es">PROXIMAMENTE: [14:30] 2. Bundesliga: Magdeburg vs Darmstadt 98</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/alemania_e50aa475de_965dccfbbd.png" />
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E07">
+    <title lang="es">[18:00] Liga BetPlay: Inter Bogotá vs Rionegro Águilas ; (Link no encontrado)</title>
+    <desc lang="es">[18:00] Liga BetPlay: Inter Bogotá vs Rionegro Águilas ; (Link no encontrado)</desc>
   </programme>
-  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E08">
-    <title lang="es">PROXIMAMENTE: [16:00] Pro League: Al Quadisiya vs Al-Ahli</title>
-    <desc lang="es">PROXIMAMENTE: [16:00] Pro League: Al Quadisiya vs Al-Ahli</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/arabia_saudita_82c6f9c376_70d77b2bc2.png" />
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E08">
+    <title lang="es">[18:30] Brasileirão: Botafogo vs Palmeiras ; Premiere BR</title>
+    <desc lang="es">[18:30] Brasileirão: Botafogo vs Palmeiras ; Premiere BR</desc>
   </programme>
-  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E09">
-    <title lang="es">PROXIMAMENTE: [16:00] Eredivisie: PEC Zwolle vs Groningen</title>
-    <desc lang="es">PROXIMAMENTE: [16:00] Eredivisie: PEC Zwolle vs Groningen</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/paises_bajos_f773e994b9_3bb0d207d2.png" />
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E09">
+    <title lang="es">[18:30] Brasileirão: Botafogo vs Palmeiras ; Premiere 1</title>
+    <desc lang="es">[18:30] Brasileirão: Botafogo vs Palmeiras ; Premiere 1</desc>
   </programme>
-  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E10">
-    <title lang="es">PROXIMAMENTE: [16:00] Eerste Divisie: Emmen vs ADO Den Haag</title>
-    <desc lang="es">PROXIMAMENTE: [16:00] Eerste Divisie: Emmen vs ADO Den Haag</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/paises_bajos_f773e994b9_3bb0d207d2.png" />
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E10">
+    <title lang="es">[18:30] Brasileirão: Botafogo vs Palmeiras ; Premiere 1 | OP 2</title>
+    <desc lang="es">[18:30] Brasileirão: Botafogo vs Palmeiras ; Premiere 1 | OP 2</desc>
   </programme>
-  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E11">
-    <title lang="es">PROXIMAMENTE: [16:30] LaLiga SmartBank: Mirandés vs Cádiz</title>
-    <desc lang="es">PROXIMAMENTE: [16:30] LaLiga SmartBank: Mirandés vs Cádiz</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/espana_a8510f9b5f_9213b1e460.png" />
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E11">
+    <title lang="es">[18:30] Brasileirão: Botafogo vs Palmeiras ; Premiere BR</title>
+    <desc lang="es">[18:30] Brasileirão: Botafogo vs Palmeiras ; Premiere BR</desc>
   </programme>
-  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E12">
-    <title lang="es">PROXIMAMENTE: [16:30] Bundesliga: Borussia M'gladbach vs St. Pauli</title>
-    <desc lang="es">PROXIMAMENTE: [16:30] Bundesliga: Borussia M'gladbach vs St. Pauli</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/alemania_e50aa475de_965dccfbbd.png" />
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E12">
+    <title lang="es">[18:30] Brasileirão: Botafogo vs Palmeiras ; Premiere BR</title>
+    <desc lang="es">[18:30] Brasileirão: Botafogo vs Palmeiras ; Premiere BR</desc>
   </programme>
-  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E13">
-    <title lang="es">PROXIMAMENTE: [16:45] Serie A: Torino vs Parma</title>
-    <desc lang="es">PROXIMAMENTE: [16:45] Serie A: Torino vs Parma</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/italia_cb19445d70_41852551f1.png" />
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E13">
+    <title lang="es">[18:30] Brasileirão: Botafogo vs Palmeiras ; Premiere BR</title>
+    <desc lang="es">[18:30] Brasileirão: Botafogo vs Palmeiras ; Premiere BR</desc>
   </programme>
-  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E14">
-    <title lang="es">PROXIMAMENTE: [16:45] Ligue 1: Olympique Marseille vs Auxerre</title>
-    <desc lang="es">PROXIMAMENTE: [16:45] Ligue 1: Olympique Marseille vs Auxerre</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/bandera_francia_9e29308ee7.png" />
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E14">
+    <title lang="es">[18:30] Brasileirão: Botafogo vs Palmeiras ; (Link no encontrado)</title>
+    <desc lang="es">[18:30] Brasileirão: Botafogo vs Palmeiras ; (Link no encontrado)</desc>
   </programme>
-  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E15">
-    <title lang="es">PROXIMAMENTE: [17:00] Liga 1: FC Cajamarca vs Comerciantes Unidos</title>
-    <desc lang="es">PROXIMAMENTE: [17:00] Liga 1: FC Cajamarca vs Comerciantes Unidos</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/peru_ddc4e685cf_43831ed9b0.png" />
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E15">
+    <title lang="es">[18:30] Brasileirão: Botafogo vs Palmeiras ; (Link no encontrado)</title>
+    <desc lang="es">[18:30] Brasileirão: Botafogo vs Palmeiras ; (Link no encontrado)</desc>
   </programme>
-  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E16">
-    <title lang="es">PROXIMAMENTE: [17:00] LaLiga: Deportivo Alavés vs Villarreal</title>
-    <desc lang="es">PROXIMAMENTE: [17:00] LaLiga: Deportivo Alavés vs Villarreal</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/espana_a8510f9b5f_9213b1e460.png" />
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E16">
+    <title lang="es">[18:30] Copa de Primera: Sportivo Luqueño vs Sportivo Ameliano ; Fanatiz</title>
+    <desc lang="es">[18:30] Copa de Primera: Sportivo Luqueño vs Sportivo Ameliano ; Fanatiz</desc>
   </programme>
-  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E17">
-    <title lang="es">PROXIMAMENTE: [17:00] Championship: Wrexham vs Swansea City</title>
-    <desc lang="es">PROXIMAMENTE: [17:00] Championship: Wrexham vs Swansea City</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/inglaterra_823176495f_fc4f47c43e.png" />
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E17">
+    <title lang="es">[18:30] Copa de Primera: Sportivo Luqueño vs Sportivo Ameliano ; Fanatiz</title>
+    <desc lang="es">[18:30] Copa de Primera: Sportivo Luqueño vs Sportivo Ameliano ; Fanatiz</desc>
   </programme>
-  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E18">
-    <title lang="es">PROXIMAMENTE: [18:30] Serie A : Técnico Universitario vs Libertad</title>
-    <desc lang="es">PROXIMAMENTE: [18:30] Serie A : Técnico Universitario vs Libertad</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/ecuador_6b5e87e044_2fd81bc301.png" />
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E18">
+    <title lang="es">[18:30] Copa de Primera: Sportivo Luqueño vs Sportivo Ameliano ; Fanatiz06</title>
+    <desc lang="es">[18:30] Copa de Primera: Sportivo Luqueño vs Sportivo Ameliano ; Fanatiz06</desc>
   </programme>
-  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E19">
-    <title lang="es">PROXIMAMENTE: [18:30] Primera División: Sportivo Luqueño vs Sportivo San Lorenzo</title>
-    <desc lang="es">PROXIMAMENTE: [18:30] Primera División: Sportivo Luqueño vs Sportivo San Lorenzo</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/paraguay_fc9dd78de7_fda39878d0.png" />
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E19">
+    <title lang="es">[18:30] Copa de Primera: Sportivo Luqueño vs Sportivo Ameliano ; Fanatiz06</title>
+    <desc lang="es">[18:30] Copa de Primera: Sportivo Luqueño vs Sportivo Ameliano ; Fanatiz06</desc>
   </programme>
-  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E20">
-    <title lang="es">PROXIMAMENTE: [18:55] Rugby: SR Americas – Peñarol Rugby vs Cobras Brasil Rugby</title>
-    <desc lang="es">PROXIMAMENTE: [18:55] Rugby: SR Americas – Peñarol Rugby vs Cobras Brasil Rugby</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/Rugby_f99a2b54da.png" />
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E20">
+    <title lang="es">[19:00] Leagues Cup: León vs América - 3er. Puesto ; MLS</title>
+    <desc lang="es">[19:00] Leagues Cup: León vs América - 3er. Puesto ; MLS</desc>
   </programme>
-  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E21">
-    <title lang="es">PROXIMAMENTE: [20:00] Liga Profesional: Estudiantes vs Lanús</title>
-    <desc lang="es">PROXIMAMENTE: [20:00] Liga Profesional: Estudiantes vs Lanús</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/argentina_2bd748026e_628913fc18.png" />
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E21">
+    <title lang="es">[19:00] Leagues Cup: León vs América - 3er. Puesto ; (Link no encontrado)</title>
+    <desc lang="es">[19:00] Leagues Cup: León vs América - 3er. Puesto ; (Link no encontrado)</desc>
   </programme>
-  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E22">
-    <title lang="es">PROXIMAMENTE: [20:00] Liga de Expansión MX: Alebrijes de Oaxaca vs Tapatío</title>
-    <desc lang="es">PROXIMAMENTE: [20:00] Liga de Expansión MX: Alebrijes de Oaxaca vs Tapatío</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/bandera_fbc29cb609_69a4b8272a.png" />
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E22">
+    <title lang="es">[19:00] Leagues Cup: León vs América - 3er. Puesto ; MLS Season Pass</title>
+    <desc lang="es">[19:00] Leagues Cup: León vs América - 3er. Puesto ; MLS Season Pass</desc>
   </programme>
-  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E23">
-    <title lang="es">PROXIMAMENTE: [20:00] Primera División: Audax Italiano vs Deportes Concepción</title>
-    <desc lang="es">PROXIMAMENTE: [20:00] Primera División: Audax Italiano vs Deportes Concepción</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/chile_86c07a7b38_fad5126fd0.png" />
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E23">
+    <title lang="es">[19:00] Leagues Cup: León vs América - 3er. Puesto ; MLS Season Pass | OP 2</title>
+    <desc lang="es">[19:00] Leagues Cup: León vs América - 3er. Puesto ; MLS Season Pass | OP 2</desc>
   </programme>
-  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E24">
-    <title lang="es">PROXIMAMENTE: [20:00] Primera División: Nacional vs Wanderers</title>
-    <desc lang="es">PROXIMAMENTE: [20:00] Primera División: Nacional vs Wanderers</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/uruguay_e2b9597af8_6abda609fb.png" />
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E24">
+    <title lang="es">[19:00] Leagues Cup: León vs América - 3er. Puesto ; (Link no encontrado)</title>
+    <desc lang="es">[19:00] Leagues Cup: León vs América - 3er. Puesto ; (Link no encontrado)</desc>
   </programme>
-  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E25">
-    <title lang="es">PROXIMAMENTE: [20:00] Tenis: Indian Wells – Semifinal Femenina #1</title>
-    <desc lang="es">PROXIMAMENTE: [20:00] Tenis: Indian Wells – Semifinal Femenina #1</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/Tenis_a5d5fcd1d1_594ebf0186.png" />
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E25">
+    <title lang="es">[19:00] Leagues Cup: León vs América - 3er. Puesto ; MLS</title>
+    <desc lang="es">[19:00] Leagues Cup: León vs América - 3er. Puesto ; MLS</desc>
   </programme>
-  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E26">
-    <title lang="es">PROXIMAMENTE: [20:20] Categoría Primera A: Once Caldas vs Deportivo Pasto</title>
-    <desc lang="es">PROXIMAMENTE: [20:20] Categoría Primera A: Once Caldas vs Deportivo Pasto</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/colombia_dcf9cc2637_a1661b26da.png" />
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E26">
+    <title lang="es">[19:00] Leagues Cup: León vs América - 3er. Puesto ; MLS01EN</title>
+    <desc lang="es">[19:00] Leagues Cup: León vs América - 3er. Puesto ; MLS01EN</desc>
   </programme>
-  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E27">
-    <title lang="es">PROXIMAMENTE: [20:30] Primera División: 2 de Mayo vs Libertad</title>
-    <desc lang="es">PROXIMAMENTE: [20:30] Primera División: 2 de Mayo vs Libertad</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/paraguay_fc9dd78de7_fda39878d0.png" />
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E27">
+    <title lang="es">[19:00] Leagues Cup: León vs América - 3er. Puesto ; MLS01EN</title>
+    <desc lang="es">[19:00] Leagues Cup: León vs América - 3er. Puesto ; MLS01EN</desc>
   </programme>
-  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E28">
-    <title lang="es">PROXIMAMENTE: [21:00] BOXEO: Najee Lopez vs Manuel Gallegos</title>
-    <desc lang="es">PROXIMAMENTE: [21:00] BOXEO: Najee Lopez vs Manuel Gallegos</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/boxeo_2024_b15889ae93_ae58e10dcb.png" />
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E28">
+    <title lang="es">[19:15] Liga Profesional: River Plate vs Independiente Rivadavia ; Disney+</title>
+    <desc lang="es">[19:15] Liga Profesional: River Plate vs Independiente Rivadavia ; Disney+</desc>
   </programme>
-  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E29">
-    <title lang="es">PROXIMAMENTE: [21:00] Rugby: SR Americas – Tarucas vs Pampas</title>
-    <desc lang="es">PROXIMAMENTE: [21:00] Rugby: SR Americas – Tarucas vs Pampas</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/Rugby_f99a2b54da.png" />
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E29">
+    <title lang="es">[19:15] Liga Profesional: River Plate vs Independiente Rivadavia ; Fanatiz</title>
+    <desc lang="es">[19:15] Liga Profesional: River Plate vs Independiente Rivadavia ; Fanatiz</desc>
   </programme>
-  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E30">
-    <title lang="es">PROXIMAMENTE: [21:00] Serie A : Deportivo Cuenca vs Leones del Norte</title>
-    <desc lang="es">PROXIMAMENTE: [21:00] Serie A : Deportivo Cuenca vs Leones del Norte</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/ecuador_6b5e87e044_2fd81bc301.png" />
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E30">
+    <title lang="es">[19:15] Liga Profesional: River Plate vs Independiente Rivadavia ; TNT Sports Premium</title>
+    <desc lang="es">[19:15] Liga Profesional: River Plate vs Independiente Rivadavia ; TNT Sports Premium</desc>
   </programme>
-  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E31">
-    <title lang="es">PROXIMAMENTE: [22:00] Liga de Expansión MX: Correcaminos UAT vs Irapuato</title>
-    <desc lang="es">PROXIMAMENTE: [22:00] Liga de Expansión MX: Correcaminos UAT vs Irapuato</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/bandera_fbc29cb609_69a4b8272a.png" />
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E31">
+    <title lang="es">[19:15] Liga Profesional: River Plate vs Independiente Rivadavia ; ESPN</title>
+    <desc lang="es">[19:15] Liga Profesional: River Plate vs Independiente Rivadavia ; ESPN</desc>
   </programme>
-  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E32">
-    <title lang="es">PROXIMAMENTE: [22:00] Tenis: Indian Wells – Semifinal Femenina #2</title>
-    <desc lang="es">PROXIMAMENTE: [22:00] Tenis: Indian Wells – Semifinal Femenina #2</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/Tenis_a5d5fcd1d1_594ebf0186.png" />
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E32">
+    <title lang="es">[19:15] Liga Profesional: River Plate vs Independiente Rivadavia ; Disney+</title>
+    <desc lang="es">[19:15] Liga Profesional: River Plate vs Independiente Rivadavia ; Disney+</desc>
   </programme>
-  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E33">
-    <title lang="es">PROXIMAMENTE: [22:00] Liga de Expansión MX: Mineros de Zacatecas vs CDS Tampico Madero</title>
-    <desc lang="es">PROXIMAMENTE: [22:00] Liga de Expansión MX: Mineros de Zacatecas vs CDS Tampico Madero</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/bandera_fbc29cb609_69a4b8272a.png" />
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E33">
+    <title lang="es">[19:15] Liga Profesional: River Plate vs Independiente Rivadavia ; TNT Sports</title>
+    <desc lang="es">[19:15] Liga Profesional: River Plate vs Independiente Rivadavia ; TNT Sports</desc>
   </programme>
-  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E34">
-    <title lang="es">PROXIMAMENTE: [22:00] Liga MX: Puebla vs Necaxa</title>
-    <desc lang="es">PROXIMAMENTE: [22:00] Liga MX: Puebla vs Necaxa</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/bandera_fbc29cb609_69a4b8272a.png" />
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E34">
+    <title lang="es">[19:15] Liga Profesional: River Plate vs Independiente Rivadavia ; ESPN</title>
+    <desc lang="es">[19:15] Liga Profesional: River Plate vs Independiente Rivadavia ; ESPN</desc>
   </programme>
-  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E35">
-    <title lang="es">PROXIMAMENTE: [22:30] Categoría Primera A: Atlético Nacional vs Llaneros</title>
-    <desc lang="es">PROXIMAMENTE: [22:30] Categoría Primera A: Atlético Nacional vs Llaneros</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/colombia_dcf9cc2637_a1661b26da.png" />
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E35">
+    <title lang="es">[19:15] Liga Profesional: River Plate vs Independiente Rivadavia ; Disney+ | OP 2</title>
+    <desc lang="es">[19:15] Liga Profesional: River Plate vs Independiente Rivadavia ; Disney+ | OP 2</desc>
   </programme>
-  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E36">
-    <title lang="es">PROXIMAMENTE: [23:00] Primera División: Alajuelense vs Pérez Zeledón</title>
-    <desc lang="es">PROXIMAMENTE: [23:00] Primera División: Alajuelense vs Pérez Zeledón</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/costa_rica_cb5e6c6746_67d705d4bb.png" />
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E36">
+    <title lang="es">[19:15] Liga Profesional: River Plate vs Independiente Rivadavia ; (Link no encontrado)</title>
+    <desc lang="es">[19:15] Liga Profesional: River Plate vs Independiente Rivadavia ; (Link no encontrado)</desc>
   </programme>
-  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E37">
-    <title lang="es">PROXIMAMENTE: [23:59] Liga MX: Juárez vs Monterrey</title>
-    <desc lang="es">PROXIMAMENTE: [23:59] Liga MX: Juárez vs Monterrey</desc>
-    <icon src="https://cdn.pltvhd.com/uploads/bandera_fbc29cb609_69a4b8272a.png" />
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E37">
+    <title lang="es">[19:15] Liga Profesional: River Plate vs Independiente Rivadavia ; ESPN | OP 2</title>
+    <desc lang="es">[19:15] Liga Profesional: River Plate vs Independiente Rivadavia ; ESPN | OP 2</desc>
   </programme>
-  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E38">
-    <title lang="es">Slot Libre - Sin Eventos</title>
-    <desc lang="es">Slot Libre - Sin Eventos</desc>
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E38">
+    <title lang="es">[19:15] Liga Profesional: River Plate vs Independiente Rivadavia ; (Link no encontrado)</title>
+    <desc lang="es">[19:15] Liga Profesional: River Plate vs Independiente Rivadavia ; (Link no encontrado)</desc>
   </programme>
-  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E39">
-    <title lang="es">Slot Libre - Sin Eventos</title>
-    <desc lang="es">Slot Libre - Sin Eventos</desc>
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E39">
+    <title lang="es">[19:15] Liga Profesional: River Plate vs Independiente Rivadavia ; (Link no encontrado)</title>
+    <desc lang="es">[19:15] Liga Profesional: River Plate vs Independiente Rivadavia ; (Link no encontrado)</desc>
   </programme>
-  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E40">
-    <title lang="es">Slot Libre - Sin Eventos</title>
-    <desc lang="es">Slot Libre - Sin Eventos</desc>
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E40">
+    <title lang="es">[19:15] Liga Profesional: River Plate vs Independiente Rivadavia ; TNT Sports | OP 3</title>
+    <desc lang="es">[19:15] Liga Profesional: River Plate vs Independiente Rivadavia ; TNT Sports | OP 3</desc>
   </programme>
-  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E41">
-    <title lang="es">Slot Libre - Sin Eventos</title>
-    <desc lang="es">Slot Libre - Sin Eventos</desc>
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E41">
+    <title lang="es">[19:15] Liga Profesional: River Plate vs Independiente Rivadavia ; Disney+</title>
+    <desc lang="es">[19:15] Liga Profesional: River Plate vs Independiente Rivadavia ; Disney+</desc>
   </programme>
-  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E42">
-    <title lang="es">Slot Libre - Sin Eventos</title>
-    <desc lang="es">Slot Libre - Sin Eventos</desc>
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E42">
+    <title lang="es">[19:15] Liga Profesional: River Plate vs Independiente Rivadavia ; Fanatiz</title>
+    <desc lang="es">[19:15] Liga Profesional: River Plate vs Independiente Rivadavia ; Fanatiz</desc>
   </programme>
-  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E43">
-    <title lang="es">Slot Libre - Sin Eventos</title>
-    <desc lang="es">Slot Libre - Sin Eventos</desc>
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E43">
+    <title lang="es">[19:15] Liga Profesional: River Plate vs Independiente Rivadavia ; TNT Sports Premium</title>
+    <desc lang="es">[19:15] Liga Profesional: River Plate vs Independiente Rivadavia ; TNT Sports Premium</desc>
   </programme>
-  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E44">
-    <title lang="es">Slot Libre - Sin Eventos</title>
-    <desc lang="es">Slot Libre - Sin Eventos</desc>
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E44">
+    <title lang="es">[19:15] Liga Profesional: River Plate vs Independiente Rivadavia ; ESPN</title>
+    <desc lang="es">[19:15] Liga Profesional: River Plate vs Independiente Rivadavia ; ESPN</desc>
   </programme>
-  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E45">
-    <title lang="es">Slot Libre - Sin Eventos</title>
-    <desc lang="es">Slot Libre - Sin Eventos</desc>
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E45">
+    <title lang="es">[19:15] Liga Profesional: River Plate vs Independiente Rivadavia ; ESPN</title>
+    <desc lang="es">[19:15] Liga Profesional: River Plate vs Independiente Rivadavia ; ESPN</desc>
   </programme>
-  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E46">
-    <title lang="es">Slot Libre - Sin Eventos</title>
-    <desc lang="es">Slot Libre - Sin Eventos</desc>
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E46">
+    <title lang="es">[19:15] Liga Profesional: River Plate vs Independiente Rivadavia ; Disney+</title>
+    <desc lang="es">[19:15] Liga Profesional: River Plate vs Independiente Rivadavia ; Disney+</desc>
   </programme>
-  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E47">
-    <title lang="es">Slot Libre - Sin Eventos</title>
-    <desc lang="es">Slot Libre - Sin Eventos</desc>
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E47">
+    <title lang="es">[19:15] Liga Profesional: River Plate vs Independiente Rivadavia ; (Link no encontrado)</title>
+    <desc lang="es">[19:15] Liga Profesional: River Plate vs Independiente Rivadavia ; (Link no encontrado)</desc>
   </programme>
-  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E48">
-    <title lang="es">Slot Libre - Sin Eventos</title>
-    <desc lang="es">Slot Libre - Sin Eventos</desc>
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E48">
+    <title lang="es">[19:15] Liga Profesional: River Plate vs Independiente Rivadavia ; TNT Sports</title>
+    <desc lang="es">[19:15] Liga Profesional: River Plate vs Independiente Rivadavia ; TNT Sports</desc>
   </programme>
-  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E49">
-    <title lang="es">Slot Libre - Sin Eventos</title>
-    <desc lang="es">Slot Libre - Sin Eventos</desc>
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E49">
+    <title lang="es">[19:15] Liga Profesional: River Plate vs Independiente Rivadavia ; (Link no encontrado)</title>
+    <desc lang="es">[19:15] Liga Profesional: River Plate vs Independiente Rivadavia ; (Link no encontrado)</desc>
   </programme>
-  <programme start="20260313113800 -0300" stop="20260313143800 -0300" channel="E50">
-    <title lang="es">Slot Libre - Sin Eventos</title>
-    <desc lang="es">Slot Libre - Sin Eventos</desc>
+  <programme start="20260906202102 -0300" stop="20260906222102 -0300" channel="E50">
+    <title lang="es">[19:15] Liga Profesional: River Plate vs Independiente Rivadavia ; ESPN</title>
+    <desc lang="es">[19:15] Liga Profesional: River Plate vs Independiente Rivadavia ; ESPN</desc>
   </programme>
 </tv>

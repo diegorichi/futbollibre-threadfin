@@ -8,7 +8,8 @@ from dotenv import set_key, load_dotenv
 
 app = Flask(__name__)
 XML_PATH = "/opt/threadfin/eventos.xml"
-ENV_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '.env'))
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+ENV_PATH = os.path.join(PROJECT_ROOT, '.env')
 
 task_state = {
     "is_running": False,
@@ -313,7 +314,7 @@ HTML_TEMPLATE = """
 def run_update_script():
     global task_state
     try:
-        script_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'update-futbollibre.sh'))
+        script_path = os.path.join(PROJECT_ROOT, 'update-futbollibre.sh')
         
         process = subprocess.Popen(
             ['bash', script_path], 
