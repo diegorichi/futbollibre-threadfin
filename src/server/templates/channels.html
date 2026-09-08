@@ -3,6 +3,7 @@
 <section class="card wide">
   <h1>Canales</h1>
   <p class="muted">XML actualizado: {{ source_dates.xml }} · M3U actualizado: {{ source_dates.m3u }}</p>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
   <table>
     <thead><tr><th>Horario</th><th>Torneo</th><th>Match</th><th>Canal</th></tr></thead>
     <tbody>
@@ -11,9 +12,9 @@
         <td>{{ channel.hora }}</td>
         <td>{% if channel.logo %}<img class="channel-logo" src="{{ channel.logo }}" alt="">{% endif %}{{ channel.torneo or '—' }}{% if channel.proximamente %} <span class="badge">PRÓXIMAMENTE</span>{% endif %}</td>
         <td>{{ channel.match }}</td>
-        <td>{{ channel.canal or '—' }}{% if channel.link %} <a class="stream-link" href="{{ channel.link }}" target="_blank" rel="noopener" onclick="event.stopPropagation()">abrir</a> <button class="player-button" data-stream="{{ channel.link }}" onclick="openPlayer(event, this.dataset.stream)">PiP</button>{% endif %}</td>
+        <td>{% if channel.link %}<a class="channel-link" href="{{ channel.link }}" target="_blank" rel="noopener" onclick="event.stopPropagation()">{{ channel.canal or '—' }}</a> <button class="player-button" title="Picture-in-Picture" aria-label="Picture-in-Picture" data-stream="{{ channel.link }}" data-video-id="video-{{ loop.index }}" onclick="openPip(event, this.dataset.stream, this.dataset.videoId)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M19 5l-7 7M19 14v4a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h4"/></svg></button>{% else %}{{ channel.canal or '—' }}{% endif %}</td>
       </tr>
-      <tr class="stream-row" hidden><td colspan="4"><strong>Stream:</strong> {% if channel.link %}<a href="{{ channel.link }}" target="_blank" rel="noopener">{{ channel.link }}</a>{% else %}sin enlace m3u8{% endif %}</td></tr>
+      <tr class="stream-row" hidden><td colspan="4">{% if channel.link %}<video id="video-{{ loop.index }}" class="inline-player" data-stream="{{ channel.link }}" controls muted playsinline></video>{% else %}sin enlace m3u8{% endif %}</td></tr>
     {% else %}
       <tr><td colspan="4">No hay canales disponibles.</td></tr>
     {% endfor %}

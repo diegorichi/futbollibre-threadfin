@@ -64,14 +64,6 @@ def systems_page():
     return render_template("systems.html")
 
 
-@app.get("/reproductor")
-def player_page():
-    stream = request.args.get("stream", "").strip()
-    if not stream:
-        return "Falta el enlace del stream.", 400
-    return render_template("player.html", stream=stream)
-
-
 @app.post("/update-url")
 def update_url():
     data = request.get_json(silent=True) or {}

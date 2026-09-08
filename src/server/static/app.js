@@ -19,11 +19,40 @@ function toggleChannel(row) {
   const expanded = !streamRow.hidden;
   streamRow.hidden = expanded;
   row.setAttribute('aria-expanded', String(!expanded));
+  if (!expanded) {
+    const video = streamRow.querySelector('video');
+    if (video) ensureInlinePlayer(video, video.dataset.stream).catch(error => console.error(error));
+  }
 }
 
-function openPlayer(event, stream) {
+function ensureInlinePlayer(video, stream) {
+  if (video.dataset.loaded === 'true') return Promise.resolve();
+  video.muted = true;
+  return new Promise((resolve, reject) => {
+    if (video.canPlayType('application/vnd.apple.mpegurl')) {
+      video.src = stream;
+      video.addEventListener('loadedmetadata', resolve, {once: true});
+      video.addEventListener('error', reject, {once: true});
+      return;
+    }
+    if (!window.Hls || !Hls.isSupported()) return reject(new Error('HLS no soportado'));
+    const hls = new Hls();
+    video._hls = hls;
+    hls.loadSource(stream);
+    hls.attachMedia(video);
+    hls.on(Hls.Events.MANIFEST_PARSED, resolve);
+    hls.on(Hls.Events.ERROR, (_, data) => { if (data.fatal) reject(new Error('No se pudo cargar el stream')); });
+  }).then(() => { video.dataset.loaded = 'true'; });
+}
+
+function openPip(event, stream, videoId) {
   event.stopPropagation();
-  window.open(`/reproductor?stream=${encodeURIComponent(stream)}`, '_blank', 'popup=yes,width=900,height=600');
+  const video = document.getElementById(videoId);
+  video.closest('.stream-row').hidden = false;
+  ensureInlinePlayer(video, stream)
+    .then(() => video.play())
+    .then(() => video.requestPictureInPicture())
+    .catch(error => console.error('No se pudo abrir Picture-in-Picture:', error));
 }
 
 function pollStatus(button, status, tail) {
