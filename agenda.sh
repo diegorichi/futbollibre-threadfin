@@ -5,6 +5,6 @@ source `pwd`/config.sh
 
 echo "--- Iniciando proceso de agenda diario $(date) ---"
 
-$PYTHON_VENV src/agenda.py
+PYTHONPATH=src $PYTHON_VENV src/agenda.py
 
 echo "--- Proceso finalizado ---"

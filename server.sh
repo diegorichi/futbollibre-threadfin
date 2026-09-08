@@ -5,6 +5,6 @@ source `pwd`/config.sh
 
 echo "--- Iniciando server ---"
 
-$PYTHON_VENV src/server/api_service.py
+PYTHONPATH=src $PYTHON_VENV -m server.api_service
 
 echo "--- Proceso finalizado ---"

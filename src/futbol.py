@@ -11,7 +11,7 @@ from scraping.browser_driver import USER_AGENT, crear_driver
 from scraping.site_scraper import extraer_eventos_de_sitios
 from scraping.stream_extractor import StreamExtractionPool
 
-load_dotenv()
+load_dotenv(os.getenv("ENV_FILE", ".env"))
 
 FUTBOL_LIBRE_URL = os.getenv("FUTBOL_LIBRE_URL")
 M3U_FILE = os.getenv("M3U_FILE")

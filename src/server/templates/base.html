@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fútbol Libre</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
+</head>
+<body>
+  <nav>
+    <a href="{{ url_for('executor_page') }}">Actualizar URL</a>
+    <a href="{{ url_for('channels_page') }}">Canales</a>
+    <a href="{{ url_for('systems_page') }}">Otros sistemas</a>
+  </nav>
+  <main>{% block content %}{% endblock %}</main>
+</body>
+</html>

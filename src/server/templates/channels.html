@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card wide">
+  <h1>Canales</h1>
+  <table>
+    <thead><tr><th>Horario</th><th>Nombre</th><th>m3u8</th></tr></thead>
+    <tbody>
+    {% for channel in channels %}
+      <tr><td>{{ channel.hora }}</td><td>{{ channel.nombre }}</td><td>{% if channel.link %}<a href="{{ channel.link }}" target="_blank" rel="noopener">abrir enlace</a>{% else %}sin enlace{% endif %}</td></tr>
+    {% else %}
+      <tr><td colspan="3">No hay canales disponibles.</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endblock %}

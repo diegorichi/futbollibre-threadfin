@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card">
+  <h1>Actualizar URL y ejecutar</h1>
+  <p class="muted">Guarda la URL y ejecuta la actualización de Fútbol Libre.</p>
+  <label for="url">FUTBOL_LIBRE_URL</label>
+  <input id="url" value="{{ current_url }}" placeholder="https://ejemplo.com/">
+  <button id="run" onclick="updateUrl()">Actualizar y sincronizar</button>
+  <p id="status" class="status"></p>
+  <pre id="tail" class="tail" aria-label="Últimas líneas del proceso"></pre>
+</section>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+{% endblock %}

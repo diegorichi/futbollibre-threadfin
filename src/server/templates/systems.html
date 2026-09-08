@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card">
+  <h1>Actualizar otros sistemas</h1>
+  <p class="muted">Envía la agenda actual a cada sistema por separado.</p>
+  <div class="actions">
+    <button onclick="updateSystem('ha', this)">Actualizar Home Assistant</button>
+    <button onclick="updateSystem('ntfy', this)">Actualizar NTFY</button>
+  </div>
+  <p id="system-status" class="status"></p>
+</section>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+{% endblock %}
