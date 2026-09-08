@@ -9,3 +9,5 @@ __pycache__/
 .update-futbollibre.log
 .update-futbollibre.lock
 .update-futbollibre.progress.json
+futbol_libre_urls.env
+futbol_libre_urls.env.tmp

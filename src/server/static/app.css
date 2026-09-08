@@ -12,7 +12,7 @@ input, button { width: 100%; padding: .8rem; border-radius: 6px; border: 1px sol
 input { background: #0f172a; color: white; margin-bottom: 1rem; }
 button { background: var(--blue); color: white; cursor: pointer; margin-top: .5rem; } button:disabled { opacity: .6; cursor: wait; }
 .danger { background: #b91c1c; }
-.actions { display: grid; gap: .75rem; } .status { min-height: 1.5rem; } .error { color: #fca5a5; } .success { color: #86efac; }
+.actions { display: grid; gap: .75rem; } .status { min-height: 1.5rem; white-space: pre-line; } .error { color: #fca5a5; } .success { color: #86efac; }
 .tail { height: 300px; overflow: auto; padding: 1rem; background: #020617; color: #bef264; border: 1px solid var(--line); white-space: pre-wrap; }
 .progress-row { margin: 1rem 0; } .progress-row label { margin: .75rem 0 .25rem; }
 progress { width: 100%; height: 1.2rem; } .progress-value { color: var(--muted); float: right; }

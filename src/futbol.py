@@ -1,7 +1,8 @@
 import os
 import requests
 from datetime import datetime, timedelta
-from dotenv import load_dotenv, set_key
+from dotenv import dotenv_values, load_dotenv, set_key
+from pathlib import Path
 from selenium.common.exceptions import WebDriverException
 import unicodedata
 import re
@@ -15,7 +16,15 @@ from progress import ProgressReporter
 ENV_FILE = os.getenv("ENV_FILE", ".env")
 load_dotenv(ENV_FILE)
 
-FUTBOL_LIBRE_URL = os.getenv("FUTBOL_LIBRE_URL")
+ENV_PATH = Path(ENV_FILE)
+if not ENV_PATH.is_absolute():
+    ENV_PATH = Path.cwd() / ENV_PATH
+URLS_ENV_FILE = Path(os.getenv("FUTBOL_LIBRE_URL_FILE", ENV_PATH.with_name("futbol_libre_urls.env")))
+if not URLS_ENV_FILE.is_absolute():
+    URLS_ENV_FILE = ENV_PATH.parent / URLS_ENV_FILE
+URLS_ENV = dotenv_values(URLS_ENV_FILE)
+
+FUTBOL_LIBRE_URL = URLS_ENV.get("FUTBOL_LIBRE_URL") or os.getenv("FUTBOL_LIBRE_URL")
 M3U_FILE = os.getenv("M3U_FILE")
 THREADFIN_API_URL = os.getenv("THREADFIN_API_URL", "http://localhost:34400/api/")
 NTFY_URL = os.getenv("NTFY_URL")
@@ -45,7 +54,8 @@ def pagina_no_disponible(driver):
 def actualizar_urls_y_notificar(urls_validas, urls_invalidas):
     borradas = 0
     if urls_invalidas and urls_validas:
-        set_key(ENV_FILE, "FUTBOL_LIBRE_URL", ",".join(urls_validas))
+        URLS_ENV_FILE.parent.mkdir(parents=True, exist_ok=True)
+        set_key(str(URLS_ENV_FILE), "FUTBOL_LIBRE_URL", ",".join(urls_validas))
         borradas = len(urls_invalidas)
         print(f"URLs eliminadas del .env: {borradas}")
     elif urls_invalidas:

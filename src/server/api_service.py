@@ -1,4 +1,5 @@
 import os
+import subprocess
 from pathlib import Path
 
 from dotenv import dotenv_values, load_dotenv, set_key
@@ -29,6 +30,16 @@ def configured_path(env_name, fallback):
     return Path(value) if value else PROJECT_ROOT / fallback
 
 
+def urls_env_path():
+    path = Path(os.getenv("FUTBOL_LIBRE_URL_FILE", PROJECT_ROOT / "futbol_libre_urls.env"))
+    return path if path.is_absolute() else PROJECT_ROOT / path
+
+
+def current_futbol_urls():
+    values = dotenv_values(urls_env_path())
+    return values.get("FUTBOL_LIBRE_URL") or os.getenv("FUTBOL_LIBRE_URL", "")
+
+
 def agenda_service():
     return AgendaService(dotenv_values(ENV_PATH))
 
@@ -36,7 +47,7 @@ def agenda_service():
 @app.get("/")
 @app.get("/ejecutar")
 def executor_page():
-    return render_template("executor.html", current_url=os.getenv("FUTBOL_LIBRE_URL", ""))
+    return render_template("executor.html", current_url=current_futbol_urls())
 
 
 @app.get("/canales")
@@ -77,7 +88,9 @@ def update_url():
         current_status["progress"] = progress.snapshot()
         return jsonify(success=False, error="Ya hay una actualización en curso.", running=True, status=current_status), 409
     try:
-        set_key(str(ENV_PATH), "FUTBOL_LIBRE_URL", new_url)
+        urls_file = urls_env_path()
+        urls_file.parent.mkdir(parents=True, exist_ok=True)
+        set_key(str(urls_file), "FUTBOL_LIBRE_URL", new_url)
         progress.reset()
         if not runner.start("update-futbollibre.sh"):
             return jsonify(success=False, error="Ya hay una actualización en curso."), 409
@@ -125,6 +138,19 @@ def system_update(target):
             message = agenda_service().update_home_assistant()
         elif target == "ntfy":
             message = agenda_service().update_ntfy()
+        elif target == "sites":
+            result = subprocess.run(
+                [str(PROJECT_ROOT / "update-futbol-libre-sites.sh")],
+                cwd=PROJECT_ROOT,
+                capture_output=True,
+                text=True,
+                timeout=60,
+                check=False,
+            )
+            if result.returncode:
+                error = result.stderr.strip() or result.stdout.strip() or "Error desconocido."
+                return jsonify(success=False, error=error), 502
+            message = result.stdout.strip() or "Sitios actualizados."
         else:
             return jsonify(success=False, error="Sistema no soportado."), 404
         return jsonify(success=True, message=message)

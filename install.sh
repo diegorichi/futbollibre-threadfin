@@ -25,11 +25,14 @@ $VENV_PATH/bin/pip install python-dotenv
 # 4. Crear el script lanzador (Shell Script)
 LANZADOR="`pwd`/update-futbollibre.sh"
 chmod +x "$LANZADOR"
+SITIOS_LANZADOR="`pwd`/update-futbol-libre-sites.sh"
+chmod +x "$SITIOS_LANZADOR"
 
 CRON_JOB="0 8 * * * /bin/bash $LANZADOR >> $LOG_FILE 2>&1"
+CRON_SITIOS_JOB="30 7 * * * /bin/bash $SITIOS_LANZADOR > $LOG_FILE 2>&1"
 
 # Solo agregamos si no existe ya en el crontab actual
-(crontab -l 2>/dev/null | grep -Fv "$LANZADOR"; echo "$CRON_JOB") | crontab -
+(crontab -l 2>/dev/null | grep -Fv "$LANZADOR" | grep -Fv "$SITIOS_LANZADOR"; echo "$CRON_SITIOS_JOB"; echo "$CRON_JOB") | crontab -
 
 echo " Instalacion completada con exito."
 
