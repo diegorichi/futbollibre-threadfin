@@ -1,5 +1,7 @@
 import re
 import xml.etree.ElementTree as ET
+from datetime import datetime
+from pathlib import Path
 
 from server.models.channel import Channel
 
@@ -32,6 +34,19 @@ class ChannelService:
                 link=links.get(channel_id, ""),
             ))
         return sorted(result, key=lambda item: item.hora)
+
+    def source_update_dates(self):
+        return {
+            "xml": self._format_mtime(self.xml_path),
+            "m3u": self._format_mtime(self.m3u_path),
+        }
+
+    @staticmethod
+    def _format_mtime(path):
+        try:
+            return datetime.fromtimestamp(Path(path).stat().st_mtime).strftime("%Y-%m-%d %H:%M:%S")
+        except FileNotFoundError:
+            return "No disponible"
 
     def _read_m3u_links(self):
         links = {}

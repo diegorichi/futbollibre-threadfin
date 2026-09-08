@@ -43,9 +43,17 @@ def channels_page():
             configured_path("XML_FILE", "eventos.xml"),
             configured_path("M3U_FILE", "eventos.m3u"),
         )
-        return render_template("channels.html", channels=service.list_channels())
+        return render_template(
+            "channels.html",
+            channels=service.list_channels(),
+            source_dates=service.source_update_dates(),
+        )
     except FileNotFoundError:
-        return render_template("channels.html", channels=[])
+        return render_template(
+            "channels.html",
+            channels=[],
+            source_dates={"xml": "No disponible", "m3u": "No disponible"},
+        )
 
 
 @app.get("/sistemas")
@@ -59,7 +67,7 @@ def update_url():
     new_url = (data.get("url") or "").strip()
     if not new_url:
         return jsonify(success=False, error="URL no proporcionada."), 400
-    if status.snapshot()["is_running"]:
+    if runner.is_running() or status.snapshot()["is_running"]:
         return jsonify(success=False, error="Ya hay una actualización en curso."), 409
     try:
         set_key(str(ENV_PATH), "FUTBOL_LIBRE_URL", new_url)
@@ -72,7 +80,12 @@ def update_url():
 
 @app.get("/status")
 def task_status():
-    return jsonify(status.snapshot())
+    current_status = status.snapshot()
+    if runner.is_running():
+        current_status["is_running"] = True
+        if not current_status["message"]:
+            current_status["message"] = "Actualización detectada en curso."
+    return jsonify(current_status)
 
 
 @app.get("/grilla")
