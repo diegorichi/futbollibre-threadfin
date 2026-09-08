@@ -38,7 +38,7 @@ class ProcessRunner:
                 if process_group == pid and process_group != os.getpgrp():
                     os.killpg(process_group, signal.SIGTERM)
                 else:
-                    os.kill(pid, signal.SIGTERM)
+                    self._signal_process_tree(pid, signal.SIGTERM)
             except (ProcessLookupError, OSError):
                 self._remove_pid(pid)
                 return False
@@ -47,10 +47,11 @@ class ProcessRunner:
             while time.monotonic() < deadline and self._pid_exists(pid):
                 time.sleep(0.1)
             if self._pid_exists(pid):
-                try:
-                    os.kill(pid, signal.SIGKILL)
-                except ProcessLookupError:
-                    pass
+                process_group = os.getpgid(pid)
+                if process_group == pid and process_group != os.getpgrp():
+                    os.killpg(process_group, signal.SIGKILL)
+                else:
+                    self._signal_process_tree(pid, signal.SIGKILL)
             self._remove_pid(pid)
             self.status.append("--- Proceso detenido por el usuario ---")
             self.status.finish(False, "Proceso detenido por el usuario.")
@@ -135,6 +136,48 @@ class ProcessRunner:
     def _clear_log(self):
         with open(self.log_file, "w", encoding="utf-8"):
             pass
+
+    def _signal_process_tree(self, root_pid, signal_number):
+        descendants = self._descendant_pids(root_pid)
+        for pid in reversed(descendants):
+            try:
+                os.kill(pid, signal_number)
+            except ProcessLookupError:
+                pass
+        try:
+            os.kill(root_pid, signal_number)
+        except ProcessLookupError:
+            pass
+
+    @staticmethod
+    def _descendant_pids(root_pid):
+        children = {}
+        try:
+            result = subprocess.run(
+                ["ps", "-axo", "pid=,ppid="],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+        except OSError:
+            return []
+        for line in result.stdout.splitlines():
+            fields = line.split()
+            if len(fields) != 2:
+                continue
+            try:
+                pid, parent_pid = int(fields[0]), int(fields[1])
+            except ValueError:
+                continue
+            children.setdefault(parent_pid, []).append(pid)
+
+        descendants = []
+        pending = list(children.get(root_pid, []))
+        while pending:
+            pid = pending.pop()
+            descendants.append(pid)
+            pending.extend(children.get(pid, []))
+        return descendants
 
     def _write_pid(self, pid):
         with open(self.pid_file, "w", encoding="utf-8") as pid_file:
