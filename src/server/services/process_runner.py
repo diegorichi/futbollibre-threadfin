@@ -30,29 +30,24 @@ class ProcessRunner:
 
     def stop(self):
         with self._start_lock:
-            pid = self._read_pid() or self._find_process_pid()
-            if pid is None or not self._is_update_process(pid):
-                return False
-            try:
-                process_group = os.getpgid(pid)
-                if process_group == pid and process_group != os.getpgrp():
-                    os.killpg(process_group, signal.SIGTERM)
-                else:
-                    self._signal_process_tree(pid, signal.SIGTERM)
-            except (ProcessLookupError, OSError):
-                self._remove_pid(pid)
+            pids = set(self._find_process_pids())
+            pid_file_pid = self._read_pid()
+            if pid_file_pid is not None:
+                pids.add(pid_file_pid)
+            pids = {pid for pid in pids if self._is_update_process(pid)}
+            if not pids:
                 return False
 
+            for pid in pids:
+                self._stop_pid(pid, signal.SIGTERM)
+
             deadline = time.monotonic() + 5
-            while time.monotonic() < deadline and self._pid_exists(pid):
+            while time.monotonic() < deadline and any(self._pid_exists(pid) for pid in pids):
                 time.sleep(0.1)
-            if self._pid_exists(pid):
-                process_group = os.getpgid(pid)
-                if process_group == pid and process_group != os.getpgrp():
-                    os.killpg(process_group, signal.SIGKILL)
-                else:
-                    self._signal_process_tree(pid, signal.SIGKILL)
-            self._remove_pid(pid)
+            for pid in pids:
+                if self._pid_exists(pid):
+                    self._stop_pid(pid, signal.SIGKILL)
+                self._remove_pid(pid)
             self.status.append("--- Proceso detenido por el usuario ---")
             self.status.finish(False, "Proceso detenido por el usuario.")
             return True
@@ -124,6 +119,16 @@ class ProcessRunner:
 
     def _is_update_process(self, pid):
         return "update-futbollibre.sh" in self._process_command(pid)
+
+    def _stop_pid(self, pid, signal_number):
+        try:
+            process_group = os.getpgid(pid)
+            if process_group == pid and process_group != os.getpgrp():
+                os.killpg(process_group, signal_number)
+            else:
+                self._signal_process_tree(pid, signal_number)
+        except (ProcessLookupError, OSError):
+            pass
 
     @staticmethod
     def _pid_exists(pid):
@@ -205,6 +210,11 @@ class ProcessRunner:
 
     @staticmethod
     def _find_process_pid():
+        pids = ProcessRunner._find_process_pids()
+        return pids[0] if pids else None
+
+    @staticmethod
+    def _find_process_pids():
         try:
             result = subprocess.run(
                 ["ps", "-axo", "pid=,command="],
@@ -213,12 +223,13 @@ class ProcessRunner:
                 check=False,
             )
         except OSError:
-            return None
+            return []
+        pids = []
         for line in result.stdout.splitlines():
             fields = line.strip().split(None, 1)
             if len(fields) == 2 and "update-futbollibre.sh" in fields[1]:
                 try:
-                    return int(fields[0])
+                    pids.append(int(fields[0]))
                 except ValueError:
                     continue
-        return None
+        return pids
