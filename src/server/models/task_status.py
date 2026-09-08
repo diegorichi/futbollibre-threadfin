@@ -30,6 +30,14 @@ class TaskStatus:
             self._error = not success
             self._message = message
 
+    def restore(self, output, message):
+        with self._lock:
+            self._running = True
+            self._error = False
+            self._message = message
+            self._output.clear()
+            self._output.extend(output)
+
     def snapshot(self):
         with self._lock:
             return {

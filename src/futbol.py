@@ -1,7 +1,7 @@
 import os
 import requests
 from datetime import datetime, timedelta
-from dotenv import load_dotenv
+from dotenv import load_dotenv, set_key
 from selenium.common.exceptions import WebDriverException
 import unicodedata
 import re
@@ -11,7 +11,8 @@ from scraping.browser_driver import USER_AGENT, crear_driver
 from scraping.site_scraper import extraer_eventos_de_sitios
 from scraping.stream_extractor import StreamExtractionPool
 
-load_dotenv(os.getenv("ENV_FILE", ".env"))
+ENV_FILE = os.getenv("ENV_FILE", ".env")
+load_dotenv(ENV_FILE)
 
 FUTBOL_LIBRE_URL = os.getenv("FUTBOL_LIBRE_URL")
 M3U_FILE = os.getenv("M3U_FILE")
@@ -19,6 +20,53 @@ THREADFIN_API_URL = os.getenv("THREADFIN_API_URL", "http://localhost:34400/api/"
 SINTEL_URL = "https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8"
 PARALLEL_STREAM_EXTRACTION = os.getenv("PARALLEL_STREAM_EXTRACTION", "0").lower() in {"1", "true", "yes", "on"}
 STREAM_EXTRACTION_WORKERS = max(1, int(os.getenv("STREAM_EXTRACTION_WORKERS", "4")))
+MAX_CHANNELS = 100
+
+
+def pagina_no_disponible(driver):
+    title = (driver.title or "").lower()
+    source = (driver.page_source or "")[:10000].lower()
+    markers = (
+        "404",
+        "not found",
+        "page not found",
+        "site not found",
+        "sitio no disponible",
+    )
+    return not title or any(marker in title or marker in source for marker in markers)
+
+
+def actualizar_urls_y_notificar(urls_validas, urls_invalidas):
+    borradas = 0
+    if urls_invalidas and urls_validas:
+        set_key(ENV_FILE, "FUTBOL_LIBRE_URL", ",".join(urls_validas))
+        borradas = len(urls_invalidas)
+        print(f"URLs eliminadas del .env: {borradas}")
+    elif urls_invalidas:
+        print("No se eliminan URLs: no quedó ningún sitio válido.")
+
+    mensaje = (
+        "Actualización de sitios FUTBOL_LIBRE_URL\n"
+        f"Sitios válidos: {len(urls_validas)}\n"
+        f"Sitios borrados: {borradas}"
+    )
+    if urls_invalidas:
+        mensaje += "\nURLs detectadas como inválidas:\n" + "\n".join(urls_invalidas)
+
+    if NTFY_URL:
+        try:
+            response = requests.post(
+                NTFY_URL,
+                data=mensaje.encode("utf-8"),
+                headers={"Title": "Actualizar URLs de Fútbol Libre"},
+                timeout=30,
+            )
+            response.raise_for_status()
+            print("Aviso de URLs enviado a NTFY")
+        except requests.RequestException as error:
+            print(f"No se pudo enviar el aviso a NTFY: {error}")
+    else:
+        print("NTFY_URL no configurada; no se envió aviso.")
 
 def sanitizar_nombre(texto):
     if not texto:
@@ -65,8 +113,8 @@ def generar_xmltv(eventos_mapeados, xml_path):
 
     xml_lines = ['<?xml version="1.0" encoding="UTF-8"?>', '<tv>']
 
-    # Canales (E01-E50)
-    for i in range(1, 51):
+    # Canales (E01-E100)
+    for i in range(1, MAX_CHANNELS + 1):
         xml_lines.append(f'  <channel id="E{i:02d}">')
         xml_lines.append(f'    <display-name>Evento {i}</display-name>')
         xml_lines.append(f'  </channel>')
@@ -113,16 +161,23 @@ def extraer_todo_futbol_libre():
         urls_to_try = [url.strip() for url in FUTBOL_LIBRE_URL.split(",") if url.strip()]
 
         urls_validas = []
+        urls_invalidas = []
         for url in urls_to_try:
             try:
                 print(f"Probando dominio: {url}...")
                 driver.get(url)
-                if "Sitio no disponible" in driver.title or not driver.title:
+                if pagina_no_disponible(driver):
                     raise WebDriverException("Dominio activo pero sin contenido válido")
                 print(f"¡Éxito! Conectado a {url}")
                 urls_validas.append(url)
             except WebDriverException as e:
+                urls_invalidas.append(url)
                 print(f"Fallo en {url}: {e.msg if hasattr(e, 'msg') else 'Error de conexión'}")
+            except Exception as error:
+                urls_invalidas.append(url)
+                print(f"Fallo inesperado en {url}: {type(error).__name__}: {error}")
+
+        actualizar_urls_y_notificar(urls_validas, urls_invalidas)
 
         if not urls_validas:
             print("Ningún dominio de la lista está operativo. Revisar el .env.")
@@ -189,9 +244,9 @@ def extraer_todo_futbol_libre():
         print(f"Streams candidatos activos: {streams_antes_del_filtro}")
         print(f"Streams válidos encontrados: {len(en_vivo)}")
         print(f"Streams descartados por falta de URL: {streams_sin_resultado}")
-        if len(en_vivo) > 50:
-            print(f"ADVERTENCIA: {len(en_vivo) - 50} streams válidos quedan fuera de los 50 slots.")
-        print(f"Streams que entran en los slots actuales: {min(len(en_vivo), 50)}")
+        if len(en_vivo) > MAX_CHANNELS:
+            print(f"ADVERTENCIA: {len(en_vivo) - MAX_CHANNELS} streams válidos quedan fuera de los {MAX_CHANNELS} slots.")
+        print(f"Streams que entran en los slots actuales: {min(len(en_vivo), MAX_CHANNELS)}")
 
         m3u_content = "#EXTM3U\n"
         datos_para_xml = []
@@ -200,8 +255,8 @@ def extraer_todo_futbol_libre():
 
         print("Armando canales y extrayendo info")
 
-        # 2. Iterar las 50 veces obligatorias
-        for i in range(1, 51):
+        # 2. Iterar las 100 veces obligatorias
+        for i in range(1, MAX_CHANNELS + 1):
             slot_id = f"E{i:02d}"
             logo = ""
 
@@ -305,7 +360,7 @@ def extraer_todo_futbol_libre():
         stream_pool.close()
         stream_pool = None
             
-        print("\nGrilla de 30 canales actualizada en Threadfin.")
+        print(f"\nGrilla de {MAX_CHANNELS} canales actualizada en Threadfin.")
 
     finally:
         if stream_pool is not None:

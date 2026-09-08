@@ -19,6 +19,7 @@ load_dotenv(ENV_PATH)
 app = Flask(__name__)
 status = TaskStatus()
 runner = ProcessRunner(str(PROJECT_ROOT), status)
+runner.recover()
 
 
 def configured_path(env_name, fallback):
@@ -68,7 +69,10 @@ def update_url():
     if not new_url:
         return jsonify(success=False, error="URL no proporcionada."), 400
     if runner.is_running() or status.snapshot()["is_running"]:
-        return jsonify(success=False, error="Ya hay una actualización en curso."), 409
+        current_status = status.snapshot()
+        current_status["is_running"] = True
+        current_status["output"] = runner.tail_output()
+        return jsonify(success=False, error="Ya hay una actualización en curso.", running=True, status=current_status), 409
     try:
         set_key(str(ENV_PATH), "FUTBOL_LIBRE_URL", new_url)
         if not runner.start("update-futbollibre.sh"):
@@ -81,11 +85,19 @@ def update_url():
 @app.get("/status")
 def task_status():
     current_status = status.snapshot()
+    current_status["output"] = runner.tail_output()
     if runner.is_running():
         current_status["is_running"] = True
         if not current_status["message"]:
             current_status["message"] = "Actualización detectada en curso."
     return jsonify(current_status)
+
+
+@app.post("/stop-update")
+def stop_update():
+    if not runner.stop():
+        return jsonify(success=False, error="No hay una actualización corriendo."), 404
+    return jsonify(success=True, message="Proceso detenido.")
 
 
 @app.get("/grilla")
