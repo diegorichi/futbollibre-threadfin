@@ -8,3 +8,4 @@ __pycache__/
 .update-futbollibre.pid
 .update-futbollibre.log
 .update-futbollibre.lock
+.update-futbollibre.progress.json

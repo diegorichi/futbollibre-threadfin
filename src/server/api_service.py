@@ -8,6 +8,7 @@ from server.models.task_status import TaskStatus
 from server.services.agenda_service import AgendaService
 from server.services.channel_service import ChannelService
 from server.services.process_runner import ProcessRunner
+from progress import ProgressReporter
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -19,6 +20,7 @@ load_dotenv(ENV_PATH)
 app = Flask(__name__)
 status = TaskStatus()
 runner = ProcessRunner(str(PROJECT_ROOT), status)
+progress = ProgressReporter(str(PROJECT_ROOT / ".update-futbollibre.progress.json"))
 runner.recover()
 
 
@@ -72,9 +74,11 @@ def update_url():
         current_status = status.snapshot()
         current_status["is_running"] = True
         current_status["output"] = runner.tail_output()
+        current_status["progress"] = progress.snapshot()
         return jsonify(success=False, error="Ya hay una actualización en curso.", running=True, status=current_status), 409
     try:
         set_key(str(ENV_PATH), "FUTBOL_LIBRE_URL", new_url)
+        progress.reset()
         if not runner.start("update-futbollibre.sh"):
             return jsonify(success=False, error="Ya hay una actualización en curso."), 409
         return jsonify(success=True)
@@ -86,6 +90,7 @@ def update_url():
 def task_status():
     current_status = status.snapshot()
     current_status["output"] = runner.tail_output()
+    current_status["progress"] = progress.snapshot()
     if runner.is_running():
         current_status["is_running"] = True
         if not current_status["message"]:
@@ -97,6 +102,7 @@ def task_status():
 def stop_update():
     if not runner.stop():
         return jsonify(success=False, error="No hay una actualización corriendo."), 404
+    progress.fail("Proceso detenido por el usuario.")
     return jsonify(success=True, message="Proceso detenido.")
 
 

@@ -10,6 +10,12 @@
     <button id="stop" class="danger" onclick="stopUpdate()">Detener proceso actual</button>
   </div>
   <p id="status" class="status"></p>
+  <div class="progress-row">
+    <label for="sites-progress">Parseo de sitios <span id="sites-progress-value" class="progress-value">0%</span></label>
+    <progress id="sites-progress" max="100" value="0"></progress>
+    <label for="streams-progress">Extracción de m3u8 <span id="streams-progress-value" class="progress-value">0%</span></label>
+    <progress id="streams-progress" max="100" value="0"></progress>
+  </div>
   <pre id="tail" class="tail" aria-label="Últimas líneas del proceso"></pre>
 </section>
 <script src="{{ url_for('static', filename='app.js') }}"></script>

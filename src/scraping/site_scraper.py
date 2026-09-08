@@ -4,12 +4,13 @@ from .event_extractor import extraer_eventos
 from .event_matching import agrupar_eventos
 
 
-def extraer_eventos_de_sitios(driver, urls):
+def extraer_eventos_de_sitios(driver, urls, progress_callback=None):
     eventos = []
     sitios_ok = []
     errores = []
 
-    for url in urls:
+    total = len(urls)
+    for completed, url in enumerate(urls, start=1):
         try:
             driver.switch_to.default_content()
             driver.get(url)
@@ -22,6 +23,8 @@ def extraer_eventos_de_sitios(driver, urls):
             sitios_ok.append({"url": url, "estrategia": estrategia, "eventos": len(encontrados)})
         except Exception as error:
             errores.append({"url": url, "error": str(error)})
+        if progress_callback:
+            progress_callback(completed, total, url)
 
     driver.switch_to.default_content()
     return agrupar_eventos(eventos), sitios_ok, errores

@@ -10,6 +10,7 @@ from scraping import extraer_eventos
 from scraping.browser_driver import USER_AGENT, crear_driver
 from scraping.site_scraper import extraer_eventos_de_sitios
 from scraping.stream_extractor import StreamExtractionPool
+from progress import ProgressReporter
 
 ENV_FILE = os.getenv("ENV_FILE", ".env")
 load_dotenv(ENV_FILE)
@@ -22,6 +23,10 @@ SINTEL_URL = "https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8"
 PARALLEL_STREAM_EXTRACTION = os.getenv("PARALLEL_STREAM_EXTRACTION", "0").lower() in {"1", "true", "yes", "on"}
 STREAM_EXTRACTION_WORKERS = max(1, int(os.getenv("STREAM_EXTRACTION_WORKERS", "4")))
 MAX_CHANNELS = 100
+PROGRESS_FILE = os.path.abspath(os.getenv(
+    "PROGRESS_FILE",
+    os.path.join(os.path.dirname(__file__), "..", ".update-futbollibre.progress.json"),
+))
 
 
 def pagina_no_disponible(driver):
@@ -156,6 +161,8 @@ def generar_xmltv(eventos_mapeados, xml_path):
 def extraer_todo_futbol_libre():
     driver = crear_driver()
     stream_pool = None
+    progress = ProgressReporter(PROGRESS_FILE)
+    progress.reset()
 
     try:
 
@@ -182,13 +189,21 @@ def extraer_todo_futbol_libre():
 
         if not urls_validas:
             print("Ningún dominio de la lista está operativo. Revisar el .env.")
+            progress.fail("Ningún dominio de la lista está operativo.")
             driver.quit()
             exit(1)
         
         print("Esperando unos segundos para asentar la carga de la página...")
         time.sleep(5)
         
-        eventos_raw, sitios_ok, errores_sitios = extraer_eventos_de_sitios(driver, urls_validas)
+        progress.update("sites", 0, len(urls_validas), "Parseando sitios...")
+        eventos_raw, sitios_ok, errores_sitios = extraer_eventos_de_sitios(
+            driver,
+            urls_validas,
+            progress_callback=lambda completed, total, url: progress.update(
+                "sites", completed, total, f"Sitio parseado: {url}"
+            ),
+        )
         total_eventos_extraidos = sum(sitio["eventos"] for sitio in sitios_ok)
         print(f"Eventos detectados sin filtros: {total_eventos_extraidos}")
         print(f"Eventos únicos después de agrupar sitios: {len(eventos_raw)}")
@@ -217,17 +232,29 @@ def extraer_todo_futbol_libre():
                 else:
                     print(f"ignored: {ev}")
 
+        if PARALLEL_STREAM_EXTRACTION:
+            # El driver de descubrimiento ya no se usa durante la extracción
+            # paralela. Cerrarlo evita mantener un Chrome extra activo.
+            try:
+                driver.quit()
+            except WebDriverException:
+                pass
+            driver = None
+
         stream_pool = StreamExtractionPool(
             driver,
             paralelo=PARALLEL_STREAM_EXTRACTION,
             workers=STREAM_EXTRACTION_WORKERS,
         )
+        stream_urls = list(dict.fromkeys(item["url"] for item in en_vivo))
+        progress.update("streams", 0, len(stream_urls), "Extrayendo m3u8...")
         for item in en_vivo:
             stream_pool.submit(item["url"])
         if PARALLEL_STREAM_EXTRACTION:
             print(f"Seguimiento paralelo activado: {STREAM_EXTRACTION_WORKERS} workers.")
 
         resultados_stream = {}
+        streams_procesados = 0
         for item in en_vivo:
             if item["url"] not in resultados_stream:
                 try:
@@ -235,6 +262,13 @@ def extraer_todo_futbol_libre():
                 except Exception as error:
                     print(f"[Stream] Error en {item['url']}: {type(error).__name__}: {error}")
                     resultados_stream[item["url"]] = (None, None)
+                streams_procesados += 1
+                progress.update(
+                    "streams",
+                    streams_procesados,
+                    len(stream_urls),
+                    f"m3u8 procesadas: {streams_procesados}/{len(stream_urls)}",
+                )
 
         streams_antes_del_filtro = len(en_vivo)
         en_vivo = [
@@ -302,10 +336,11 @@ def extraer_todo_futbol_libre():
 
                 datos_para_xml.append({'slot': slot_id, 'nombre_guia': nombre_txt, 'logo': logo, 'hora_real': hora_real})
 
-                try:
-                    driver.switch_to.default_content()
-                except WebDriverException as error:
-                    print(f"[Chrome] Sesión no disponible: {error}")
+                if driver is not None:
+                    try:
+                        driver.switch_to.default_content()
+                    except WebDriverException as error:
+                        print(f"[Chrome] Sesión no disponible: {error}")
             else:
                 # Rellenar con "Proximamente"
                 logo = ""
@@ -362,6 +397,11 @@ def extraer_todo_futbol_libre():
         stream_pool = None
             
         print(f"\nGrilla de {MAX_CHANNELS} canales actualizada en Threadfin.")
+        progress.complete("Actualización completa.")
+
+    except Exception as error:
+        progress.fail(str(error))
+        raise
 
     finally:
         if stream_pool is not None:
@@ -369,10 +409,11 @@ def extraer_todo_futbol_libre():
                 stream_pool.close()
             except Exception as error:
                 print(f"[Stream] Error cerrando workers: {error}")
-        try:
-            driver.quit()
-        except WebDriverException:
-            pass
+        if driver is not None:
+            try:
+                driver.quit()
+            except WebDriverException:
+                pass
 
 if __name__ == "__main__":
     extraer_todo_futbol_libre()

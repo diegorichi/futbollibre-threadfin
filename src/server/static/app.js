@@ -5,10 +5,20 @@ function setStatus(element, message, kind) {
   element.className = `status ${kind || ''}`;
 }
 
+function updateProgress(progress) {
+  if (!progress) return;
+  for (const stage of ['sites', 'streams']) {
+    const percent = progress[stage]?.percent || 0;
+    document.getElementById(`${stage}-progress`).value = percent;
+    document.getElementById(`${stage}-progress-value`).textContent = `${percent}%`;
+  }
+}
+
 function pollStatus(button, status, tail) {
   fetch('/status').then(response => response.json()).then(data => {
     tail.textContent = data.output.join('\n');
     tail.scrollTop = tail.scrollHeight;
+    updateProgress(data.progress);
     if (data.is_running) {
       setStatus(status, data.message || 'Ejecutando...', '');
       return;
@@ -36,6 +46,7 @@ function updateUrl() {
     .then(result => {
       if (!result.ok && result.data.running) {
         tail.textContent = (result.data.status.output || []).join('\n');
+        updateProgress(result.data.status.progress);
         poller = setInterval(() => pollStatus(button, status, tail), 1000);
         throw new Error('Ya hay un proceso corriendo; mostrando su log.');
       }
@@ -73,6 +84,7 @@ window.addEventListener('DOMContentLoaded', () => {
     if (data.is_running) {
       runButton.disabled = true;
       tail.textContent = data.output.join('\n');
+      updateProgress(data.progress);
       poller = setInterval(() => pollStatus(runButton, status, tail), 1000);
     }
   });
