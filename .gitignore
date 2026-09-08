@@ -1,0 +1,7 @@
+# Configuración local y secretos
+.env
+
+# Archivos generados localmente
+__pycache__/
+*.py[cod]
+*.log
