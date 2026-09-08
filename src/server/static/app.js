@@ -14,6 +14,18 @@ function updateProgress(progress) {
   }
 }
 
+function toggleChannel(row) {
+  const streamRow = row.nextElementSibling;
+  const expanded = !streamRow.hidden;
+  streamRow.hidden = expanded;
+  row.setAttribute('aria-expanded', String(!expanded));
+}
+
+function openPlayer(event, stream) {
+  event.stopPropagation();
+  window.open(`/reproductor?stream=${encodeURIComponent(stream)}`, '_blank', 'popup=yes,width=900,height=600');
+}
+
 function pollStatus(button, status, tail) {
   fetch('/status').then(response => response.json()).then(data => {
     tail.textContent = data.output.join('\n');

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reproductor m3u8</title>
+  <style>body{margin:0;padding:1rem;background:#020617;color:#f8fafc;font:16px system-ui,sans-serif}video{width:100%;max-height:80vh;background:#000}button{margin-top:1rem;padding:.7rem 1rem;background:#2563eb;color:#fff;border:0;border-radius:6px;cursor:pointer}</style>
+</head>
+<body>
+  <video id="video" controls autoplay muted playsinline></video>
+  <button id="pip" type="button">Picture-in-Picture</button>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script>
+    const stream = {{ stream|tojson }};
+    const video = document.getElementById('video');
+    if (video.canPlayType('application/vnd.apple.mpegurl')) {
+      video.src = stream;
+    } else if (window.Hls && Hls.isSupported()) {
+      const hls = new Hls();
+      hls.loadSource(stream);
+      hls.attachMedia(video);
+    } else {
+      document.body.insertAdjacentHTML('afterbegin', '<p>Este navegador no soporta reproducción HLS.</p>');
+    }
+    document.getElementById('pip').addEventListener('click', async () => {
+      if (!document.pictureInPictureEnabled) return;
+      if (document.pictureInPictureElement) await document.exitPictureInPicture();
+      else await video.requestPictureInPicture();
+    });
+  </script>
+</body>
+</html>

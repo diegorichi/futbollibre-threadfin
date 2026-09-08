@@ -12,7 +12,7 @@ class ChannelService:
         self.m3u_path = m3u_path
 
     def list_channels(self):
-        links = self._read_m3u_links()
+        entries = self._read_m3u_entries()
         tree = ET.parse(self.xml_path)
         root = tree.getroot()
         channels = {
@@ -24,14 +24,25 @@ class ChannelService:
             title = programme.findtext("title") or ""
             if "Slot Libre" in title:
                 continue
-            match = re.search(r"\[(\d{2}:\d{2})\]\s*(.*)", title)
-            if not match:
+            title_match = re.search(r"\[(\d{2}:\d{2})\]\s*(.*)", title)
+            if not title_match:
                 continue
             channel_id = programme.get("channel")
+            description = title_match.group(2).strip()
+            proximamente = description.startswith("PROXIMAMENTE:")
+            description = description.replace("PROXIMAMENTE: ", "", 1).strip()
+            event_and_channel = description.split(";", 1)
+            event_name = event_and_channel[0].strip()
+            channel_name = event_and_channel[1].strip() if len(event_and_channel) > 1 else ""
+            tournament_and_match = event_name.split(":", 1)
             result.append(Channel(
-                hora=match.group(1),
-                nombre=match.group(2).replace("PROXIMAMENTE: ", "").strip(),
-                link=links.get(channel_id, ""),
+                hora=title_match.group(1),
+                torneo=tournament_and_match[0].strip() if len(tournament_and_match) > 1 else "",
+                match=tournament_and_match[-1].strip(),
+                canal=channel_name,
+                link=entries.get(channel_id, {}).get("link", ""),
+                logo=(programme.find("icon").get("src") if programme.find("icon") is not None else entries.get(channel_id, {}).get("logo", "")),
+                proximamente=proximamente,
             ))
         return sorted(result, key=lambda item: item.hora)
 
@@ -48,8 +59,8 @@ class ChannelService:
         except FileNotFoundError:
             return "No disponible"
 
-    def _read_m3u_links(self):
-        links = {}
+    def _read_m3u_entries(self):
+        entries = {}
         current_id = None
         with open(self.m3u_path, encoding="utf-8") as playlist:
             for line in playlist:
@@ -57,7 +68,10 @@ class ChannelService:
                 if line.startswith("#EXTINF"):
                     match = re.search(r'tvg-id="([^"]+)"', line)
                     current_id = match.group(1) if match else None
+                    if current_id:
+                        logo_match = re.search(r'tvg-logo="([^"]*)"', line)
+                        entries[current_id] = {"logo": logo_match.group(1) if logo_match else ""}
                 elif current_id and line and not line.startswith("#"):
-                    links[current_id] = line
+                    entries[current_id]["link"] = line
                     current_id = None
-        return links
+        return entries

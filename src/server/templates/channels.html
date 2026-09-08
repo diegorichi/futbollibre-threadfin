@@ -4,14 +4,21 @@
   <h1>Canales</h1>
   <p class="muted">XML actualizado: {{ source_dates.xml }} · M3U actualizado: {{ source_dates.m3u }}</p>
   <table>
-    <thead><tr><th>Horario</th><th>Nombre</th><th>m3u8</th></tr></thead>
+    <thead><tr><th>Horario</th><th>Torneo</th><th>Match</th><th>Canal</th></tr></thead>
     <tbody>
     {% for channel in channels %}
-      <tr><td>{{ channel.hora }}</td><td>{{ channel.nombre }}</td><td>{% if channel.link %}<a href="{{ channel.link }}" target="_blank" rel="noopener">abrir enlace</a>{% else %}sin enlace{% endif %}</td></tr>
+      <tr class="channel-row" role="button" tabindex="0" aria-expanded="false" onclick="toggleChannel(this)" onkeydown="if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); toggleChannel(this); }">
+        <td>{{ channel.hora }}</td>
+        <td>{% if channel.logo %}<img class="channel-logo" src="{{ channel.logo }}" alt="">{% endif %}{{ channel.torneo or '—' }}{% if channel.proximamente %} <span class="badge">PRÓXIMAMENTE</span>{% endif %}</td>
+        <td>{{ channel.match }}</td>
+        <td>{{ channel.canal or '—' }}{% if channel.link %} <a class="stream-link" href="{{ channel.link }}" target="_blank" rel="noopener" onclick="event.stopPropagation()">abrir</a> <button class="player-button" data-stream="{{ channel.link }}" onclick="openPlayer(event, this.dataset.stream)">PiP</button>{% endif %}</td>
+      </tr>
+      <tr class="stream-row" hidden><td colspan="4"><strong>Stream:</strong> {% if channel.link %}<a href="{{ channel.link }}" target="_blank" rel="noopener">{{ channel.link }}</a>{% else %}sin enlace m3u8{% endif %}</td></tr>
     {% else %}
-      <tr><td colspan="3">No hay canales disponibles.</td></tr>
+      <tr><td colspan="4">No hay canales disponibles.</td></tr>
     {% endfor %}
     </tbody>
   </table>
 </section>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
 {% endblock %}
