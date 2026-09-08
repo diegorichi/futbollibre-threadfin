@@ -17,6 +17,7 @@ load_dotenv(ENV_FILE)
 FUTBOL_LIBRE_URL = os.getenv("FUTBOL_LIBRE_URL")
 M3U_FILE = os.getenv("M3U_FILE")
 THREADFIN_API_URL = os.getenv("THREADFIN_API_URL", "http://localhost:34400/api/")
+NTFY_URL = os.getenv("NTFY_URL")
 SINTEL_URL = "https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8"
 PARALLEL_STREAM_EXTRACTION = os.getenv("PARALLEL_STREAM_EXTRACTION", "0").lower() in {"1", "true", "yes", "on"}
 STREAM_EXTRACTION_WORKERS = max(1, int(os.getenv("STREAM_EXTRACTION_WORKERS", "4")))
