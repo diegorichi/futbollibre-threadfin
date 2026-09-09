@@ -34,6 +34,11 @@ class TvApiContractTest(unittest.TestCase):
         self.assertIn("Actualizaciones", response.text)
         self.assertIn("/downloads/futbol-tv.apk", response.text)
 
+    def test_server_menu_links_tv_app(self):
+        response = self.client.get("/")
+        self.assertEqual(response.status_code, 200)
+        self.assertIn('href="/tvapp"', response.text)
+
     def test_events_contract(self):
         response = self.client.get("/api/v1/events")
         self.assertEqual(response.status_code, 200)
