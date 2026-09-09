@@ -1,5 +1,7 @@
 import os
 import subprocess
+from datetime import datetime, timezone
+from dataclasses import asdict
 from pathlib import Path
 
 from dotenv import dotenv_values, load_dotenv, set_key
@@ -9,6 +11,7 @@ from server.models.task_status import TaskStatus
 from server.services.agenda_service import AgendaService
 from server.services.channel_service import ChannelService
 from server.services.process_runner import ProcessRunner
+from server.discovery import MdnsAdvertiser
 from progress import ProgressReporter
 
 
@@ -23,6 +26,7 @@ status = TaskStatus()
 runner = ProcessRunner(str(PROJECT_ROOT), status)
 progress = ProgressReporter(str(PROJECT_ROOT / ".update-futbollibre.progress.json"))
 runner.recover()
+mdns = MdnsAdvertiser(port=8080)
 
 
 def configured_path(env_name, fallback):
@@ -131,6 +135,38 @@ def grid_api():
         return jsonify([])
 
 
+def tv_channel_service():
+    return ChannelService(
+        configured_path("XML_FILE", "eventos.xml"),
+        configured_path("M3U_FILE", "eventos.m3u"),
+        configured_path("TV_EVENTS_FILE", "eventos.json"),
+    )
+
+
+@app.get("/api/v1/health")
+def tv_health():
+    return jsonify({"ok": True, "service": "futbol-server", "api_version": "v1"})
+
+
+@app.get("/api/v1/events")
+def tv_events():
+    try:
+        events = [asdict(event) for event in tv_channel_service().list_events()]
+        return jsonify({
+            "api_version": "v1",
+            "generated_at": datetime.now(timezone.utc).isoformat(),
+            "refresh_after": 60,
+            "events": events,
+        })
+    except FileNotFoundError:
+        return jsonify({"api_version": "v1", "generated_at": None, "refresh_after": 60, "events": []})
+
+
+@app.get("/api/v1/discovery")
+def tv_discovery():
+    return jsonify({"name": "Futbol Server", "api_version": "v1", "events_path": "/api/v1/events"})
+
+
 @app.post("/system-update/<target>")
 def system_update(target):
     try:
@@ -159,4 +195,8 @@ def system_update(target):
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8080)
+    mdns.start()
+    try:
+        app.run(host="0.0.0.0", port=8080)
+    finally:
+        mdns.stop()

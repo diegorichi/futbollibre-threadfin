@@ -150,204 +150,613 @@
   <channel id="E50">
     <display-name>Evento 50</display-name>
   </channel>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E01">
-    <title lang="es">[15:45] Carabao Cup: Crystal Palace vs Middlesbrough ; Disney+</title>
-    <desc lang="es">[15:45] Carabao Cup: Crystal Palace vs Middlesbrough ; Disney+</desc>
+  <channel id="E51">
+    <display-name>Evento 51</display-name>
+  </channel>
+  <channel id="E52">
+    <display-name>Evento 52</display-name>
+  </channel>
+  <channel id="E53">
+    <display-name>Evento 53</display-name>
+  </channel>
+  <channel id="E54">
+    <display-name>Evento 54</display-name>
+  </channel>
+  <channel id="E55">
+    <display-name>Evento 55</display-name>
+  </channel>
+  <channel id="E56">
+    <display-name>Evento 56</display-name>
+  </channel>
+  <channel id="E57">
+    <display-name>Evento 57</display-name>
+  </channel>
+  <channel id="E58">
+    <display-name>Evento 58</display-name>
+  </channel>
+  <channel id="E59">
+    <display-name>Evento 59</display-name>
+  </channel>
+  <channel id="E60">
+    <display-name>Evento 60</display-name>
+  </channel>
+  <channel id="E61">
+    <display-name>Evento 61</display-name>
+  </channel>
+  <channel id="E62">
+    <display-name>Evento 62</display-name>
+  </channel>
+  <channel id="E63">
+    <display-name>Evento 63</display-name>
+  </channel>
+  <channel id="E64">
+    <display-name>Evento 64</display-name>
+  </channel>
+  <channel id="E65">
+    <display-name>Evento 65</display-name>
+  </channel>
+  <channel id="E66">
+    <display-name>Evento 66</display-name>
+  </channel>
+  <channel id="E67">
+    <display-name>Evento 67</display-name>
+  </channel>
+  <channel id="E68">
+    <display-name>Evento 68</display-name>
+  </channel>
+  <channel id="E69">
+    <display-name>Evento 69</display-name>
+  </channel>
+  <channel id="E70">
+    <display-name>Evento 70</display-name>
+  </channel>
+  <channel id="E71">
+    <display-name>Evento 71</display-name>
+  </channel>
+  <channel id="E72">
+    <display-name>Evento 72</display-name>
+  </channel>
+  <channel id="E73">
+    <display-name>Evento 73</display-name>
+  </channel>
+  <channel id="E74">
+    <display-name>Evento 74</display-name>
+  </channel>
+  <channel id="E75">
+    <display-name>Evento 75</display-name>
+  </channel>
+  <channel id="E76">
+    <display-name>Evento 76</display-name>
+  </channel>
+  <channel id="E77">
+    <display-name>Evento 77</display-name>
+  </channel>
+  <channel id="E78">
+    <display-name>Evento 78</display-name>
+  </channel>
+  <channel id="E79">
+    <display-name>Evento 79</display-name>
+  </channel>
+  <channel id="E80">
+    <display-name>Evento 80</display-name>
+  </channel>
+  <channel id="E81">
+    <display-name>Evento 81</display-name>
+  </channel>
+  <channel id="E82">
+    <display-name>Evento 82</display-name>
+  </channel>
+  <channel id="E83">
+    <display-name>Evento 83</display-name>
+  </channel>
+  <channel id="E84">
+    <display-name>Evento 84</display-name>
+  </channel>
+  <channel id="E85">
+    <display-name>Evento 85</display-name>
+  </channel>
+  <channel id="E86">
+    <display-name>Evento 86</display-name>
+  </channel>
+  <channel id="E87">
+    <display-name>Evento 87</display-name>
+  </channel>
+  <channel id="E88">
+    <display-name>Evento 88</display-name>
+  </channel>
+  <channel id="E89">
+    <display-name>Evento 89</display-name>
+  </channel>
+  <channel id="E90">
+    <display-name>Evento 90</display-name>
+  </channel>
+  <channel id="E91">
+    <display-name>Evento 91</display-name>
+  </channel>
+  <channel id="E92">
+    <display-name>Evento 92</display-name>
+  </channel>
+  <channel id="E93">
+    <display-name>Evento 93</display-name>
+  </channel>
+  <channel id="E94">
+    <display-name>Evento 94</display-name>
+  </channel>
+  <channel id="E95">
+    <display-name>Evento 95</display-name>
+  </channel>
+  <channel id="E96">
+    <display-name>Evento 96</display-name>
+  </channel>
+  <channel id="E97">
+    <display-name>Evento 97</display-name>
+  </channel>
+  <channel id="E98">
+    <display-name>Evento 98</display-name>
+  </channel>
+  <channel id="E99">
+    <display-name>Evento 99</display-name>
+  </channel>
+  <channel id="E100">
+    <display-name>Evento 100</display-name>
+  </channel>
+  <programme start="20260909130411 -0300" stop="20260909150411 -0300" channel="E01">
+    <title lang="es">[11:00] UEFA Youth League: Liverpool vs Atlético Madrid ; Disney+</title>
+    <desc lang="es">[11:00] UEFA Youth League: Liverpool vs Atlético Madrid ; Disney+</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/uefa_youth_league_340883829a.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E02">
-    <title lang="es">[15:45] Carabao Cup: Crystal Palace vs Middlesbrough ; Disney+</title>
-    <desc lang="es">[15:45] Carabao Cup: Crystal Palace vs Middlesbrough ; Disney+</desc>
+  <programme start="20260909130411 -0300" stop="20260909150411 -0300" channel="E02">
+    <title lang="es">[11:00] UEFA Youth League: Liverpool vs Atlético Madrid ; Disney+</title>
+    <desc lang="es">[11:00] UEFA Youth League: Liverpool vs Atlético Madrid ; Disney+</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/uefa_youth_league_340883829a.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E03">
-    <title lang="es">[15:45] Carabao Cup: Crystal Palace vs Middlesbrough ; Disney+ | OP 2</title>
-    <desc lang="es">[15:45] Carabao Cup: Crystal Palace vs Middlesbrough ; Disney+ | OP 2</desc>
+  <programme start="20260909130411 -0300" stop="20260909150411 -0300" channel="E03">
+    <title lang="es">[11:00] UEFA Youth League: Liverpool vs Atlético Madrid ; Disney+</title>
+    <desc lang="es">[11:00] UEFA Youth League: Liverpool vs Atlético Madrid ; Disney+</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/uefa_youth_league_340883829a.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E04">
-    <title lang="es">[15:45] Carabao Cup: Crystal Palace vs Middlesbrough ; Disney+</title>
-    <desc lang="es">[15:45] Carabao Cup: Crystal Palace vs Middlesbrough ; Disney+</desc>
+  <programme start="20260909130411 -0300" stop="20260909150411 -0300" channel="E04">
+    <title lang="es">[11:00] UEFA Youth League: Liverpool vs Atlético Madrid ; Disney+</title>
+    <desc lang="es">[11:00] UEFA Youth League: Liverpool vs Atlético Madrid ; Disney+</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/uefa_youth_league_340883829a.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E05">
-    <title lang="es">[15:45] Carabao Cup: Crystal Palace vs Middlesbrough ; Disney+</title>
-    <desc lang="es">[15:45] Carabao Cup: Crystal Palace vs Middlesbrough ; Disney+</desc>
+  <programme start="20260909130411 -0300" stop="20260909150411 -0300" channel="E05">
+    <title lang="es">[12:30] Tenis – US Open – Cuartos de Final ; ESPN 2 | HD</title>
+    <desc lang="es">[12:30] Tenis – US Open – Cuartos de Final ; ESPN 2 | HD</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/Tenis_a5d5fcd1d1_594ebf0186.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E06">
-    <title lang="es">[15:45] Carabao Cup: Crystal Palace vs Middlesbrough ; Disney+</title>
-    <desc lang="es">[15:45] Carabao Cup: Crystal Palace vs Middlesbrough ; Disney+</desc>
+  <programme start="20260909130411 -0300" stop="20260909150411 -0300" channel="E06">
+    <title lang="es">[12:30] Tenis – US Open – Cuartos de Final ; ESPN 2</title>
+    <desc lang="es">[12:30] Tenis – US Open – Cuartos de Final ; ESPN 2</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/Tenis_a5d5fcd1d1_594ebf0186.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E07">
-    <title lang="es">[15:45] Carabao Cup: Crystal Palace vs Middlesbrough ; Disney+</title>
-    <desc lang="es">[15:45] Carabao Cup: Crystal Palace vs Middlesbrough ; Disney+</desc>
+  <programme start="20260909130411 -0300" stop="20260909150411 -0300" channel="E07">
+    <title lang="es">[12:30] Tenis – US Open – Cuartos de Final ; ESPN 2 | OP2</title>
+    <desc lang="es">[12:30] Tenis – US Open – Cuartos de Final ; ESPN 2 | OP2</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/Tenis_a5d5fcd1d1_594ebf0186.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E08">
-    <title lang="es">[15:45] Carabao Cup: Crystal Palace vs Middlesbrough ; Disney+</title>
-    <desc lang="es">[15:45] Carabao Cup: Crystal Palace vs Middlesbrough ; Disney+</desc>
+  <programme start="20260909130411 -0300" stop="20260909150411 -0300" channel="E08">
+    <title lang="es">[12:30] Tenis – US Open – Cuartos de Final ; ESPN 2 | OP3</title>
+    <desc lang="es">[12:30] Tenis – US Open – Cuartos de Final ; ESPN 2 | OP3</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/Tenis_a5d5fcd1d1_594ebf0186.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E09">
-    <title lang="es">[15:45] Carabao Cup: AFC Bournemouth vs Lincoln City ; Disney+</title>
-    <desc lang="es">[15:45] Carabao Cup: AFC Bournemouth vs Lincoln City ; Disney+</desc>
+  <programme start="20260909130411 -0300" stop="20260909150411 -0300" channel="E09">
+    <title lang="es">[12:30] Tenis – US Open – Cuartos de Final ; ESPN 2 | HD</title>
+    <desc lang="es">[12:30] Tenis – US Open – Cuartos de Final ; ESPN 2 | HD</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/Tenis_a5d5fcd1d1_594ebf0186.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E10">
-    <title lang="es">[15:45] Carabao Cup: AFC Bournemouth vs Lincoln City ; Disney+</title>
-    <desc lang="es">[15:45] Carabao Cup: AFC Bournemouth vs Lincoln City ; Disney+</desc>
+  <programme start="20260909130411 -0300" stop="20260909150411 -0300" channel="E10">
+    <title lang="es">[12:30] Tenis – US Open – Cuartos de Final ; ESPN 2</title>
+    <desc lang="es">[12:30] Tenis – US Open – Cuartos de Final ; ESPN 2</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/Tenis_a5d5fcd1d1_594ebf0186.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E11">
-    <title lang="es">[15:45] Carabao Cup: AFC Bournemouth vs Lincoln City ; Disney+ | OP 2</title>
-    <desc lang="es">[15:45] Carabao Cup: AFC Bournemouth vs Lincoln City ; Disney+ | OP 2</desc>
+  <programme start="20260909130411 -0300" stop="20260909150411 -0300" channel="E11">
+    <title lang="es">[12:30] Tenis – US Open – Cuartos de Final ; ESPN 2 | OP2</title>
+    <desc lang="es">[12:30] Tenis – US Open – Cuartos de Final ; ESPN 2 | OP2</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/Tenis_a5d5fcd1d1_594ebf0186.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E12">
-    <title lang="es">[15:45] Carabao Cup: AFC Bournemouth vs Lincoln City ; Disney+</title>
-    <desc lang="es">[15:45] Carabao Cup: AFC Bournemouth vs Lincoln City ; Disney+</desc>
+  <programme start="20260909130411 -0300" stop="20260909150411 -0300" channel="E12">
+    <title lang="es">[12:30] Tenis – US Open – Cuartos de Final ; ESPN 2 | OP3</title>
+    <desc lang="es">[12:30] Tenis – US Open – Cuartos de Final ; ESPN 2 | OP3</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/Tenis_a5d5fcd1d1_594ebf0186.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E13">
-    <title lang="es">[15:45] Carabao Cup: AFC Bournemouth vs Lincoln City ; Disney+</title>
-    <desc lang="es">[15:45] Carabao Cup: AFC Bournemouth vs Lincoln City ; Disney+</desc>
+  <programme start="20260909130411 -0300" stop="20260909150411 -0300" channel="E13">
+    <title lang="es">[13:00] Copa Mundial Femenina Sub-20 de la FIFA: Francia vs Ecuador ; Dsports 2 | HD</title>
+    <desc lang="es">[13:00] Copa Mundial Femenina Sub-20 de la FIFA: Francia vs Ecuador ; Dsports 2 | HD</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/copamundial_69c33e7ee4.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E14">
-    <title lang="es">[15:45] Carabao Cup: AFC Bournemouth vs Lincoln City ; Disney+</title>
-    <desc lang="es">[15:45] Carabao Cup: AFC Bournemouth vs Lincoln City ; Disney+</desc>
+  <programme start="20260909130411 -0300" stop="20260909150411 -0300" channel="E14">
+    <title lang="es">[13:00] Copa Mundial Femenina Sub-20 de la FIFA: Francia vs Ecuador ; Dsports 2</title>
+    <desc lang="es">[13:00] Copa Mundial Femenina Sub-20 de la FIFA: Francia vs Ecuador ; Dsports 2</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/copamundial_69c33e7ee4.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E15">
-    <title lang="es">[15:45] Carabao Cup: AFC Bournemouth vs Lincoln City ; Disney+</title>
-    <desc lang="es">[15:45] Carabao Cup: AFC Bournemouth vs Lincoln City ; Disney+</desc>
+  <programme start="20260909130411 -0300" stop="20260909150411 -0300" channel="E15">
+    <title lang="es">[13:00] Copa Mundial Femenina Sub-20 de la FIFA: Francia vs Ecuador ; Telemundo | HD</title>
+    <desc lang="es">[13:00] Copa Mundial Femenina Sub-20 de la FIFA: Francia vs Ecuador ; Telemundo | HD</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/copamundial_69c33e7ee4.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E16">
-    <title lang="es">[15:45] Carabao Cup: AFC Bournemouth vs Lincoln City ; Disney+</title>
-    <desc lang="es">[15:45] Carabao Cup: AFC Bournemouth vs Lincoln City ; Disney+</desc>
+  <programme start="20260909130411 -0300" stop="20260909150411 -0300" channel="E16">
+    <title lang="es">[13:00] Copa Mundial Femenina Sub-20 de la FIFA: Francia vs Ecuador ; Telemundo</title>
+    <desc lang="es">[13:00] Copa Mundial Femenina Sub-20 de la FIFA: Francia vs Ecuador ; Telemundo</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/copamundial_69c33e7ee4.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E17">
-    <title lang="es">[15:45] Carabao Cup: Sunderland vs Hull City ; Disney+</title>
-    <desc lang="es">[15:45] Carabao Cup: Sunderland vs Hull City ; Disney+</desc>
+  <programme start="20260909130411 -0300" stop="20260909150411 -0300" channel="E17">
+    <title lang="es">[13:00] Copa Mundial Femenina Sub-20 de la FIFA: Francia vs Ecuador ; Dsports 2 | OP2</title>
+    <desc lang="es">[13:00] Copa Mundial Femenina Sub-20 de la FIFA: Francia vs Ecuador ; Dsports 2 | OP2</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/copamundial_69c33e7ee4.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E18">
-    <title lang="es">[15:45] Carabao Cup: Sunderland vs Hull City ; Disney+</title>
-    <desc lang="es">[15:45] Carabao Cup: Sunderland vs Hull City ; Disney+</desc>
+  <programme start="20260909130411 -0300" stop="20260909150411 -0300" channel="E18">
+    <title lang="es">[13:00] Copa Mundial Femenina Sub-20 de la FIFA: Francia vs Ecuador ; Dsports 2 | OP3</title>
+    <desc lang="es">[13:00] Copa Mundial Femenina Sub-20 de la FIFA: Francia vs Ecuador ; Dsports 2 | OP3</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/copamundial_69c33e7ee4.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E19">
-    <title lang="es">[15:45] Carabao Cup: Sunderland vs Hull City ; Disney+</title>
-    <desc lang="es">[15:45] Carabao Cup: Sunderland vs Hull City ; Disney+</desc>
+  <programme start="20260909130411 -0300" stop="20260909150411 -0300" channel="E19">
+    <title lang="es">[13:00] Copa Mundial Femenina Sub-20 de la FIFA: Francia vs Ecuador ; Telemundo | HD</title>
+    <desc lang="es">[13:00] Copa Mundial Femenina Sub-20 de la FIFA: Francia vs Ecuador ; Telemundo | HD</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/copamundial_69c33e7ee4.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E20">
-    <title lang="es">[15:45] Carabao Cup: Sunderland vs Hull City ; Disney+</title>
-    <desc lang="es">[15:45] Carabao Cup: Sunderland vs Hull City ; Disney+</desc>
+  <programme start="20260909130411 -0300" stop="20260909150411 -0300" channel="E20">
+    <title lang="es">[13:00] Copa Mundial Femenina Sub-20 de la FIFA: Francia vs Ecuador ; Telemundo</title>
+    <desc lang="es">[13:00] Copa Mundial Femenina Sub-20 de la FIFA: Francia vs Ecuador ; Telemundo</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/copamundial_69c33e7ee4.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E21">
-    <title lang="es">[15:45] Carabao Cup: Sunderland vs Hull City ; Disney+</title>
-    <desc lang="es">[15:45] Carabao Cup: Sunderland vs Hull City ; Disney+</desc>
+  <programme start="20260909130411 -0300" stop="20260909150411 -0300" channel="E21">
+    <title lang="es">[13:00] Copa Mundial Femenina Sub-20 de la FIFA: Japón vs Estados Unidos ; Fox Sports 2 USA</title>
+    <desc lang="es">[13:00] Copa Mundial Femenina Sub-20 de la FIFA: Japón vs Estados Unidos ; Fox Sports 2 USA</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/copamundial_69c33e7ee4.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E22">
-    <title lang="es">[15:45] Carabao Cup: Sunderland vs Hull City ; Disney+</title>
-    <desc lang="es">[15:45] Carabao Cup: Sunderland vs Hull City ; Disney+</desc>
+  <programme start="20260909130411 -0300" stop="20260909150411 -0300" channel="E22">
+    <title lang="es">[13:00] Copa Mundial Femenina Sub-20 de la FIFA: Japón vs Estados Unidos ; TUDN MX</title>
+    <desc lang="es">[13:00] Copa Mundial Femenina Sub-20 de la FIFA: Japón vs Estados Unidos ; TUDN MX</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/copamundial_69c33e7ee4.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E23">
-    <title lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; ESPN 1 | Español</title>
-    <desc lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; ESPN 1 | Español</desc>
+  <programme start="20260909130411 -0300" stop="20260909150411 -0300" channel="E23">
+    <title lang="es">[13:00] Copa Mundial Femenina Sub-20 de la FIFA: Japón vs Estados Unidos ; Fox Sports 2 USA | OP2</title>
+    <desc lang="es">[13:00] Copa Mundial Femenina Sub-20 de la FIFA: Japón vs Estados Unidos ; Fox Sports 2 USA | OP2</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/copamundial_69c33e7ee4.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E24">
-    <title lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; Disney+ | Español</title>
-    <desc lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; Disney+ | Español</desc>
+  <programme start="20260909130411 -0300" stop="20260909150411 -0300" channel="E24">
+    <title lang="es">[13:00] Copa Mundial Femenina Sub-20 de la FIFA: Japón vs Estados Unidos ; Fox Sports 2 USA</title>
+    <desc lang="es">[13:00] Copa Mundial Femenina Sub-20 de la FIFA: Japón vs Estados Unidos ; Fox Sports 2 USA</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/copamundial_69c33e7ee4.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E25">
-    <title lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; MAX | Español</title>
-    <desc lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; MAX | Español</desc>
+  <programme start="20260909130411 -0300" stop="20260909150411 -0300" channel="E25">
+    <title lang="es">[13:00] Copa Mundial Femenina Sub-20 de la FIFA: Japón vs Estados Unidos ; Fox Sports 2 USA | OP2</title>
+    <desc lang="es">[13:00] Copa Mundial Femenina Sub-20 de la FIFA: Japón vs Estados Unidos ; Fox Sports 2 USA | OP2</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/copamundial_69c33e7ee4.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E26">
-    <title lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; Paramount+ | English</title>
-    <desc lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; Paramount+ | English</desc>
+  <programme start="20260909130411 -0300" stop="20260909150411 -0300" channel="E26">
+    <title lang="es">[13:00] Copa Mundial Femenina Sub-20 de la FIFA: Japón vs Estados Unidos ; TUDN MX</title>
+    <desc lang="es">[13:00] Copa Mundial Femenina Sub-20 de la FIFA: Japón vs Estados Unidos ; TUDN MX</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/copamundial_69c33e7ee4.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E27">
-    <title lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; ESPN</title>
-    <desc lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; ESPN</desc>
+  <programme start="20260909130411 -0300" stop="20260909150411 -0300" channel="E27">
+    <title lang="es">[13:00] Copa Mundial Femenina: Japón Sub-20 vs Estados Unidos Sub-20 ; FOX Sports 2 USA</title>
+    <desc lang="es">[13:00] Copa Mundial Femenina: Japón Sub-20 vs Estados Unidos Sub-20 ; FOX Sports 2 USA</desc>
+    <icon src="https://img.agenda18.com/uploads/fifa_ee72f5c955.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E28">
-    <title lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; Disney+</title>
-    <desc lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; Disney+</desc>
+  <programme start="20260909130411 -0300" stop="20260909150411 -0300" channel="E28">
+    <title lang="es">[13:00] Copa Mundial Femenina: Japón Sub-20 vs Estados Unidos Sub-20 ; TUDN MX</title>
+    <desc lang="es">[13:00] Copa Mundial Femenina: Japón Sub-20 vs Estados Unidos Sub-20 ; TUDN MX</desc>
+    <icon src="https://img.agenda18.com/uploads/fifa_ee72f5c955.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E29">
-    <title lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; ESPN | OP 2</title>
-    <desc lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; ESPN | OP 2</desc>
+  <programme start="20260909130411 -0300" stop="20260909150411 -0300" channel="E29">
+    <title lang="es">[13:00] Copa Mundial Femenina: Japón Sub-20 vs Estados Unidos Sub-20 ; FOX Sports 2 USA</title>
+    <desc lang="es">[13:00] Copa Mundial Femenina: Japón Sub-20 vs Estados Unidos Sub-20 ; FOX Sports 2 USA</desc>
+    <icon src="https://img.agenda18.com/uploads/fifa_ee72f5c955.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E30">
-    <title lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; Disney+ | OP 2</title>
-    <desc lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; Disney+ | OP 2</desc>
+  <programme start="20260909130411 -0300" stop="20260909150411 -0300" channel="E30">
+    <title lang="es">[13:00] Copa Mundial Femenina: Japón Sub-20 vs Estados Unidos Sub-20 ; TUDN MX</title>
+    <desc lang="es">[13:00] Copa Mundial Femenina: Japón Sub-20 vs Estados Unidos Sub-20 ; TUDN MX</desc>
+    <icon src="https://img.agenda18.com/uploads/fifa_ee72f5c955.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E31">
-    <title lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; MAX</title>
-    <desc lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; MAX</desc>
+  <programme start="20260909130411 -0300" stop="20260909150411 -0300" channel="E31">
+    <title lang="es">[13:00] Copa Mundial Femenina: Francia Sub-20 vs Ecuador Sub-20 ; Dsports 2</title>
+    <desc lang="es">[13:00] Copa Mundial Femenina: Francia Sub-20 vs Ecuador Sub-20 ; Dsports 2</desc>
+    <icon src="https://img.agenda18.com/uploads/fifa_ee72f5c955.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E32">
-    <title lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; Paramount+</title>
-    <desc lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; Paramount+</desc>
+  <programme start="20260909130411 -0300" stop="20260909150411 -0300" channel="E32">
+    <title lang="es">[13:00] Copa Mundial Femenina: Francia Sub-20 vs Ecuador Sub-20 ; Dsports 2</title>
+    <desc lang="es">[13:00] Copa Mundial Femenina: Francia Sub-20 vs Ecuador Sub-20 ; Dsports 2</desc>
+    <icon src="https://img.agenda18.com/uploads/fifa_ee72f5c955.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E33">
-    <title lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; ESPN TV</title>
-    <desc lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; ESPN TV</desc>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E33">
+    <title lang="es">PROXIMAMENTE: [23:59] </title>
+    <desc lang="es">PROXIMAMENTE: [23:59] </desc>
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E34">
-    <title lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; ESPN</title>
-    <desc lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; ESPN</desc>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E34">
+    <title lang="es">PROXIMAMENTE: [13:45] UEFA Champions League: Barcelona vs Feyenoord</title>
+    <desc lang="es">PROXIMAMENTE: [13:45] UEFA Champions League: Barcelona vs Feyenoord</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/UEFA_Champions_L_e95eab40e4_9fff1e273b.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E35">
-    <title lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; Disney+</title>
-    <desc lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; Disney+</desc>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E35">
+    <title lang="es">PROXIMAMENTE: [13:45] UEFA Champions League: Stuttgart vs Viking</title>
+    <desc lang="es">PROXIMAMENTE: [13:45] UEFA Champions League: Stuttgart vs Viking</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/UEFA_Champions_L_e95eab40e4_9fff1e273b.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E36">
-    <title lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; ESPN TV HD</title>
-    <desc lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; ESPN TV HD</desc>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E36">
+    <title lang="es">PROXIMAMENTE: [13:45] Eredivisie: Twente vs Telstar</title>
+    <desc lang="es">PROXIMAMENTE: [13:45] Eredivisie: Twente vs Telstar</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/paises_bajos_f773e994b9_3bb0d207d2.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E37">
-    <title lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; ESPN AR┃OP2</title>
-    <desc lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; ESPN AR┃OP2</desc>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E37">
+    <title lang="es">PROXIMAMENTE: [15:00] Pro League: Al Nassr vs Abha</title>
+    <desc lang="es">PROXIMAMENTE: [15:00] Pro League: Al Nassr vs Abha</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/arabia_saudita_82c6f9c376_70d77b2bc2.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E38">
-    <title lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; ESPN AR┃OP3</title>
-    <desc lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; ESPN AR┃OP3</desc>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E38">
+    <title lang="es">PROXIMAMENTE: [16:00] UEFA Champions League: PSG vs Slovan Bratislava</title>
+    <desc lang="es">PROXIMAMENTE: [16:00] UEFA Champions League: PSG vs Slovan Bratislava</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/UEFA_Champions_L_e95eab40e4_9fff1e273b.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E39">
-    <title lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; TUDN USA | HD</title>
-    <desc lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; TUDN USA | HD</desc>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E39">
+    <title lang="es">PROXIMAMENTE: [16:00] UEFA Champions League: Liverpool vs Atlético Madrid</title>
+    <desc lang="es">PROXIMAMENTE: [16:00] UEFA Champions League: Liverpool vs Atlético Madrid</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/UEFA_Champions_L_e95eab40e4_9fff1e273b.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E40">
-    <title lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; TUDN USA</title>
-    <desc lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; TUDN USA</desc>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E40">
+    <title lang="es">PROXIMAMENTE: [16:00] UEFA Champions League: Sporting CP vs Galatasaray</title>
+    <desc lang="es">PROXIMAMENTE: [16:00] UEFA Champions League: Sporting CP vs Galatasaray</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/UEFA_Champions_L_e95eab40e4_9fff1e273b.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E41">
-    <title lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; TUDN USA | OP2</title>
-    <desc lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; TUDN USA | OP2</desc>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E41">
+    <title lang="es">PROXIMAMENTE: [16:00] UEFA Champions League: Napoli vs Arsenal</title>
+    <desc lang="es">PROXIMAMENTE: [16:00] UEFA Champions League: Napoli vs Arsenal</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/UEFA_Champions_L_e95eab40e4_9fff1e273b.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E42">
-    <title lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; TUDN USA | OP3</title>
-    <desc lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; TUDN USA | OP3</desc>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E42">
+    <title lang="es">PROXIMAMENTE: [16:00] Championship: Charlton Athletic vs Queens Park Rangers</title>
+    <desc lang="es">PROXIMAMENTE: [16:00] Championship: Charlton Athletic vs Queens Park Rangers</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/inglaterra_823176495f_fc4f47c43e.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E43">
-    <title lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; Unimas</title>
-    <desc lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; Unimas</desc>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E43">
+    <title lang="es">PROXIMAMENTE: [17:30] Primera B: Ind. Yumbo vs Deportes Quindío</title>
+    <desc lang="es">PROXIMAMENTE: [17:30] Primera B: Ind. Yumbo vs Deportes Quindío</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/colombia_dcf9cc2637_a1661b26da.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E44">
-    <title lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; MAX</title>
-    <desc lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; MAX</desc>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E44">
+    <title lang="es">PROXIMAMENTE: [18:00] Primera B: Recoleta vs San Marcos</title>
+    <desc lang="es">PROXIMAMENTE: [18:00] Primera B: Recoleta vs San Marcos</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/chile_86c07a7b38_fad5126fd0.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E45">
-    <title lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; ESPN 1 | Español</title>
-    <desc lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; ESPN 1 | Español</desc>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E45">
+    <title lang="es">PROXIMAMENTE: [19:00] Copa Libertadores: Palmeiras vs LDU Quito</title>
+    <desc lang="es">PROXIMAMENTE: [19:00] Copa Libertadores: Palmeiras vs LDU Quito</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/copa_libertadores_f60faf808a_6fb4deda1f.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E46">
-    <title lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; Disney+ | Español</title>
-    <desc lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; Disney+ | Español</desc>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E46">
+    <title lang="es">PROXIMAMENTE: [19:00] Copa Argentina: Deportivo Riestra vs Banfield</title>
+    <desc lang="es">PROXIMAMENTE: [19:00] Copa Argentina: Deportivo Riestra vs Banfield</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/argentina_2bd748026e_628913fc18.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E47">
-    <title lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; MAX | Español</title>
-    <desc lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; MAX | Español</desc>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E47">
+    <title lang="es">PROXIMAMENTE: [19:00] Copa Sudamericana: Santos vs Atlético Mineiro</title>
+    <desc lang="es">PROXIMAMENTE: [19:00] Copa Sudamericana: Santos vs Atlético Mineiro</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/image_modified_f8ce531f01_b000a25a9e.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E48">
-    <title lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; Paramount+ | English</title>
-    <desc lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; Paramount+ | English</desc>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E48">
+    <title lang="es">PROXIMAMENTE: [20:00] Copa Colombia: América de Cali vs Deportivo Pereira</title>
+    <desc lang="es">PROXIMAMENTE: [20:00] Copa Colombia: América de Cali vs Deportivo Pereira</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/colombia_dcf9cc2637_a1661b26da.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E49">
-    <title lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; ESPN</title>
-    <desc lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; ESPN</desc>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E49">
+    <title lang="es">PROXIMAMENTE: [20:30] Primera B: Copiapó vs Magallanes</title>
+    <desc lang="es">PROXIMAMENTE: [20:30] Primera B: Copiapó vs Magallanes</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/chile_86c07a7b38_fad5126fd0.png" />
   </programme>
-  <programme start="20260908180313 -0300" stop="20260908200313 -0300" channel="E50">
-    <title lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; Disney+</title>
-    <desc lang="es">[16:00] UEFA Champions League: Real Madrid vs Inter ; Disney+</desc>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E50">
+    <title lang="es">PROXIMAMENTE: [20:30] Primera B: Deportes Iquique vs Deportes Santa Cruz</title>
+    <desc lang="es">PROXIMAMENTE: [20:30] Primera B: Deportes Iquique vs Deportes Santa Cruz</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/chile_86c07a7b38_fad5126fd0.png" />
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E51">
+    <title lang="es">PROXIMAMENTE: [20:45] Major League Soccer: Philadelphia Union vs Cincinnati</title>
+    <desc lang="es">PROXIMAMENTE: [20:45] Major League Soccer: Philadelphia Union vs Cincinnati</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/estados_unidos_de_america_b400fc18c4_efc73480e0.png" />
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E52">
+    <title lang="es">PROXIMAMENTE: [21:30] Copa Libertadores: Estudiantes vs Corinthians</title>
+    <desc lang="es">PROXIMAMENTE: [21:30] Copa Libertadores: Estudiantes vs Corinthians</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/copa_libertadores_f60faf808a_6fb4deda1f.png" />
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E53">
+    <title lang="es">PROXIMAMENTE: [22:00] Primera A: Boyacá Chicó vs Atlético Nacional</title>
+    <desc lang="es">PROXIMAMENTE: [22:00] Primera A: Boyacá Chicó vs Atlético Nacional</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/colombia_dcf9cc2637_a1661b26da.png" />
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E54">
+    <title lang="es">PROXIMAMENTE: [22:10] Copa Colombia: Deportivo Pasto vs Medellín</title>
+    <desc lang="es">PROXIMAMENTE: [22:10] Copa Colombia: Deportivo Pasto vs Medellín</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/colombia_dcf9cc2637_a1661b26da.png" />
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E55">
+    <title lang="es">PROXIMAMENTE: [16:45] Primeira Liga: Moreirense vs Benfica</title>
+    <desc lang="es">PROXIMAMENTE: [16:45] Primeira Liga: Moreirense vs Benfica</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/portugal_914accbdd5_06fa714d5c.png" />
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E56">
+    <title lang="es">PROXIMAMENTE: [22:05] Copa Centroamericana de CONCACAF: Deportivo Saprissa vs Cartaginés</title>
+    <desc lang="es">PROXIMAMENTE: [22:05] Copa Centroamericana de CONCACAF: Deportivo Saprissa vs Cartaginés</desc>
+    <icon src="https://img.futbollibrehd.com.pe/uploads/copa_centroamericana_59d23aa32c_8e7ab9174a.png" />
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E57">
+    <title lang="es">PROXIMAMENTE: [15:00] Liga Profesional Saudí: Al Nassr vs Abha</title>
+    <desc lang="es">PROXIMAMENTE: [15:00] Liga Profesional Saudí: Al Nassr vs Abha</desc>
+    <icon src="https://img.agenda18.com/uploads/arabia_saudita_82c6f9c376.png" />
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E58">
+    <title lang="es">PROXIMAMENTE: [16:00] EFL Cup: Chelsea vs Leeds United</title>
+    <desc lang="es">PROXIMAMENTE: [16:00] EFL Cup: Chelsea vs Leeds United</desc>
+    <icon src="https://img.agenda18.com/uploads/inglaterra_823176495f.png" />
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E59">
+    <title lang="es">PROXIMAMENTE: [20:45] MLS: Philadelphia Union vs Cincinnati</title>
+    <desc lang="es">PROXIMAMENTE: [20:45] MLS: Philadelphia Union vs Cincinnati</desc>
+    <icon src="https://img.agenda18.com/uploads/estados_unidos_de_america_b400fc18c4.png" />
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E60">
+    <title lang="es">PROXIMAMENTE: [22:00] Copa Centroamericana: Deportivo Saprissa vs Cartaginés</title>
+    <desc lang="es">PROXIMAMENTE: [22:00] Copa Centroamericana: Deportivo Saprissa vs Cartaginés</desc>
+    <icon src="https://img.agenda18.com/uploads/copa_centroamericana_59d23aa32c.png" />
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E61">
+    <title lang="es">PROXIMAMENTE: [19:00] UEFA Youth League: Liverpool vs Atlético Madrid</title>
+    <desc lang="es">PROXIMAMENTE: [19:00] UEFA Youth League: Liverpool vs Atlético Madrid</desc>
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E62">
+    <title lang="es">PROXIMAMENTE: [17:45] Ciclismo – La Vuelta – Etapa #17</title>
+    <desc lang="es">PROXIMAMENTE: [17:45] Ciclismo – La Vuelta – Etapa #17</desc>
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E63">
+    <title lang="es">PROXIMAMENTE: [18:00] Copa Mundial Femenina Sub-20 de la FIFA: Ghana vs Corea del Sur</title>
+    <desc lang="es">PROXIMAMENTE: [18:00] Copa Mundial Femenina Sub-20 de la FIFA: Ghana vs Corea del Sur</desc>
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E64">
+    <title lang="es">PROXIMAMENTE: [18:00] Copa Mundial Femenina Sub-20 de la FIFA: Italia vs Nueva Zelanda</title>
+    <desc lang="es">PROXIMAMENTE: [18:00] Copa Mundial Femenina Sub-20 de la FIFA: Italia vs Nueva Zelanda</desc>
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E65">
+    <title lang="es">PROXIMAMENTE: [20:30] Tenis – US Open – Cuartos de Final</title>
+    <desc lang="es">PROXIMAMENTE: [20:30] Tenis – US Open – Cuartos de Final</desc>
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E66">
+    <title lang="es">PROXIMAMENTE: [21:00] Copa Mundial Femenina Sub-20 de la FIFA: Francia vs Ecuador</title>
+    <desc lang="es">PROXIMAMENTE: [21:00] Copa Mundial Femenina Sub-20 de la FIFA: Francia vs Ecuador</desc>
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E67">
+    <title lang="es">PROXIMAMENTE: [21:00] Copa Mundial Femenina Sub-20 de la FIFA: Japón vs Estados Unidos</title>
+    <desc lang="es">PROXIMAMENTE: [21:00] Copa Mundial Femenina Sub-20 de la FIFA: Japón vs Estados Unidos</desc>
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E68">
+    <title lang="es">PROXIMAMENTE: [21:45] UEFA Champions League: Barcelona vs Feyenoord</title>
+    <desc lang="es">PROXIMAMENTE: [21:45] UEFA Champions League: Barcelona vs Feyenoord</desc>
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E69">
+    <title lang="es">PROXIMAMENTE: [21:45] UEFA Champions League: Stuttgart vs Viking</title>
+    <desc lang="es">PROXIMAMENTE: [21:45] UEFA Champions League: Stuttgart vs Viking</desc>
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E70">
+    <title lang="es">PROXIMAMENTE: [21:45] Eredivisie: Twente vs Telstar</title>
+    <desc lang="es">PROXIMAMENTE: [21:45] Eredivisie: Twente vs Telstar</desc>
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E71">
+    <title lang="es">Slot Libre - Sin Eventos</title>
+    <desc lang="es">Slot Libre - Sin Eventos</desc>
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E72">
+    <title lang="es">Slot Libre - Sin Eventos</title>
+    <desc lang="es">Slot Libre - Sin Eventos</desc>
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E73">
+    <title lang="es">Slot Libre - Sin Eventos</title>
+    <desc lang="es">Slot Libre - Sin Eventos</desc>
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E74">
+    <title lang="es">Slot Libre - Sin Eventos</title>
+    <desc lang="es">Slot Libre - Sin Eventos</desc>
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E75">
+    <title lang="es">Slot Libre - Sin Eventos</title>
+    <desc lang="es">Slot Libre - Sin Eventos</desc>
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E76">
+    <title lang="es">Slot Libre - Sin Eventos</title>
+    <desc lang="es">Slot Libre - Sin Eventos</desc>
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E77">
+    <title lang="es">Slot Libre - Sin Eventos</title>
+    <desc lang="es">Slot Libre - Sin Eventos</desc>
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E78">
+    <title lang="es">Slot Libre - Sin Eventos</title>
+    <desc lang="es">Slot Libre - Sin Eventos</desc>
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E79">
+    <title lang="es">Slot Libre - Sin Eventos</title>
+    <desc lang="es">Slot Libre - Sin Eventos</desc>
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E80">
+    <title lang="es">Slot Libre - Sin Eventos</title>
+    <desc lang="es">Slot Libre - Sin Eventos</desc>
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E81">
+    <title lang="es">Slot Libre - Sin Eventos</title>
+    <desc lang="es">Slot Libre - Sin Eventos</desc>
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E82">
+    <title lang="es">Slot Libre - Sin Eventos</title>
+    <desc lang="es">Slot Libre - Sin Eventos</desc>
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E83">
+    <title lang="es">Slot Libre - Sin Eventos</title>
+    <desc lang="es">Slot Libre - Sin Eventos</desc>
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E84">
+    <title lang="es">Slot Libre - Sin Eventos</title>
+    <desc lang="es">Slot Libre - Sin Eventos</desc>
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E85">
+    <title lang="es">Slot Libre - Sin Eventos</title>
+    <desc lang="es">Slot Libre - Sin Eventos</desc>
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E86">
+    <title lang="es">Slot Libre - Sin Eventos</title>
+    <desc lang="es">Slot Libre - Sin Eventos</desc>
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E87">
+    <title lang="es">Slot Libre - Sin Eventos</title>
+    <desc lang="es">Slot Libre - Sin Eventos</desc>
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E88">
+    <title lang="es">Slot Libre - Sin Eventos</title>
+    <desc lang="es">Slot Libre - Sin Eventos</desc>
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E89">
+    <title lang="es">Slot Libre - Sin Eventos</title>
+    <desc lang="es">Slot Libre - Sin Eventos</desc>
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E90">
+    <title lang="es">Slot Libre - Sin Eventos</title>
+    <desc lang="es">Slot Libre - Sin Eventos</desc>
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E91">
+    <title lang="es">Slot Libre - Sin Eventos</title>
+    <desc lang="es">Slot Libre - Sin Eventos</desc>
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E92">
+    <title lang="es">Slot Libre - Sin Eventos</title>
+    <desc lang="es">Slot Libre - Sin Eventos</desc>
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E93">
+    <title lang="es">Slot Libre - Sin Eventos</title>
+    <desc lang="es">Slot Libre - Sin Eventos</desc>
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E94">
+    <title lang="es">Slot Libre - Sin Eventos</title>
+    <desc lang="es">Slot Libre - Sin Eventos</desc>
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E95">
+    <title lang="es">Slot Libre - Sin Eventos</title>
+    <desc lang="es">Slot Libre - Sin Eventos</desc>
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E96">
+    <title lang="es">Slot Libre - Sin Eventos</title>
+    <desc lang="es">Slot Libre - Sin Eventos</desc>
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E97">
+    <title lang="es">Slot Libre - Sin Eventos</title>
+    <desc lang="es">Slot Libre - Sin Eventos</desc>
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E98">
+    <title lang="es">Slot Libre - Sin Eventos</title>
+    <desc lang="es">Slot Libre - Sin Eventos</desc>
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E99">
+    <title lang="es">Slot Libre - Sin Eventos</title>
+    <desc lang="es">Slot Libre - Sin Eventos</desc>
+  </programme>
+  <programme start="20260909125900 -0300" stop="20260909155900 -0300" channel="E100">
+    <title lang="es">Slot Libre - Sin Eventos</title>
+    <desc lang="es">Slot Libre - Sin Eventos</desc>
   </programme>
 </tv>

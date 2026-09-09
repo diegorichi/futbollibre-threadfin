@@ -1,4 +1,5 @@
 import os
+import json
 import requests
 from datetime import datetime, timedelta
 from dotenv import dotenv_values, load_dotenv, set_key
@@ -26,6 +27,7 @@ URLS_ENV = dotenv_values(URLS_ENV_FILE)
 
 FUTBOL_LIBRE_URL = URLS_ENV.get("FUTBOL_LIBRE_URL") or os.getenv("FUTBOL_LIBRE_URL")
 M3U_FILE = os.getenv("M3U_FILE")
+TV_EVENTS_FILE = os.getenv("TV_EVENTS_FILE")
 THREADFIN_API_URL = os.getenv("THREADFIN_API_URL", "http://localhost:34400/api/")
 NTFY_URL = os.getenv("NTFY_URL")
 SINTEL_URL = "https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8"
@@ -172,6 +174,11 @@ def generar_xmltv(eventos_mapeados, xml_path):
     with open(xml_path, "w", encoding="utf-8") as f:
         f.write("\n".join(xml_lines))
 
+
+def generar_tv_events(eventos, events_path):
+    with open(events_path, "w", encoding="utf-8") as output:
+        json.dump({"api_version": "v1", "events": eventos}, output, ensure_ascii=False, indent=2)
+
 def extraer_todo_futbol_libre():
     driver = crear_driver()
     stream_pool = None
@@ -284,6 +291,41 @@ def extraer_todo_futbol_libre():
                     f"m3u8 procesadas: {streams_procesados}/{len(stream_urls)}",
                 )
 
+        # Contrato estructurado para la app: conserva todas las fuentes del
+        # mismo evento. El M3U legacy sigue siendo de una fuente por slot.
+        ahora = datetime.now()
+        eventos_tv = []
+        for ev in eventos_raw:
+            hora = ev.get("hora", "23:59")
+            if not es_activo(hora) and not es_proximo(hora):
+                continue
+            fuentes = []
+            for source_index, opt in enumerate(ev.get("opciones", []), start=1):
+                link_stream, origen = resultados_stream.get(opt.get("url"), (None, None))
+                if not link_stream:
+                    continue
+                fuentes.append({
+                    "id": f"source-{source_index}",
+                    "name": opt.get("canal") or origen or f"Fuente {source_index}",
+                    "url": link_stream,
+                    "user_agent": USER_AGENT,
+                })
+            try:
+                start = datetime.strptime(hora, "%H:%M").replace(
+                    year=ahora.year, month=ahora.month, day=ahora.day
+                )
+                starts_at = start.isoformat()
+            except ValueError:
+                starts_at = ahora.isoformat()
+            eventos_tv.append({
+                "id": re.sub(r"[^a-z0-9]+", "-", ev.get("nombre", "evento").lower()).strip("-") + f"-{hora.replace(':', '')}",
+                "title": ev.get("nombre", "Evento"),
+                "starts_at": starts_at,
+                "status": "available" if fuentes else ("upcoming" if es_proximo(hora) else "unavailable"),
+                "logo": ev.get("logo", ""),
+                "sources": fuentes,
+            })
+
         streams_antes_del_filtro = len(en_vivo)
         en_vivo = [
             item for item in en_vivo
@@ -379,11 +421,13 @@ def extraer_todo_futbol_libre():
         print(f"Eventos descartados por falta de stream: {eventos_descartados_sin_stream}")
         print(f"Streams finales escritos en M3U: {streams_finales}")
         XML_FILE = M3U_FILE.replace(".m3u", ".xml")
+        events_file = TV_EVENTS_FILE or M3U_FILE.replace(".m3u", ".json")
         # Guardamos para el XML
         generar_xmltv(datos_para_xml, XML_FILE)
 
         with open(M3U_FILE, "w", encoding="utf-8") as f:
             f.write(m3u_content)
+        generar_tv_events(eventos_tv, events_file)
         
         print("Actualizando Threadfin")
 

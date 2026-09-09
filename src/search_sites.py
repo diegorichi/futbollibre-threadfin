@@ -27,6 +27,9 @@ if not URLS_FILE.is_absolute():
 
 def fetch_urls() -> list[str]:
     params = urlencode({"q": QUERY, "engines": ENGINE, "format": "json"})
+
+    resp_ommit = urlopen(Request(f"{SEARCH_URL}"), timeout=30)
+
     request = Request(f"{SEARCH_URL}?{params}", headers={"Accept": "application/json"})
     with urlopen(request, timeout=30) as response:
         payload = json.load(response)

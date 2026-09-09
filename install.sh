@@ -22,6 +22,7 @@ apt install -y ./$CHROME_FILENAME
 $VENV_PATH/bin/pip install --upgrade pip
 $VENV_PATH/bin/pip install selenium webdriver-manager
 $VENV_PATH/bin/pip install python-dotenv
+$VENV_PATH/bin/pip install -r "$PROJECT_ROOT/requirements.txt"
 # 4. Crear el script lanzador (Shell Script)
 LANZADOR="`pwd`/update-futbollibre.sh"
 chmod +x "$LANZADOR"

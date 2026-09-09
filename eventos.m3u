@@ -1,151 +1,301 @@
 #EXTM3U
 #EXTINF:-1 tvg-id="E01" tvg-name="Deporte 1" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 01
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://17.domhsd.com:443/global/disney3/index.m3u8?token=9bd59f2a956d8552f3d25b5d2d6936648dcf93cc-08-1788945495-1788891495&ip=186.65.68.74
+https://6.ftlly.com:443/disney1/mono.m3u8?token=85588719cab1db35381901a585e0edaeb30050e1-6a-1788986632-1788968632
 #EXTINF:-1 tvg-id="E02" tvg-name="Deporte 2" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 02
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://93.domhsd.com:443/global/disney3/index.m3u8?token=b976c215d2a373c770b17b821c373f81110c8697-da-1788945496-1788891496&ip=186.65.68.74
+https://8.ftlly.com:443/disney1/mono.m3u8?token=773a94cdd9b9ae1ec48a27038480709b7ffd0eba-c5-1788986641-1788968641
 #EXTINF:-1 tvg-id="E03" tvg-name="Deporte 3" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 03
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://am91cm5leQ.fubo18.com:443/disney5/mono.m3u8?token=dd736f9c94aea92035d980ae7f6cd10da7abf24e-56-1788917596-1788899596
+https://YXdlc29tZQ.fubo18.com:443/disney1/mono.m3u8?token=5feb0218bc5d2f1b2901569b35d4c5290905f505-65-1788986651-1788968651
 #EXTINF:-1 tvg-id="E04" tvg-name="Deporte 4" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 04
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://4.ftlly.com:443/disney5/mono.m3u8?token=200921f604e3cb2c6869a35523c636409d2c5148-e5-1788917597-1788899597
+https://am91cm5leQ.fubo18.com:443/disney1/mono.m3u8?token=86d541d9f5cf60e7a22b8ffdf848adaaa2d55567-d6-1788986661-1788968661
 #EXTINF:-1 tvg-id="E05" tvg-name="Deporte 5" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 05
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://14.domhsd.com:443/global/disney3/index.m3u8?token=2b1252dfc6d91431cc3f3a3cff7a0477ed3fb763-00-1788945504-1788891504&ip=186.65.68.74
+https://3.ftlly.com:443/espn2/mono.m3u8?token=cf393435a9be066c5b412d59cfd25ec985dc5cd3-f0-1788986671-1788968671
 #EXTINF:-1 tvg-id="E06" tvg-name="Deporte 6" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 06
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://bgvnzw5k.fubo18.com:443/disney5/mono.m3u8?token=77b659f3e7ea3164df067c80a9250ae349057e40-5b-1788917605-1788899605
+https://8.ftlly.com:443/espn2/mono.m3u8?token=9c68cbb57de9d9ed93cd6eaa4505d24d76695b04-6-1788986681-1788968681
 #EXTINF:-1 tvg-id="E07" tvg-name="Deporte 7" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 07
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://b2ZmaWNpYWw.fubo18.com:443/disney5/mono.m3u8?token=599eb156b8a5fa54951a4803f7a9b36fba4dac26-a-1788917605-1788899605
+https://6.ftlly.com:443/espn2/mono.m3u8?token=ffb202c35730dd8759de6dd7931c9894cb02bca6-3a-1788986690-1788968690
 #EXTINF:-1 tvg-id="E08" tvg-name="Deporte 8" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 08
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://5.ftlly.com:443/disney5/mono.m3u8?token=c552f516b5282ba30086db8368ef7edaa149ca5a-43-1788917608-1788899608
+https://3.ftlly.com:443/espn2/mono.m3u8?token=1d4ab9183a54fae0d27db6af990a18472d907b6c-b3-1788986699-1788968699
 #EXTINF:-1 tvg-id="E09" tvg-name="Deporte 9" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 09
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://93.domhsd.com:443/global/disney4/index.m3u8?token=cb6e2124baec52c38bcb5fb93a8b6fb11e2c3379-f3-1788945513-1788891513&ip=186.65.68.74
+https://6.ftlly.com:443/espn2/mono.m3u8?token=8e4cd7133e5757ee9c338c91f1b149de9d0aba3c-b2-1788986708-1788968708
 #EXTINF:-1 tvg-id="E10" tvg-name="Deporte 10" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 10
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://17.domhsd.com:443/global/disney4/index.m3u8?token=0bf7c4e004dffc538fbf4685f85785dac54fec24-d8-1788945514-1788891514&ip=186.65.68.74
+https://7.ftlly.com:443/espn2/mono.m3u8?token=6f45812863f5083188153522f4dbd71c8f4e5d1f-90-1788986716-1788968716
 #EXTINF:-1 tvg-id="E11" tvg-name="Deporte 11" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 11
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://YXdlc29tZQ.fubo18.com:443/disney6/mono.m3u8?token=4cf5b0e1ee23112fe837c931bd65b9b8189a357c-5b-1788917614-1788899614
+https://4.ftlly.com:443/espn2/mono.m3u8?token=f8a68ab2cdff9bf8762223582f6964a1be4de624-c8-1788986725-1788968725
 #EXTINF:-1 tvg-id="E12" tvg-name="Deporte 12" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 12
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://2.ftlly.com:443/disney6/mono.m3u8?token=d50a759fba5c15baf52a1f2b612fdb4d1c0eb25e-ce-1788917627-1788899627
+https://3.ftlly.com:443/espn2/mono.m3u8?token=7517f3cf12a10ce3cdc92ef2119bf4062bf97d40-be-1788986734-1788968734
 #EXTINF:-1 tvg-id="E13" tvg-name="Deporte 13" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 13
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://99.domhsd.com:443/global/disney4/index.m3u8?token=d39417c9107caf71f69da4018c626ce0dc636123-0d-1788945521-1788891521&ip=186.65.68.74
+https://3.ftlly.com:443/dsports2/mono.m3u8?token=af8001949ffd29a38d44793bee7b072bba527923-f-1788986743-1788968743
 #EXTINF:-1 tvg-id="E14" tvg-name="Deporte 14" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 14
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://bgvnzw5k.fubo18.com:443/disney6/mono.m3u8?token=8fc6e4ef6e94245d83606210628924c45376511e-15-1788917629-1788899629
+https://5.ftlly.com:443/dsports2/mono.m3u8?token=e560930111a7f2ca045024f25c51119a01c14653-f4-1788986752-1788968752
 #EXTINF:-1 tvg-id="E15" tvg-name="Deporte 15" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 15
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://b2ZmaWNpYWw.fubo18.com:443/disney6/mono.m3u8?token=6a762a21215897f00be687fa927358dfd9658c27-4c-1788917629-1788899629
+https://4.ftlly.com:443/telemundo/mono.m3u8?token=04b5467833b57ef9811583a4651990df35d748b4-c-1788986763-1788968763
 #EXTINF:-1 tvg-id="E16" tvg-name="Deporte 16" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 16
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://2.ftlly.com:443/disney6/mono.m3u8?token=8104c181f97bae8ac3bef09051f47c2fd358ef0b-e4-1788917633-1788899633
+https://10.ftlly.com:443/telemundo/mono.m3u8?token=7de52f739398f249f8f71c6400220a30d103e5a6-a1-1788986772-1788968772
 #EXTINF:-1 tvg-id="E17" tvg-name="Deporte 17" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 17
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://98.domhsd.com:443/global/disney5/index.m3u8?token=cf1a7a7369ee745bfde6fa9e8c9ee8e8fcad4730-cc-1788945536-1788891536&ip=186.65.68.74
+https://5.ftlly.com:443/dsports2/mono.m3u8?token=7a44cc8725c970c9a3829d8576f574390483a6ca-57-1788986781-1788968781
 #EXTINF:-1 tvg-id="E18" tvg-name="Deporte 18" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 18
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://3.ftlly.com:443/disney7/mono.m3u8?token=c42962e38ca97843ce961f674b42e3b06bf2fb40-23-1788917646-1788899646
+https://8.ftlly.com:443/dsports2/mono.m3u8?token=354432466866239042fa0deb8294665818d691aa-35-1788986790-1788968790
 #EXTINF:-1 tvg-id="E19" tvg-name="Deporte 19" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 19
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://85.domhsd.com:443/global/disney5/index.m3u8?token=9e7ced935cbd07408ffabd98861257b9740a0bce-ad-1788945545-1788891545&ip=186.65.68.74
+https://5.ftlly.com:443/telemundo/mono.m3u8?token=fdb6a20567466f1c7c822d07e0ae004c77c415ec-cf-1788986800-1788968800
 #EXTINF:-1 tvg-id="E20" tvg-name="Deporte 20" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 20
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://a2lja3m.fubo18.com:443/disney7/mono.m3u8?token=4e0a43b768c4b5b8b48f5bfc19e9175cf2e623d8-89-1788917645-1788899645
+https://3.ftlly.com:443/telemundo/mono.m3u8?token=1c0cb6b73401fb1eb49b6973ae2fa8b764711229-6e-1788986808-1788968808
 #EXTINF:-1 tvg-id="E21" tvg-name="Deporte 21" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 21
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://c2f2zq.fubo18.com:443/disney7/mono.m3u8?token=23650cd3554f5369cd6a5997af488c4e9be1094b-4d-1788917652-1788899652
+https://3.ftlly.com:443/foxsports2_usa/mono.m3u8?token=6adda99ba0d9a3e5961776cbac3fb82f8758ea34-e7-1788986818-1788968818
 #EXTINF:-1 tvg-id="E22" tvg-name="Deporte 22" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 22
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://3.ftlly.com:443/disney7/mono.m3u8?token=baee6cbbd1665014bc6215111187676650a0f49a-78-1788917659-1788899659
+https://8.ftlly.com:443/tudn_mx/mono.m3u8?token=c00ffe03568a7a2e4f98ec4bd162feb350cf4e23-a2-1788986827-1788968827
 #EXTINF:-1 tvg-id="E23" tvg-name="Deporte 23" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 23
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://193.domhsd.com:443/global/espn/index.m3u8?token=ca027ee513d89ba3793a0c1235f2e3d512502579-64-1788945555-1788891555&ip=186.65.68.74
+https://10.ftlly.com:443/foxsports2_usa/mono.m3u8?token=f25c7b62a1c4f1e038e4171612b09cb548311e88-5e-1788986836-1788968836
 #EXTINF:-1 tvg-id="E24" tvg-name="Deporte 24" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 24
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://193.domhsd.com:443/global/disney6/index.m3u8?token=b7938c09a144468b1317fae806235a9c2df0555f-e3-1788945554-1788891554&ip=186.65.68.74
+https://6.ftlly.com:443/foxsports2_usa/mono.m3u8?token=d9150b6276e7dba9875a0ffe40f091ec50d0876f-5-1788986846-1788968846
 #EXTINF:-1 tvg-id="E25" tvg-name="Deporte 25" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 25
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://85.domhsd.com:443/global/max1/index.m3u8?token=e94cdc25b54f61c8acbd13f222a24e93517448e9-3e-1788945559-1788891559&ip=186.65.68.74
+https://9.ftlly.com:443/foxsports2_usa/mono.m3u8?token=f5bf37192d9bc85abe3906dcaca3f19af96192f2-9f-1788986855-1788968855
 #EXTINF:-1 tvg-id="E26" tvg-name="Deporte 26" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 26
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://93.domhsd.com:443/global/paramount3/index.m3u8?token=e4f6cd996c3b7b4745337088c16b4e43f2560dcf-3d-1788945565-1788891565&ip=186.65.68.74
+https://8.ftlly.com:443/tudn_mx/mono.m3u8?token=94b150a54b7391b88e312778a21653be0a6ec138-65-1788986863-1788968863
 #EXTINF:-1 tvg-id="E27" tvg-name="Deporte 27" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 27
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://47.domhsd.com:443/global/espn/index.m3u8?token=79e32b6334e12f3583d5a7b6c0fc1fa55a641474-69-1788945574-1788891574&ip=186.65.68.74
+https://dglvz29s.fubo18.com:443/foxsports2_usa/mono.m3u8?token=7e1a5718f0433c1ef51b148cdc07dcf6bcdbf324-db-1788986873-1788968873
 #EXTINF:-1 tvg-id="E28" tvg-name="Deporte 28" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 28
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://85.domhsd.com:443/global/disney6/index.m3u8?token=d66edad26fc1136fdcd75d88f1dc8d86bbb69ca0-95-1788945573-1788891573&ip=186.65.68.74
+https://bmf0aw9u.fubo18.com:443/tudn_mx/mono.m3u8?token=b0c856bb48ba8bbc720ef1b29b4408c40ec4638b-23-1788986881-1788968881
 #EXTINF:-1 tvg-id="E29" tvg-name="Deporte 29" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 29
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://dglvz29s.fubo18.com:443/espn/mono.m3u8?token=0024e3b9268679d6b4b7db73006bdeacf7a25a1f-da-1788917689-1788899689
+https://dw5pdgvk.fubo18.com:443/foxsports2_usa/mono.m3u8?token=1ffd084d2f97082348bb4bc5ce392ad6c5c3c5ae-d0-1788986891-1788968891
 #EXTINF:-1 tvg-id="E30" tvg-name="Deporte 30" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 30
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://dglvz29s.fubo18.com:443/disney8/mono.m3u8?token=686dfe6b3d0c985703704c6164d6aa982e0e31e8-49-1788917689-1788899689
+https://bmf0aw9u.fubo18.com:443/tudn_mx/mono.m3u8?token=e91fc92fd94dd81e4a4228020b26719ab84a1fae-4d-1788986900-1788968900
 #EXTINF:-1 tvg-id="E31" tvg-name="Deporte 31" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 31
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://85.domhsd.com:443/global/max1/index.m3u8?token=09390f7c0799166de5d7a418a7bafda690e4a006-ca-1788945604-1788891604&ip=186.65.68.74
+https://dw5pdgvk.fubo18.com:443/dsports2/mono.m3u8?token=afb99e4629ce7bc4ceaf6a2f38c92f42ad07081e-f2-1788986908-1788968908
 #EXTINF:-1 tvg-id="E32" tvg-name="Deporte 32" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 32
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://98.domhsd.com:443/global/paramount3/index.m3u8?token=83079f983738f9d4985b31736e7f8481a2159e1a-5e-1788945604-1788891604&ip=186.65.68.74
+https://c2f2zq.fubo18.com:443/dsports2/mono.m3u8?token=82d8a7668dd8def1c7944b97e47f0b377ce52e88-69-1788986931-1788968931
 #EXTINF:-1 tvg-id="E33" tvg-name="Deporte 33" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 33
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://3.ftlly.com:443/espn/mono.m3u8?token=a9dc10276808562a271a45e8bc0c3a8aba8a0185-7d-1788917718-1788899718
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
 #EXTINF:-1 tvg-id="E34" tvg-name="Deporte 34" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 34
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://eWVz.fubo18.com:443/espn/mono.m3u8?token=840751c97fabdf4a4868ebbbce8a72eaa76e129c-2c-1788917725-1788899725
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
 #EXTINF:-1 tvg-id="E35" tvg-name="Deporte 35" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 35
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://1.ftlly.com:443/disney8/mono.m3u8?token=b0e455f72d9d72762e6bc1230eb39e8c41c0cd89-9a-1788917720-1788899720
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
 #EXTINF:-1 tvg-id="E36" tvg-name="Deporte 36" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 36
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://4.ftlly.com:443/even2/mono.m3u8?token=ff5c917ba052a44a2e6e39d7bafc608cc806a762-d1-1788917732-1788899732
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
 #EXTINF:-1 tvg-id="E37" tvg-name="Deporte 37" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 37
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://2.ftlly.com:443/espn/mono.m3u8?token=be774e1b74349ffb4d0bbcc58b3f04f4d9bc7c68-db-1788917734-1788899734
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
 #EXTINF:-1 tvg-id="E38" tvg-name="Deporte 38" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 38
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://6.ftlly.com:443/espn/mono.m3u8?token=abf1f82c635e73af2234154a5256691f8a918b60-71-1788917734-1788899734
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
 #EXTINF:-1 tvg-id="E39" tvg-name="Deporte 39" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 39
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://1.ftlly.com:443/tudn/mono.m3u8?token=e9307dc6295255a44ffbd75d2195ca77523a3f93-bc-1788917744-1788899744
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
 #EXTINF:-1 tvg-id="E40" tvg-name="Deporte 40" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 40
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://4.ftlly.com:443/tudn/mono.m3u8?token=31543f55fe8716029a945a76c77de595f391b945-dc-1788917742-1788899742
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
 #EXTINF:-1 tvg-id="E41" tvg-name="Deporte 41" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 41
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://4.ftlly.com:443/tudn/mono.m3u8?token=4683da5ee0254f670faa5f7c3065add73bc741c7-7a-1788917747-1788899747
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
 #EXTINF:-1 tvg-id="E42" tvg-name="Deporte 42" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 42
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://10.ftlly.com:443/tudn/mono.m3u8?token=88ae161a625445c1d68b81c98b1a343944f92a32-51-1788917746-1788899746
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
 #EXTINF:-1 tvg-id="E43" tvg-name="Deporte 43" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 43
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://5.ftlly.com:443/unimas/mono.m3u8?token=a3c1ae1b04888de4bac5ecde6653288be984f989-5d-1788917753-1788899753
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
 #EXTINF:-1 tvg-id="E44" tvg-name="Deporte 44" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 44
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://6.ftlly.com:443/max1/mono.m3u8?token=ea65b15116e27ee043b33643dd6437b6ecd8de0b-18-1788917755-1788899755
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
 #EXTINF:-1 tvg-id="E45" tvg-name="Deporte 45" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 45
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://14.domhsd.com:443/global/espn/index.m3u8?token=b1facc04c2fdfdc1bfe6e955b818f70fe137f9b5-02-1788945654-1788891654&ip=186.65.68.74
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
 #EXTINF:-1 tvg-id="E46" tvg-name="Deporte 46" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 46
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://93.domhsd.com:443/global/disney6/index.m3u8?token=f0a316afef421479551e8c7b6bf13d77da485b0e-f6-1788945656-1788891656&ip=186.65.68.74
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
 #EXTINF:-1 tvg-id="E47" tvg-name="Deporte 47" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 47
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://93.domhsd.com:443/global/max1/index.m3u8?token=4535b1e37467450b2dd322608e76b1eb4f4548fd-41-1788945662-1788891662&ip=186.65.68.74
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
 #EXTINF:-1 tvg-id="E48" tvg-name="Deporte 48" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 48
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://17.domhsd.com:443/global/paramount3/index.m3u8?token=7ee80a5a740055a55f5da1036cbaf6d8a12d0bba-73-1788945664-1788891664&ip=186.65.68.74
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
 #EXTINF:-1 tvg-id="E49" tvg-name="Deporte 49" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 49
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://YXdlc29tZQ.fubo18.com:443/espn/mono.m3u8?token=160ef75cbd9e8c64c259be7e614ee95e20f60b52-60-1788917764-1788899764
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
 #EXTINF:-1 tvg-id="E50" tvg-name="Deporte 50" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 50
 #EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-https://y2fzdgxl.fubo18.com:443/disney8/mono.m3u8?token=74120d3e93facf1176a17b47b0001b9dd785f044-2c-1788917765-1788899765
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E51" tvg-name="Deporte 51" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 51
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E52" tvg-name="Deporte 52" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 52
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E53" tvg-name="Deporte 53" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 53
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E54" tvg-name="Deporte 54" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 54
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E55" tvg-name="Deporte 55" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 55
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E56" tvg-name="Deporte 56" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 56
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E57" tvg-name="Deporte 57" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 57
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E58" tvg-name="Deporte 58" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 58
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E59" tvg-name="Deporte 59" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 59
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E60" tvg-name="Deporte 60" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 60
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E61" tvg-name="Deporte 61" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 61
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E62" tvg-name="Deporte 62" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 62
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E63" tvg-name="Deporte 63" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 63
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E64" tvg-name="Deporte 64" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 64
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E65" tvg-name="Deporte 65" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 65
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E66" tvg-name="Deporte 66" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 66
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E67" tvg-name="Deporte 67" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 67
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E68" tvg-name="Deporte 68" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 68
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E69" tvg-name="Deporte 69" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 69
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E70" tvg-name="Deporte 70" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 70
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E71" tvg-name="Deporte 71" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 71
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E72" tvg-name="Deporte 72" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 72
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E73" tvg-name="Deporte 73" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 73
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E74" tvg-name="Deporte 74" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 74
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E75" tvg-name="Deporte 75" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 75
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E76" tvg-name="Deporte 76" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 76
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E77" tvg-name="Deporte 77" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 77
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E78" tvg-name="Deporte 78" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 78
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E79" tvg-name="Deporte 79" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 79
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E80" tvg-name="Deporte 80" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 80
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E81" tvg-name="Deporte 81" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 81
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E82" tvg-name="Deporte 82" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 82
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E83" tvg-name="Deporte 83" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 83
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E84" tvg-name="Deporte 84" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 84
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E85" tvg-name="Deporte 85" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 85
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E86" tvg-name="Deporte 86" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 86
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E87" tvg-name="Deporte 87" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 87
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E88" tvg-name="Deporte 88" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 88
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E89" tvg-name="Deporte 89" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 89
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E90" tvg-name="Deporte 90" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 90
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E91" tvg-name="Deporte 91" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 91
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E92" tvg-name="Deporte 92" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 92
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E93" tvg-name="Deporte 93" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 93
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E94" tvg-name="Deporte 94" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 94
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E95" tvg-name="Deporte 95" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 95
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E96" tvg-name="Deporte 96" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 96
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E97" tvg-name="Deporte 97" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 97
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E98" tvg-name="Deporte 98" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 98
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E99" tvg-name="Deporte 99" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 99
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id="E100" tvg-name="Deporte 100" tvg-logo="https://play-lh.googleusercontent.com/zRe9-Loct_wdUL8uuWMFqElFPhlsLDWYNemkyYNLWdQZhIWQPoWSQ_6o7wzBWB2Y6A=w600-h300-pc0xffffff-pd" group-title="Futbol Libre",Deporte 100
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
