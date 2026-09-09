@@ -36,6 +36,9 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -47,6 +50,7 @@ import java.util.concurrent.Executors;
 /** Minimal remote-first TV UI: events -> sources -> preview -> fullscreen. */
 public class MainActivity extends Activity {
     private static final String SERVICE_TYPE = "_futbol._tcp.";
+    private static final int UDP_DISCOVERY_PORT = 45678;
     private static final float PIP_WIDTH_PERCENT = 0.15f;
     private static final int PIP_MARGIN_DP = 24;
     private final ExecutorService network = Executors.newSingleThreadExecutor();
@@ -76,7 +80,7 @@ public class MainActivity extends Activity {
     private final Runnable discoveryTimeout = () -> {
         if (serverBase == null && state == TvView.SEARCHING) {
             if (isEmulator()) connect("http://10.0.2.2:8080");
-            else { state = TvView.ERROR; screen.invalidate(); }
+            else discoverByBroadcast();
         }
     };
     private final Runnable refreshTask = new Runnable() {
@@ -139,6 +143,26 @@ public class MainActivity extends Activity {
 
     private boolean isEmulator() {
         return Build.FINGERPRINT.startsWith("generic") || Build.MODEL.contains("Emulator") || Build.MODEL.contains("Android SDK");
+    }
+
+    private void discoverByBroadcast() {
+        network.execute(() -> {
+            try (DatagramSocket socket = new DatagramSocket()) {
+                socket.setBroadcast(true);
+                byte[] request = "FUTBOL_DISCOVER_V1".getBytes();
+                socket.send(new DatagramPacket(request, request.length,
+                        InetAddress.getByName("255.255.255.255"), UDP_DISCOVERY_PORT));
+                socket.setSoTimeout(2500);
+                byte[] buffer = new byte[512];
+                DatagramPacket response = new DatagramPacket(buffer, buffer.length);
+                socket.receive(response);
+                JSONObject payload = new JSONObject(new String(response.getData(), 0, response.getLength()));
+                String base = "http://" + response.getAddress().getHostAddress() + ":" + payload.optInt("port", 8080);
+                main.post(() -> connect(base));
+            } catch (Exception error) {
+                main.post(() -> { state = TvView.ERROR; screen.invalidate(); });
+            }
+        });
     }
 
     private void connect(String base) {

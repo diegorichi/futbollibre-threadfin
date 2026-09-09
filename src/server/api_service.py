@@ -11,7 +11,7 @@ from server.models.task_status import TaskStatus
 from server.services.agenda_service import AgendaService
 from server.services.channel_service import ChannelService
 from server.services.process_runner import ProcessRunner
-from server.discovery import MdnsAdvertiser
+from server.discovery import MdnsAdvertiser, UdpDiscoveryResponder
 from progress import ProgressReporter
 
 
@@ -27,6 +27,7 @@ runner = ProcessRunner(str(PROJECT_ROOT), status)
 progress = ProgressReporter(str(PROJECT_ROOT / ".update-futbollibre.progress.json"))
 runner.recover()
 mdns = MdnsAdvertiser(port=8080)
+udp_discovery = UdpDiscoveryResponder(http_port=8080)
 
 
 def configured_path(env_name, fallback):
@@ -196,7 +197,9 @@ def system_update(target):
 
 if __name__ == "__main__":
     mdns.start()
+    udp_discovery.start()
     try:
         app.run(host="0.0.0.0", port=8080)
     finally:
         mdns.stop()
+        udp_discovery.stop()

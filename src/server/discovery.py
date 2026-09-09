@@ -1,6 +1,7 @@
 """Best-effort mDNS advertisement for the TV client."""
 
 import logging
+import json
 import socket
 import threading
 
@@ -57,3 +58,48 @@ class MdnsAdvertiser:
             self._zeroconf.unregister_service(self._service)
             self._zeroconf.close()
             self._zeroconf = None
+
+
+class UdpDiscoveryResponder:
+    """LAN broadcast fallback for networks/LXCs where mDNS is filtered."""
+
+    PORT = 45678
+    REQUEST = b"FUTBOL_DISCOVER_V1"
+
+    def __init__(self, http_port, name="Futbol Server"):
+        self.http_port = http_port
+        self.name = name
+        self._stop = threading.Event()
+        self._socket = None
+        self._thread = None
+
+    def start(self):
+        self._thread = threading.Thread(target=self._serve, daemon=True)
+        self._thread.start()
+
+    def _serve(self):
+        try:
+            self._socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+            self._socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+            self._socket.bind(("0.0.0.0", self.PORT))
+            self._socket.settimeout(1)
+            response = json.dumps({
+                "name": self.name,
+                "api_version": "v1",
+                "port": self.http_port,
+            }).encode("utf-8")
+            LOGGER.info("Descubrimiento UDP escuchando en %s", self.PORT)
+            while not self._stop.is_set():
+                try:
+                    request, address = self._socket.recvfrom(256)
+                except socket.timeout:
+                    continue
+                if request.strip() == self.REQUEST:
+                    self._socket.sendto(response, address)
+        except Exception:
+            LOGGER.exception("No se pudo iniciar el descubrimiento UDP")
+
+    def stop(self):
+        self._stop.set()
+        if self._socket is not None:
+            self._socket.close()
