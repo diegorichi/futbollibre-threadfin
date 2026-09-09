@@ -80,6 +80,24 @@ cp app/build/outputs/apk/debug/app-debug.apk ../../output/futbol-tv-debug.apk
 
 El APK generado queda también en `src/tvapp/app/build/outputs/apk/debug/`, pero esa carpeta es un artefacto de Gradle y está ignorada por Git. El archivo distribuible es `output/futbol-tv-debug.apk`.
 
+## Instalación y actualización desde el servidor
+
+Con el servidor corriendo en la red local, desde el navegador de la TV se puede abrir:
+
+```text
+http://IP_DEL_SERVIDOR:8080/tvapp
+```
+
+La página permite descargar el APK. La TV pide autorización y confirmación antes de instalarlo.
+
+Las versiones instaladas consultan `/api/v1/app`. Si el servidor anuncia un `version_code` mayor, la app muestra la actualización, descarga `/downloads/futbol-tv.apk` y abre el instalador de Android para que el usuario confirme.
+
+Al publicar una versión nueva hay que incrementar `versionCode` y `versionName` en `src/tvapp/app/build.gradle`, compilar y copiar el APK:
+
+```bash
+cp src/tvapp/app/build/outputs/apk/debug/app-debug.apk output/futbol-tv-debug.apk
+```
+
 ### Probar en emulador
 
 ```bash

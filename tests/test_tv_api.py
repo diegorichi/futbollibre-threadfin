@@ -20,6 +20,20 @@ class TvApiContractTest(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json["api_version"], "v1")
 
+    def test_app_update_contract(self):
+        response = self.client.get("/api/v1/app")
+        self.assertEqual(response.status_code, 200)
+        self.assertGreaterEqual(response.json["version_code"], 1)
+        self.assertTrue(response.json["version_name"])
+        self.assertEqual(response.json["apk_url"], "/downloads/futbol-tv.apk")
+
+    def test_tv_app_page_contains_installation_instructions(self):
+        response = self.client.get("/tvapp")
+        self.assertEqual(response.status_code, 200)
+        self.assertIn("Primera instalación", response.text)
+        self.assertIn("Actualizaciones", response.text)
+        self.assertIn("/downloads/futbol-tv.apk", response.text)
+
     def test_events_contract(self):
         response = self.client.get("/api/v1/events")
         self.assertEqual(response.status_code, 200)

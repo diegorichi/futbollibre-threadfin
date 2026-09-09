@@ -47,6 +47,7 @@ public class MainActivity extends Activity implements TvScreenView.Host {
     private AppUpdateManager updateManager;
     private AppUpdateManager.Release pendingUpdate;
     private String updateStatus = "Descarga e instalación con confirmación de Android";
+    private boolean updateChecked;
     private NsdManager nsd;
     private NsdManager.DiscoveryListener discovery;
     private String serverBase;
@@ -203,8 +204,9 @@ public class MainActivity extends Activity implements TvScreenView.Host {
     }
 
     private void checkForUpdate() {
-        if (serverBase == null || updateManager == null) return;
-        updateManager.check(serverBase, BuildConfig.VERSION_CODE, new AppUpdateManager.CheckCallback() {
+        if (updateChecked || serverBase == null || updateManager == null) return;
+        updateChecked = true;
+        updateManager.check(serverBase, BuildConfig.APP_VERSION_CODE, new AppUpdateManager.CheckCallback() {
             @Override public void onUpToDate() { }
 
             @Override public void onUpdateAvailable(AppUpdateManager.Release release) {

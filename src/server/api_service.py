@@ -175,12 +175,7 @@ def tv_discovery():
 
 @app.get("/tvapp")
 def tv_app_page():
-    return (
-        "<!doctype html><meta charset='utf-8'>"
-        "<title>Fútbol TV</title><h1>Fútbol TV</h1>"
-        f"<p>Versión {TV_APP_VERSION_NAME}</p>"
-        "<p><a href='/downloads/futbol-tv.apk'>Descargar APK para Android TV</a></p>"
-    )
+    return render_template("tvapp.html", version=TV_APP_VERSION_NAME)
 
 
 @app.get("/api/v1/app")
