@@ -44,6 +44,9 @@ public class MainActivity extends Activity implements TvScreenView.Host {
     private PlayerView playerView;
     private PlayerView pipView;
     private PlaybackController playback;
+    private AppUpdateManager updateManager;
+    private AppUpdateManager.Release pendingUpdate;
+    private String updateStatus = "Descarga e instalación con confirmación de Android";
     private NsdManager nsd;
     private NsdManager.DiscoveryListener discovery;
     private String serverBase;
@@ -91,6 +94,7 @@ public class MainActivity extends Activity implements TvScreenView.Host {
             playerMessage = message;
             main.post(() -> screen.invalidate());
         });
+        updateManager = new AppUpdateManager(this);
         screen = new TvScreenView(this, this);
         root.addView(screen, new FrameLayout.LayoutParams(-1, -1));
         setContentView(root);
@@ -183,6 +187,7 @@ public class MainActivity extends Activity implements TvScreenView.Host {
                     eventOffset = NavigationState.offsetFor(selectedEvent, events.size(), 8, 5);
                     screen.invalidate();
                     for (Event event : loaded) loadLogo(event);
+                    checkForUpdate();
                 });
             }
 
@@ -192,6 +197,45 @@ public class MainActivity extends Activity implements TvScreenView.Host {
                     state = TvScreenView.ERROR;
                     screen.invalidate();
                     Toast.makeText(MainActivity.this, "No se pudo cargar el servidor", Toast.LENGTH_SHORT).show();
+                });
+            }
+        });
+    }
+
+    private void checkForUpdate() {
+        if (serverBase == null || updateManager == null) return;
+        updateManager.check(serverBase, BuildConfig.VERSION_CODE, new AppUpdateManager.CheckCallback() {
+            @Override public void onUpToDate() { }
+
+            @Override public void onUpdateAvailable(AppUpdateManager.Release release) {
+                main.post(() -> {
+                    if (state != TvScreenView.EVENTS) return;
+                    pendingUpdate = release;
+                    updateStatus = release.changelog.isEmpty() ? "Hay una nueva versión disponible" : release.changelog;
+                    state = TvScreenView.UPDATE;
+                    screen.invalidate();
+                });
+            }
+
+            @Override public void onError(Exception error) { }
+        });
+    }
+
+    private void installPendingUpdate() {
+        if (pendingUpdate == null) { state = TvScreenView.EVENTS; screen.invalidate(); return; }
+        updateStatus = "Descargando actualización...";
+        screen.invalidate();
+        updateManager.downloadAndInstall(pendingUpdate, new AppUpdateManager.InstallCallback() {
+            @Override public void onStarted() {
+                main.post(() -> { pendingUpdate = null; state = TvScreenView.EVENTS; screen.invalidate(); });
+            }
+
+            @Override public void onError(Exception error) {
+                main.post(() -> {
+                    pendingUpdate = null;
+                    state = TvScreenView.EVENTS;
+                    Toast.makeText(MainActivity.this, "No se pudo actualizar la app", Toast.LENGTH_SHORT).show();
+                    screen.invalidate();
                 });
             }
         });
@@ -322,6 +366,8 @@ public class MainActivity extends Activity implements TvScreenView.Host {
         if (selectedSource >= event.sources.size()) return event.title;
         return event.title + " · " + event.sources.get(selectedSource).name;
     }
+    @Override public String updateVersion() { return pendingUpdate == null ? "" : pendingUpdate.versionName; }
+    @Override public String updateStatus() { return updateStatus; }
     @Override public void onBack() { back(); }
     @Override public void onTouch(float y) { tap(y); }
 
@@ -368,6 +414,7 @@ public class MainActivity extends Activity implements TvScreenView.Host {
 
     @Override public void onConfirm() {
         if (state == TvScreenView.ERROR) { discoverServer(); return; }
+        if (state == TvScreenView.UPDATE) { installPendingUpdate(); return; }
         if (state == TvScreenView.EVENTS) showSources();
         else if (state == TvScreenView.SOURCES && !events.get(selectedEvent).sources.isEmpty()) preview(events.get(selectedEvent).sources.get(selectedSource));
         else if (state == TvScreenView.PREVIEW && playback.isReady()) {
@@ -403,6 +450,7 @@ public class MainActivity extends Activity implements TvScreenView.Host {
         playback.release();
         network.shutdownNow();
         serverClient.close();
+        if (updateManager != null) updateManager.close();
         super.onDestroy();
     }
 
