@@ -11,3 +11,13 @@ __pycache__/
 .update-futbollibre.progress.json
 futbol_libre_urls.env
 futbol_libre_urls.env.tmp
+
+# Android Studio / Gradle
+src/tvapp/.gradle/
+src/tvapp/.idea/
+src/tvapp/local.properties
+src/tvapp/**/*.iml
+**/build/
+
+# Catálogo generado para clientes TV
+eventos.json
