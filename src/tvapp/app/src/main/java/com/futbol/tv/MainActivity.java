@@ -47,6 +47,8 @@ import java.util.concurrent.Executors;
 /** Minimal remote-first TV UI: events -> sources -> preview -> fullscreen. */
 public class MainActivity extends Activity {
     private static final String SERVICE_TYPE = "_futbol._tcp.";
+    private static final float PIP_WIDTH_PERCENT = 0.15f;
+    private static final int PIP_MARGIN_DP = 24;
     private final ExecutorService network = Executors.newSingleThreadExecutor();
     private final Handler main = new Handler();
     private FrameLayout root;
@@ -279,9 +281,11 @@ public class MainActivity extends Activity {
     private void setDualBounds() {
         FrameLayout.LayoutParams primary = new FrameLayout.LayoutParams(-1, -1);
         playerView.setLayoutParams(primary);
-        FrameLayout.LayoutParams pip = new FrameLayout.LayoutParams(dp(360), dp(203));
-        pip.gravity = Gravity.TOP | Gravity.RIGHT;
-        pip.setMargins(0, dp(28), dp(28), 0);
+        int pipWidth = Math.round(getResources().getDisplayMetrics().widthPixels * PIP_WIDTH_PERCENT);
+        int pipHeight = Math.round(pipWidth * 9f / 16f);
+        FrameLayout.LayoutParams pip = new FrameLayout.LayoutParams(pipWidth, pipHeight);
+        pip.gravity = Gravity.BOTTOM | Gravity.LEFT;
+        pip.setMargins(dp(PIP_MARGIN_DP), 0, 0, dp(PIP_MARGIN_DP));
         pipView.setLayoutParams(pip);
     }
 
@@ -359,6 +363,12 @@ public class MainActivity extends Activity {
         } else if (state == TvView.SOURCES && !events.isEmpty()) {
             int item = sourceOffset + (int) ((y - 145) / 48);
             if (item >= 0 && item < events.get(selectedEvent).sources.size()) { selectedSource = item; preview(events.get(selectedEvent).sources.get(item)); }
+        } else if (state == TvView.PIP_EVENTS && !events.isEmpty()) {
+            int item = pipEventOffset + (int) ((y - 115) / 52);
+            if (item >= 0 && item < events.size()) { pipEvent = item; showPipSources(); }
+        } else if (state == TvView.PIP_SOURCES && !events.isEmpty() && !events.get(pipEvent).sources.isEmpty()) {
+            int item = pipSourceOffset + (int) ((y - 145) / 48);
+            if (item >= 0 && item < events.get(pipEvent).sources.size()) { pipSource = item; startPip(events.get(pipEvent).sources.get(item)); }
         } else if (state == TvView.PREVIEW && player != null && player.getPlaybackState() == Player.STATE_READY) {
             state = TvView.PLAYER;
             setPlayerBounds(true);
@@ -402,23 +412,26 @@ public class MainActivity extends Activity {
             c.drawColor(Color.rgb(7, 17, 31));
             if (state == SEARCHING) { text(c, "Buscando servidor...", 80, 90, 28, Color.WHITE, true); return; }
             if (state == ERROR) { text(c, "No se encontró el servidor", 80, 90, 28, Color.WHITE, true); text(c, "Back para salir · OK para reintentar", 80, 135, 18, Color.LTGRAY, false); return; }
-            if (state == EVENTS) drawEvents(c);
+            if (state == EVENTS) drawEvents(c, false);
             if (state == SOURCES) drawSources(c);
-            if (state == PIP_EVENTS) drawPipEvents(c);
+            if (state == PIP_EVENTS) drawEvents(c, true);
             if (state == PIP_SOURCES) drawPipSources(c);
         }
         private void header(Canvas c, String title) { text(c, title, 70, 62, 30, Color.WHITE, true); text(c, "Fútbol TV", 70, 96, 16, Color.rgb(94,234,212), true); }
-        private void drawEvents(Canvas c) {
-            header(c, "Eventos");
+        private void drawEvents(Canvas c, boolean forPip) {
+            header(c, forPip ? "Elegí el segundo evento para PiP" : "Eventos");
             if (events.isEmpty()) { text(c, "No hay eventos disponibles", 80, 170, 22, Color.LTGRAY, false); return; }
-            for (int i = eventOffset; i < Math.min(events.size(), eventOffset + 8); i++) {
-                Event e = events.get(i); float y = 145 + (i - eventOffset) * 52;
-                if (i == selectedEvent) { paint.setColor(Color.rgb(25, 57, 77)); c.drawRoundRect(d(55), d(y - 30), getWidth() - d(55), d(y + 14), d(8), d(8), paint); }
+            int offset = forPip ? pipEventOffset : eventOffset;
+            int selected = forPip ? pipEvent : selectedEvent;
+            for (int i = offset; i < Math.min(events.size(), offset + 8); i++) {
+                Event e = events.get(i); float y = 145 + (i - offset) * 52;
+                if (i == selected) { paint.setColor(Color.rgb(25, 57, 77)); c.drawRoundRect(d(55), d(y - 30), getWidth() - d(55), d(y + 14), d(8), d(8), paint); }
                 drawLogo(c, e, 80, y - 24, 34);
                 text(c, e.startsAt.length() >= 16 ? e.startsAt.substring(11, 16) : "--:--", 125, y, 20, Color.rgb(94,234,212), true);
-                text(c, e.title, 215, y, 21, Color.WHITE, i == selectedEvent);
+                text(c, e.title, 215, y, 21, Color.WHITE, i == selected);
                 text(c, e.sources.size() + " fuente" + (e.sources.size() == 1 ? "" : "s"), 780, y, 16, Color.LTGRAY, false);
             }
+            text(c, forPip ? "El principal sigue reproduciendo · OK para ver sus fuentes" : "OK para seleccionar · Flechas para desplazarte", 70, 610, 16, Color.LTGRAY, false);
         }
         private void drawSources(Canvas c) {
             Event event = events.get(selectedEvent); header(c, event.title); text(c, "Elegí una fuente · Flechas para desplazarte", 70, 135, 18, Color.LTGRAY, false);
@@ -429,7 +442,6 @@ public class MainActivity extends Activity {
         }
         private void drawPreview(Canvas c) { paint.setColor(Color.argb(220,7,17,31)); c.drawRect(0, getHeight()-d(125), getWidth(), getHeight(), paint); text(c, playerMessage, 60, getHeight()/density-92, 18, Color.WHITE, true); text(c, previewAction == 0 ? "[Ver en pantalla completa]" : "[Agregar segundo evento en PiP]", 60, getHeight()/density-55, 18, Color.rgb(94,234,212), true); text(c, "◀ ▶ elegir acción · ▲ ▼ cambiar fuente · OK confirmar · Back: fuentes", 60, getHeight()/density-18, 14, Color.LTGRAY, false); }
         private void drawDual(Canvas c) { text(c, "OK: enfocar PiP · Intercambiar: principal/PiP · Back: cerrar PiP", 35, getHeight()/density-18, 14, Color.WHITE, true); }
-        private void drawPipEvents(Canvas c) { c.drawColor(Color.rgb(7,17,31)); header(c, "Elegí el segundo evento"); text(c, "El principal sigue reproduciendo · OK para continuar", 70, 125, 18, Color.LTGRAY, false); for (int i=pipEventOffset; i<Math.min(events.size(),pipEventOffset+8); i++) { Event e=events.get(i); float y=165+(i-pipEventOffset)*52; if(i==pipEvent){paint.setColor(Color.rgb(25,57,77));c.drawRoundRect(d(55),d(y-30),getWidth()-d(55),d(y+14),d(8),d(8),paint);} drawLogo(c,e,80,y-24,34); text(c,e.title,135,y,21,Color.WHITE,i==pipEvent); } }
         private void drawPipSources(Canvas c) { c.drawColor(Color.rgb(7,17,31)); Event e=events.get(pipEvent); header(c,e.title); text(c,"Elegí la fuente para PiP · OK para reproducir muteado",70,135,18,Color.LTGRAY,false); for(int i=pipSourceOffset;i<Math.min(e.sources.size(),pipSourceOffset+8);i++){float y=170+(i-pipSourceOffset)*48;if(i==pipSource){paint.setColor(Color.rgb(25,57,77));c.drawRoundRect(d(55),d(y-27),getWidth()-d(55),d(y+13),d(8),d(8),paint);}text(c,e.sources.get(i).name,85,y,20,Color.WHITE,i==pipSource);} }
         private void drawLogo(Canvas c, Event event, float x, float y, float size) { Bitmap bitmap=logos.get(event.logo); if(bitmap!=null){c.drawBitmap(bitmap,null,new android.graphics.RectF(d(x),d(y),d(x+size),d(y+size)),paint);}else{paint.setStyle(Paint.Style.STROKE);paint.setStrokeWidth(d(2));paint.setColor(Color.rgb(94,234,212));c.drawCircle(d(x+size/2),d(y+size/2),d(size/2-2),paint);paint.setStyle(Paint.Style.FILL);} }
         @Override public boolean onKeyDown(int keyCode, KeyEvent event) {
