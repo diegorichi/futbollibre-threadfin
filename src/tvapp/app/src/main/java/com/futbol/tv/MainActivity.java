@@ -430,6 +430,18 @@ public class MainActivity extends Activity implements TvScreenView.Host {
         screen.invalidate();
     }
 
+    @Override public boolean dispatchKeyEvent(KeyEvent event) {
+        if (event.getAction() == KeyEvent.ACTION_DOWN
+                && (state == TvScreenView.PLAYER || state == TvScreenView.DUAL)
+                && (event.getKeyCode() == KeyEvent.KEYCODE_DPAD_UP
+                || event.getKeyCode() == KeyEvent.KEYCODE_DPAD_DOWN
+                || (state == TvScreenView.DUAL && event.getKeyCode() == KeyEvent.KEYCODE_DPAD_RIGHT))) {
+            onDpad(event.getKeyCode());
+            return true;
+        }
+        return super.dispatchKeyEvent(event);
+    }
+
     @Override public void onBackPressed() { back(); }
 
     @Override protected void onStop() {
