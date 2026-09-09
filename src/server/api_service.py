@@ -5,7 +5,7 @@ from dataclasses import asdict
 from pathlib import Path
 
 from dotenv import dotenv_values, load_dotenv, set_key
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, jsonify, render_template, request, send_file
 
 from server.models.task_status import TaskStatus
 from server.services.agenda_service import AgendaService
@@ -28,6 +28,11 @@ progress = ProgressReporter(str(PROJECT_ROOT / ".update-futbollibre.progress.jso
 runner.recover()
 mdns = MdnsAdvertiser(port=8080)
 udp_discovery = UdpDiscoveryResponder(http_port=8080)
+TV_APP_VERSION_CODE = int(os.getenv("TV_APP_VERSION_CODE", "2"))
+TV_APP_VERSION_NAME = os.getenv("TV_APP_VERSION_NAME", "0.2")
+TV_APP_APK_PATH = Path(os.getenv("TV_APP_APK_PATH", PROJECT_ROOT / "output/futbol-tv-debug.apk"))
+if not TV_APP_APK_PATH.is_absolute():
+    TV_APP_APK_PATH = PROJECT_ROOT / TV_APP_APK_PATH
 
 
 def configured_path(env_name, fallback):
@@ -166,6 +171,34 @@ def tv_events():
 @app.get("/api/v1/discovery")
 def tv_discovery():
     return jsonify({"name": "Futbol Server", "api_version": "v1", "events_path": "/api/v1/events"})
+
+
+@app.get("/tvapp")
+def tv_app_page():
+    return (
+        "<!doctype html><meta charset='utf-8'>"
+        "<title>Fútbol TV</title><h1>Fútbol TV</h1>"
+        f"<p>Versión {TV_APP_VERSION_NAME}</p>"
+        "<p><a href='/downloads/futbol-tv.apk'>Descargar APK para Android TV</a></p>"
+    )
+
+
+@app.get("/api/v1/app")
+def tv_app_info():
+    return jsonify({
+        "api_version": "v1",
+        "version_code": TV_APP_VERSION_CODE,
+        "version_name": TV_APP_VERSION_NAME,
+        "apk_url": "/downloads/futbol-tv.apk",
+        "changelog": "Actualización de Fútbol TV",
+    })
+
+
+@app.get("/downloads/futbol-tv.apk")
+def tv_app_download():
+    if not TV_APP_APK_PATH.is_file():
+        return jsonify({"ok": False, "error": "APK no disponible"}), 404
+    return send_file(TV_APP_APK_PATH, as_attachment=True, download_name="futbol-tv.apk", mimetype="application/vnd.android.package-archive")
 
 
 @app.post("/system-update/<target>")

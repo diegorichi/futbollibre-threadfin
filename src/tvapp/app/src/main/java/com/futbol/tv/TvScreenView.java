@@ -18,7 +18,7 @@ import java.util.List;
 /** Dumb TV canvas: drawing and input forwarding only. */
 public final class TvScreenView extends View {
     public static final int SEARCHING = 0, EVENTS = 1, SOURCES = 2, PREVIEW = 3,
-            PLAYER = 4, ERROR = 5, PIP_EVENTS = 6, PIP_SOURCES = 7, DUAL = 8;
+            PLAYER = 4, ERROR = 5, PIP_EVENTS = 6, PIP_SOURCES = 7, DUAL = 8, UPDATE = 9;
 
     public interface Host {
         int state();
@@ -26,6 +26,7 @@ public final class TvScreenView extends View {
         int selectedEvent(); int eventOffset(); int selectedSource(); int sourceOffset();
         int pipEvent(); int pipEventOffset(); int pipSource(); int pipSourceOffset();
         int previewAction(); String playerMessage(); Bitmap logo(String url); String playbackLabel();
+        String updateVersion(); String updateStatus();
         void onBack(); void onDpad(int keyCode); void onConfirm(); void onTouch(float y);
     }
 
@@ -60,6 +61,7 @@ public final class TvScreenView extends View {
         c.drawColor(Color.rgb(7, 17, 31));
         if (state == SEARCHING) { text(c, "Buscando servidor...", 80, 90, 28, Color.WHITE, true); return; }
         if (state == ERROR) { text(c, "No se encontró el servidor", 80, 90, 28, Color.WHITE, true); text(c, "Back para salir · OK para reintentar", 80, 135, 18, Color.LTGRAY, false); return; }
+        if (state == UPDATE) { drawUpdate(c); return; }
         if (state == EVENTS) drawEvents(c, false);
         if (state == SOURCES) drawSources(c);
         if (state == PIP_EVENTS) drawEvents(c, true);
@@ -83,6 +85,13 @@ public final class TvScreenView extends View {
             text(c, event.sources.size() + " fuente" + (event.sources.size() == 1 ? "" : "s"), 780, y, 16, Color.LTGRAY, false);
         }
         text(c, forPip ? "El principal sigue reproduciendo · OK para ver sus fuentes" : "OK para seleccionar · Flechas para desplazarte", 70, 610, 16, Color.LTGRAY, false);
+    }
+
+    private void drawUpdate(Canvas c) {
+        header(c, "Actualización disponible");
+        text(c, "Nueva versión " + host.updateVersion(), 80, 180, 25, Color.WHITE, true);
+        text(c, host.updateStatus(), 80, 225, 18, Color.LTGRAY, false);
+        text(c, "OK para descargar e instalar · Back para continuar", 80, 285, 18, Color.rgb(94,234,212), true);
     }
 
     private void drawSources(Canvas c) {
