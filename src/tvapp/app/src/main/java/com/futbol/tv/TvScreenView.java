@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
+import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -24,13 +25,15 @@ public final class TvScreenView extends View {
         List<Event> events();
         int selectedEvent(); int eventOffset(); int selectedSource(); int sourceOffset();
         int pipEvent(); int pipEventOffset(); int pipSource(); int pipSourceOffset();
-        int previewAction(); String playerMessage(); Bitmap logo(String url);
+        int previewAction(); String playerMessage(); Bitmap logo(String url); String playbackLabel();
         void onBack(); void onDpad(int keyCode); void onConfirm(); void onTouch(float y);
     }
 
     private final Host host;
     private final Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
     private final float density;
+    private final Handler overlayHandler = new Handler();
+    private boolean playbackOverlayVisible;
 
     public TvScreenView(Context context, Host host) {
         super(context);
@@ -51,7 +54,7 @@ public final class TvScreenView extends View {
         int state = host.state();
         if (state == PREVIEW || state == PLAYER || state == DUAL) {
             if (state == PREVIEW) drawPreview(c);
-            if (state == DUAL) drawDual(c);
+            if (state == PLAYER || state == DUAL) drawPlaybackOverlay(c);
             return;
         }
         c.drawColor(Color.rgb(7, 17, 31));
@@ -104,7 +107,27 @@ public final class TvScreenView extends View {
         text(c, "◀ ▶ elegir acción · ▲ ▼ cambiar fuente · OK confirmar · Back: fuentes", 60, getHeight() / density - 18, 14, Color.LTGRAY, false);
     }
 
-    private void drawDual(Canvas c) { text(c, "OK: enfocar PiP · Intercambiar: principal/PiP · Back: cerrar PiP", 35, getHeight()/density-18, 14, Color.WHITE, true); }
+    public void showPlaybackOverlay() {
+        playbackOverlayVisible = true;
+        overlayHandler.removeCallbacksAndMessages(null);
+        overlayHandler.postDelayed(() -> { playbackOverlayVisible = false; invalidate(); }, 4000);
+        invalidate();
+    }
+
+    private void drawPlaybackOverlay(Canvas c) {
+        if (!playbackOverlayVisible) return;
+        float bottom = getHeight() / density - 22;
+        String help = host.state() == DUAL
+                ? "▲ ▼ cambiar fuente principal · ◀ ▶ intercambiar · Back: cerrar PiP"
+                : "▲ ▼ cambiar fuente · Back: volver";
+        paint.setColor(Color.argb(205, 7, 17, 31));
+        c.drawRect(0, getHeight() - d(58), getWidth(), getHeight(), paint);
+        text(c, help, 35, bottom, 14, Color.LTGRAY, false);
+        String label = host.playbackLabel();
+        paint.setTextSize(d(15)); paint.setTypeface(Typeface.DEFAULT_BOLD);
+        float labelWidth = paint.measureText(label);
+        text(c, label, getWidth() / density - labelWidth / density - 35, bottom, 15, Color.rgb(94,234,212), true);
+    }
 
     private void drawPipSources(Canvas c) {
         c.drawColor(Color.rgb(7,17,31)); Event event = host.events().get(host.pipEvent()); header(c,event.title); text(c,"Elegí la fuente para PiP · OK para reproducir muteado",70,135,18,Color.LTGRAY,false);

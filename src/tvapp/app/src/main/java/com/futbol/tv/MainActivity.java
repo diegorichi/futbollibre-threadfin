@@ -316,6 +316,12 @@ public class MainActivity extends Activity implements TvScreenView.Host {
     @Override public int previewAction() { return previewAction; }
     @Override public String playerMessage() { return playerMessage; }
     @Override public Bitmap logo(String url) { return logos.get(url); }
+    @Override public String playbackLabel() {
+        if (events.isEmpty() || selectedEvent >= events.size()) return "";
+        Event event = events.get(selectedEvent);
+        if (selectedSource >= event.sources.size()) return event.title;
+        return event.title + " · " + event.sources.get(selectedSource).name;
+    }
     @Override public void onBack() { back(); }
     @Override public void onTouch(float y) { tap(y); }
 
@@ -335,9 +341,10 @@ public class MainActivity extends Activity implements TvScreenView.Host {
                 selectedSource = NavigationState.clamp(selectedSource + direction, events.get(selectedEvent).sources.size());
                 preview(events.get(selectedEvent).sources.get(selectedSource));
             }
-            if (state == TvScreenView.PLAYER && !events.isEmpty() && !events.get(selectedEvent).sources.isEmpty()) {
+            if ((state == TvScreenView.PLAYER || state == TvScreenView.DUAL) && !events.isEmpty() && !events.get(selectedEvent).sources.isEmpty()) {
                 selectedSource = NavigationState.clamp(selectedSource + direction, events.get(selectedEvent).sources.size());
                 playback.switchPrimary(events.get(selectedEvent).sources.get(selectedSource));
+                screen.showPlaybackOverlay();
             }
             if (state == TvScreenView.PIP_EVENTS && !events.isEmpty()) {
                 pipEvent = NavigationState.clamp(pipEvent + direction, events.size());
@@ -351,7 +358,11 @@ public class MainActivity extends Activity implements TvScreenView.Host {
         }
         if (keyCode == KeyEvent.KEYCODE_DPAD_LEFT || keyCode == KeyEvent.KEYCODE_DPAD_RIGHT) {
             if (state == TvScreenView.PREVIEW) { previewAction = keyCode == KeyEvent.KEYCODE_DPAD_LEFT ? 0 : 1; screen.invalidate(); return; }
-            if (state == TvScreenView.DUAL && keyCode == KeyEvent.KEYCODE_DPAD_RIGHT) { playback.swap(); return; }
+            if (state == TvScreenView.DUAL && keyCode == KeyEvent.KEYCODE_DPAD_RIGHT) {
+                int event = selectedEvent; selectedEvent = pipEvent; pipEvent = event;
+                int source = selectedSource; selectedSource = pipSource; pipSource = source;
+                playback.swap(); screen.showPlaybackOverlay(); return;
+            }
         }
     }
 
