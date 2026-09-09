@@ -61,6 +61,10 @@ def actualizar_urls_y_notificar(urls_validas, urls_invalidas):
     elif urls_invalidas:
         print("No se eliminan URLs: no quedó ningún sitio válido.")
 
+    if borradas == 0:
+        print("Sin cambios en FUTBOL_LIBRE_URL; no se envía aviso a NTFY.")
+        return
+
     mensaje = (
         "Actualización de sitios FUTBOL_LIBRE_URL\n"
         f"Sitios válidos: {len(urls_validas)}\n"
