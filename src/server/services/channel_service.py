@@ -9,6 +9,10 @@ from server.models.channel import Channel, Event, EventSource
 
 
 class ChannelService:
+    UNAVAILABLE_STREAM_MARKERS = (
+        "demo.unified-streaming.com/k8s/live/scte35.isml",
+    )
+
     def __init__(self, xml_path, m3u_path, events_path=None):
         self.xml_path = xml_path
         self.m3u_path = m3u_path
@@ -77,11 +81,13 @@ class ChannelService:
             event_name, separator, channel_name = description.partition(";")
             event_name = event_name.strip()
             channel_name = channel_name.strip() if separator else ""
+            if not event_name:
+                continue
             starts_at = self._iso_start(programme.get("start"), title_match.group(1))
             source_entry = entries.get(channel_id, {})
             url = source_entry.get("link", "")
             sources = []
-            if url:
+            if self._is_playable_url(url):
                 source_name = channel_name or self._source_name(url, channel_id)
                 sources.append(EventSource(
                     id=f"{channel_id.lower()}-1",
@@ -106,7 +112,7 @@ class ChannelService:
                     existing_urls.add(source.url)
             if group["sources"]:
                 group["status"] = "available"
-        events = [Event(**item) for item in grouped.values()]
+        events = [Event(**item) for item in grouped.values() if item["sources"]]
         return sorted(events, key=lambda item: item.starts_at)
 
     def _read_events_json(self):
@@ -119,7 +125,9 @@ class ChannelService:
                 name=raw_source.get("name", f"Fuente {index}"),
                 url=raw_source.get("url", ""),
                 user_agent=raw_source.get("user_agent"),
-            ) for index, raw_source in enumerate(raw_event.get("sources", []), start=1) if raw_source.get("url")]
+            ) for index, raw_source in enumerate(raw_event.get("sources", []), start=1) if self._is_playable_url(raw_source.get("url", ""))]
+            if not sources:
+                continue
             events.append(Event(
                 id=raw_event.get("id", "event"),
                 title=raw_event.get("title", "Evento"),
@@ -168,6 +176,14 @@ class ChannelService:
             match = re.match(r"(\d{14})\s*([+-]\d{4})?", raw_value)
             if match:
                 value = datetime.strptime(match.group(1), "%Y%m%d%H%M%S")
+                # La hora visible del XML está en el título [HH:MM] y es la
+                # referencia que usa la web. El atributo start puede haber
+                # quedado con la hora de generación del archivo.
+                try:
+                    title_time = datetime.strptime(fallback_time, "%H:%M").time()
+                    value = value.replace(hour=title_time.hour, minute=title_time.minute, second=0)
+                except ValueError:
+                    pass
                 offset = match.group(2)
                 if offset:
                     sign = 1 if offset[0] == "+" else -1
@@ -191,3 +207,7 @@ class ChannelService:
             if name.replace("+", "") in path.replace("+", ""):
                 return name.title()
         return f"Fuente {channel_id.removeprefix('E') or '1'}"
+
+    @classmethod
+    def _is_playable_url(cls, url):
+        return bool(url) and not any(marker in url for marker in cls.UNAVAILABLE_STREAM_MARKERS)

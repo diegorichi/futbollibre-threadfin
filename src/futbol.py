@@ -389,6 +389,8 @@ def extraer_todo_futbol_libre():
                     )
                     if (hora_real > ahora):
                         hora_real = (ahora - timedelta(minutes=5)).strftime("%H:%M")
+                    else:
+                        hora_real = hora_real.strftime("%H:%M")
 
                 datos_para_xml.append({'slot': slot_id, 'nombre_guia': nombre_txt, 'logo': logo, 'hora_real': hora_real})
 

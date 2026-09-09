@@ -142,10 +142,11 @@ def grid_api():
 
 
 def tv_channel_service():
+    # XML/M3U son la misma fuente que usa la web. eventos.json puede quedar
+    # con starts_at de fallback y desalinear la grilla de la app TV.
     return ChannelService(
         configured_path("XML_FILE", "eventos.xml"),
         configured_path("M3U_FILE", "eventos.m3u"),
-        configured_path("TV_EVENTS_FILE", "eventos.json"),
     )
 
 

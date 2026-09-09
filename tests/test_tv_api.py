@@ -87,9 +87,35 @@ https://two.test/disney.m3u8
 """, encoding="utf-8")
             events = ChannelService(xml_path, m3u_path).list_events()
             self.assertEqual(len(events), 1)
+            self.assertEqual(events[0].starts_at, "2026-09-09T20:00:00-03:00")
             self.assertEqual({source.url for source in events[0].sources}, {
                 "https://one.test/espn.m3u8", "https://two.test/disney.m3u8"
             })
+
+    def test_event_time_uses_visible_title_time_when_xml_start_is_generation_time(self):
+        from server.services.channel_service import ChannelService
+        self.assertEqual(
+            ChannelService._iso_start("20260909130411 -0300", "11:00"),
+            "2026-09-09T11:00:00-03:00",
+        )
+
+    def test_unavailable_placeholder_is_not_an_event_source(self):
+        from server.services.channel_service import ChannelService
+        with tempfile.TemporaryDirectory() as directory:
+            xml_path = Path(directory) / "events.xml"
+            m3u_path = Path(directory) / "events.m3u"
+            xml_path.write_text("""<?xml version=\"1.0\"?><tv>
+              <programme start=\"20260909200000 -0300\" channel=\"E01\"><title>[20:00] Partido informativo ; Sin señal</title></programme>
+              <programme start=\"20260909200000 -0300\" channel=\"E02\"><title>[20:00] Partido real ; ESPN</title></programme>
+            </tv>""", encoding="utf-8")
+            m3u_path.write_text("""#EXTM3U
+#EXTINF:-1 tvg-id=\"E01\",E01
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+#EXTINF:-1 tvg-id=\"E02\",E02
+https://one.test/real.m3u8
+""", encoding="utf-8")
+            events = ChannelService(xml_path, m3u_path).list_events()
+            self.assertEqual([event.title for event in events], ["Partido real"])
 
 
 if __name__ == "__main__":
