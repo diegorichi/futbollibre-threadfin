@@ -28,8 +28,8 @@ progress = ProgressReporter(str(PROJECT_ROOT / ".update-futbollibre.progress.jso
 runner.recover()
 mdns = MdnsAdvertiser(port=8080)
 udp_discovery = UdpDiscoveryResponder(http_port=8080)
-TV_APP_VERSION_CODE = int(os.getenv("TV_APP_VERSION_CODE", "2"))
-TV_APP_VERSION_NAME = os.getenv("TV_APP_VERSION_NAME", "0.2")
+TV_APP_VERSION_CODE = int(os.getenv("TV_APP_VERSION_CODE", "3"))
+TV_APP_VERSION_NAME = os.getenv("TV_APP_VERSION_NAME", "0.3")
 TV_APP_APK_PATH = Path(os.getenv("TV_APP_APK_PATH", PROJECT_ROOT / "output/futbol-tv-debug.apk"))
 if not TV_APP_APK_PATH.is_absolute():
     TV_APP_APK_PATH = PROJECT_ROOT / TV_APP_APK_PATH
