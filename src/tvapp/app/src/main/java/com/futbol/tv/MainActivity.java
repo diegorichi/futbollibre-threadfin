@@ -320,6 +320,9 @@ public class MainActivity extends Activity implements TvScreenView.Host {
             state = TvScreenView.PREVIEW;
         } else if (state == TvScreenView.SOURCES) {
             state = TvScreenView.EVENTS;
+        } else if (state == TvScreenView.UPDATE) {
+            pendingUpdate = null;
+            state = TvScreenView.EVENTS;
         } else if (state == TvScreenView.EVENTS || state == TvScreenView.ERROR) {
             finish();
             return;
