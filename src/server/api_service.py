@@ -50,6 +50,11 @@ def current_futbol_urls():
     return values.get("FUTBOL_LIBRE_URL") or os.getenv("FUTBOL_LIBRE_URL", "")
 
 
+def current_extra_futbol_url():
+    values = dotenv_values(urls_env_path())
+    return values.get("FUTBOL_LIBRE_EXTRA_URL") or os.getenv("FUTBOL_LIBRE_EXTRA_URL", "")
+
+
 def agenda_service():
     return AgendaService(dotenv_values(ENV_PATH))
 
@@ -57,7 +62,11 @@ def agenda_service():
 @app.get("/")
 @app.get("/ejecutar")
 def executor_page():
-    return render_template("executor.html", current_url=current_futbol_urls())
+    return render_template(
+        "executor.html",
+        current_url=current_futbol_urls(),
+        current_extra_url=current_extra_futbol_url(),
+    )
 
 
 @app.get("/canales")
@@ -89,8 +98,14 @@ def systems_page():
 def update_url():
     data = request.get_json(silent=True) or {}
     new_url = (data.get("url") or "").strip()
-    if not new_url:
+    extra_url = (data.get("extra_url") or "").strip()
+    only_extra = bool(data.get("only_extra"))
+    if not new_url and not only_extra:
         return jsonify(success=False, error="URL no proporcionada."), 400
+    if only_extra and not extra_url:
+        return jsonify(success=False, error="La URL adicional es obligatoria."), 400
+    if "," in extra_url:
+        return jsonify(success=False, error="El sitio adicional debe ser una sola URL."), 400
     if runner.is_running() or status.snapshot()["is_running"]:
         current_status = status.snapshot()
         current_status["is_running"] = True
@@ -100,9 +115,12 @@ def update_url():
     try:
         urls_file = urls_env_path()
         urls_file.parent.mkdir(parents=True, exist_ok=True)
-        set_key(str(urls_file), "FUTBOL_LIBRE_URL", new_url)
+        if not only_extra:
+            set_key(str(urls_file), "FUTBOL_LIBRE_URL", new_url)
+        set_key(str(urls_file), "FUTBOL_LIBRE_EXTRA_URL", extra_url)
         progress.reset()
-        if not runner.start("update-futbollibre.sh"):
+        arguments = ["--extra-only"] if only_extra else []
+        if not runner.start("update-futbollibre.sh", arguments):
             return jsonify(success=False, error="Ya hay una actualización en curso."), 409
         return jsonify(success=True)
     except Exception as error:

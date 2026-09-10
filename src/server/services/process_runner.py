@@ -13,14 +13,18 @@ class ProcessRunner:
         self.log_file = os.path.join(project_root, ".update-futbollibre.log")
         self._start_lock = threading.Lock()
 
-    def start(self, script_name):
+    def start(self, script_name, arguments=None):
         with self._start_lock:
             if self.is_running():
                 return False
             self._clear_log()
             if not self.status.start(f"Ejecutando {script_name}..."):
                 return False
-            thread = threading.Thread(target=self._run, args=(script_name,), daemon=True)
+            thread = threading.Thread(
+                target=self._run,
+                args=(script_name, list(arguments or [])),
+                daemon=True,
+            )
             thread.start()
             return True
 
@@ -83,12 +87,12 @@ class ProcessRunner:
         self._write_pid(pid)
         return True
 
-    def _run(self, script_name):
+    def _run(self, script_name, arguments):
         script_path = os.path.join(self.project_root, script_name)
         process = None
         try:
             process = subprocess.Popen(
-                ["bash", script_path],
+                ["bash", script_path, *arguments],
                 stdout=open(self.log_file, "a", encoding="utf-8", buffering=1),
                 stderr=subprocess.STDOUT,
                 cwd=self.project_root,

@@ -50,10 +50,12 @@ def fetch_urls() -> list[str]:
 
 def write_urls(urls: list[str]) -> None:
     URLS_FILE.parent.mkdir(parents=True, exist_ok=True)
+    extra_url = dotenv_values(URLS_FILE).get("FUTBOL_LIBRE_EXTRA_URL", "")
     temporary = URLS_FILE.with_suffix(URLS_FILE.suffix + ".tmp")
     temporary.write_text(
         "# Generado por update-futbol-libre-sites.sh; no editar manualmente.\n"
-        f'FUTBOL_LIBRE_URL="{",".join(urls)}"\n',
+        f'FUTBOL_LIBRE_URL="{",".join(urls)}"\n'
+        f'FUTBOL_LIBRE_EXTRA_URL="{extra_url}"\n',
         encoding="utf-8",
     )
     temporary.replace(URLS_FILE)

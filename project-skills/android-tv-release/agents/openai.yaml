@@ -1,0 +1,4 @@
+interface:
+  display_name: "Android TV Release"
+  short_description: "Build y verificación del cliente Android TV"
+  default_prompt: "Usá $android-tv-release para compilar, instalar o verificar el APK de Fútbol Libre."

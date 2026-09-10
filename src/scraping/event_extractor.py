@@ -6,9 +6,11 @@ from .direct_channel_strategy import DirectChannelStrategy
 from .menu_strategy import MenuStrategy
 from .structured_time_strategy import StructuredTimeStrategy
 from .agenda_time_strategy import AgendaTimeStrategy
+from .event_link_time_strategy import EventLinkTimeStrategy
 
 
 STRATEGIES = (
+    EventLinkTimeStrategy(),
     EventosHtmlStrategy(),
     AgendaPhpStrategy(),
     DirectChannelStrategy(),

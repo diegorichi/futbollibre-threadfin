@@ -14,6 +14,6 @@ source `pwd`/config.sh
 
 echo "--- Iniciando proceso diario $(date) ---"
 
-$PYTHON_VENV src/futbol.py $1
+$PYTHON_VENV src/futbol.py "$@"
 
 echo "--- Proceso finalizado ---"

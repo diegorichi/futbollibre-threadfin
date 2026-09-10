@@ -1,0 +1,4 @@
+interface:
+  display_name: "Scraping + Stream Reliability"
+  short_description: "Scraping Selenium y validación HLS resistente"
+  default_prompt: "Usá $scraping-stream-reliability para investigar o cambiar scraping, Selenium o extracción HLS."

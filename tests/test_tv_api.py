@@ -2,6 +2,7 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -99,6 +100,16 @@ https://two.test/disney.m3u8
             "2026-09-09T11:00:00-03:00",
         )
 
+    def test_agenda_hour_rolls_back_to_previous_day_after_midnight(self):
+        import futbol
+        from datetime import datetime
+
+        ahora = datetime(2026, 9, 10, 0, 38)
+        self.assertEqual(
+            futbol._hora_mas_cercana("21:30", ahora),
+            datetime(2026, 9, 9, 21, 30),
+        )
+
     def test_unavailable_placeholder_is_not_an_event_source(self):
         from server.services.channel_service import ChannelService
         with tempfile.TemporaryDirectory() as directory:
@@ -116,6 +127,37 @@ https://one.test/real.m3u8
 """, encoding="utf-8")
             events = ChannelService(xml_path, m3u_path).list_events()
             self.assertEqual([event.title for event in events], ["Partido real"])
+
+    def test_extra_site_upsert_preserves_existing_grid(self):
+        import futbol
+
+        with tempfile.TemporaryDirectory() as directory:
+            xml_path = Path(directory) / "events.xml"
+            m3u_path = Path(directory) / "events.m3u"
+            xml_path.write_text("""<?xml version=\"1.0\"?><tv>
+              <programme start=\"20260909200000 -0300\" channel=\"E01\"><title>[20:00] MLS: Partido anterior ; ESPN</title></programme>
+              <programme start=\"20260909210000 -0300\" channel=\"E02\"><title>PROXIMAMENTE: [21:00] AEW: Lucha libre ; TNT</title></programme>
+            </tv>""", encoding="utf-8")
+            m3u_path.write_text("""#EXTM3U
+#EXTINF:-1 tvg-id=\"E01\",E01
+https://old.test/partido.m3u8
+#EXTINF:-1 tvg-id=\"E02\",E02
+https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8
+""", encoding="utf-8")
+
+            with patch.object(futbol, "M3U_FILE", str(m3u_path)), \
+                    patch.object(futbol, "XML_FILE", str(xml_path)):
+                active, upcoming = futbol._fusionar_sitio_extra(
+                    [{"nombre": "MLS: Chicago Fire vs Inter Miami", "hora": "20:30", "canal": "Apple TV", "logo": "", "url": "https://new.test/mls.m3u8"}],
+                    [],
+                )
+
+            self.assertEqual(
+                [item["nombre"] for item in active],
+                ["MLS: Partido anterior", "MLS: Chicago Fire vs Inter Miami"],
+            )
+            self.assertEqual([item["nombre"] for item in upcoming], ["AEW: Lucha libre"])
+            self.assertEqual(active[0]["_stream_result"], ("https://old.test/partido.m3u8", "persistido"))
 
 
 if __name__ == "__main__":

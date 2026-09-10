@@ -8,10 +8,12 @@ from selenium.common.exceptions import WebDriverException
 import unicodedata
 import re
 import time
+import sys
 from scraping import extraer_eventos
 from scraping.browser_driver import USER_AGENT, crear_driver
 from scraping.site_scraper import extraer_eventos_de_sitios
 from scraping.stream_extractor import StreamExtractionPool
+from server.services.channel_service import ChannelService
 from progress import ProgressReporter
 
 ENV_FILE = os.getenv("ENV_FILE", ".env")
@@ -26,7 +28,9 @@ if not URLS_ENV_FILE.is_absolute():
 URLS_ENV = dotenv_values(URLS_ENV_FILE)
 
 FUTBOL_LIBRE_URL = URLS_ENV.get("FUTBOL_LIBRE_URL") or os.getenv("FUTBOL_LIBRE_URL")
+FUTBOL_LIBRE_EXTRA_URL = URLS_ENV.get("FUTBOL_LIBRE_EXTRA_URL") or os.getenv("FUTBOL_LIBRE_EXTRA_URL", "")
 M3U_FILE = os.getenv("M3U_FILE")
+XML_FILE = os.getenv("XML_FILE")
 TV_EVENTS_FILE = os.getenv("TV_EVENTS_FILE")
 THREADFIN_API_URL = os.getenv("THREADFIN_API_URL", "http://localhost:34400/api/")
 NTFY_URL = os.getenv("NTFY_URL")
@@ -105,12 +109,24 @@ def sanitizar_nombre(texto):
     # 4. Limpiar los bordes
     return texto.strip()
 
+def _hora_mas_cercana(hora_str, ahora=None):
+    """Asocia una hora de agenda al día más cercano al momento actual."""
+    ahora = ahora or datetime.now()
+    hora_obj = datetime.strptime(hora_str, "%H:%M").replace(
+        year=ahora.year, month=ahora.month, day=ahora.day
+    )
+    diferencia = hora_obj - ahora
+    if diferencia > timedelta(hours=12):
+        hora_obj -= timedelta(days=1)
+    elif diferencia < timedelta(hours=-12):
+        hora_obj += timedelta(days=1)
+    return hora_obj
+
+
 def es_proximo(hora_str):
     try:
         ahora = datetime.now()
-        hora_obj = datetime.strptime(hora_str, "%H:%M").replace(
-            year=ahora.year, month=ahora.month, day=ahora.day
-        )
+        hora_obj = _hora_mas_cercana(hora_str, ahora)
         # Eventos activos: desde hace 2.5 horas hasta 30 mins en el futuro
         return (ahora + timedelta(minutes=30)) <= hora_obj or hora_str == "23:59"
     except:
@@ -119,11 +135,11 @@ def es_proximo(hora_str):
 def es_activo(hora_str):
     try:
         ahora = datetime.now()
-        hora_obj = datetime.strptime(hora_str, "%H:%M").replace(
-            year=ahora.year, month=ahora.month, day=ahora.day
-        )
+        hora_obj = _hora_mas_cercana(hora_str, ahora)
+        inicio = ahora - timedelta(hours=3, minutes=30)
+        fin = ahora + timedelta(minutes=30)
         # Eventos activos: desde hace 2.5 horas hasta 30 mins en el futuro
-        return (ahora - timedelta(hours=2, minutes=30)) <= hora_obj <= (ahora + timedelta(minutes=30))
+        return inicio <= hora_obj <= fin
     except:
         return False
 
@@ -179,7 +195,126 @@ def generar_tv_events(eventos, events_path):
     with open(events_path, "w", encoding="utf-8") as output:
         json.dump({"api_version": "v1", "events": eventos}, output, ensure_ascii=False, indent=2)
 
-def extraer_todo_futbol_libre():
+
+def _clave_evento_salida(nombre, hora):
+    nombre = re.sub(r"^PROXIMAMENTE:\s*", "", nombre or "", flags=re.IGNORECASE)
+    nombre = re.sub(r"^\[\d{2}:\d{2}\]\s*", "", nombre)
+    nombre = nombre.split(";", 1)[0].strip()
+    nombre = unicodedata.normalize("NFKD", nombre)
+    nombre = "".join(caracter for caracter in nombre if not unicodedata.combining(caracter))
+    nombre = re.sub(r"[^a-zA-Z0-9]+", " ", nombre).strip().lower()
+    return nombre, hora
+
+
+def _canales_existentes():
+    """Lee la grilla publicada para poder hacer upsert en modo extra."""
+    if not M3U_FILE or not Path(M3U_FILE).exists():
+        return []
+    xml_path = XML_FILE or M3U_FILE.replace(".m3u", ".xml")
+    if not Path(xml_path).exists():
+        return []
+    try:
+        return ChannelService(xml_path, M3U_FILE).list_channels()
+    except (OSError, ValueError):
+        return []
+
+
+def _fusionar_sitio_extra(en_vivo, proximos):
+    """Conserva la grilla anterior y agrega/reemplaza lo descubierto."""
+    existentes = _canales_existentes()
+    if not existentes:
+        return en_vivo, proximos
+
+    nuevas_activas = {
+        _clave_evento_salida(item.get("nombre"), item.get("hora"))
+        for item in en_vivo
+    }
+    en_vivo_nuevo = list(en_vivo)
+    en_vivo = []
+    claves_activas = set()
+    urls_activas = set()
+    conservados = 0
+
+    for canal in existentes:
+        clave = _clave_evento_salida(canal.nombre, canal.hora)
+        if canal.proximamente:
+            if clave not in nuevas_activas:
+                proximos.append({
+                    "nombre": canal.nombre,
+                    "hora": canal.hora,
+                    "logo": canal.logo,
+                    "opciones": [],
+                })
+            continue
+
+        if not canal.link or canal.link == SINTEL_URL or canal.link in urls_activas:
+            continue
+        if clave in nuevas_activas:
+            continue
+        en_vivo.append({
+            "nombre": f"{canal.torneo}: {canal.match}" if canal.torneo else canal.match,
+            "hora": canal.hora,
+            "canal": canal.canal,
+            "logo": canal.logo,
+            "url": canal.link,
+            "_stream_result": (canal.link, "persistido"),
+        })
+        urls_activas.add(canal.link)
+        claves_activas.add(clave)
+        conservados += 1
+
+    for item in en_vivo_nuevo:
+        if item.get("url") in urls_activas:
+            continue
+        en_vivo.append(item)
+        urls_activas.add(item.get("url"))
+        claves_activas.add(_clave_evento_salida(item.get("nombre"), item.get("hora")))
+
+    unicos_proximos = []
+    claves_proximas = set()
+    for evento in proximos:
+        clave = _clave_evento_salida(evento.get("nombre"), evento.get("hora"))
+        if clave in claves_activas or clave in claves_proximas:
+            continue
+        claves_proximas.add(clave)
+        unicos_proximos.append(evento)
+
+    if conservados:
+        print(f"Upsert extra: {conservados} canales existentes conservados.")
+    return en_vivo, unicos_proximos
+
+
+def _fusionar_eventos_tv(eventos_tv, events_path):
+    """Conserva el catálogo JSON anterior y reemplaza claves redescubiertas."""
+    if not events_path or not Path(events_path).exists():
+        return eventos_tv
+    try:
+        with open(events_path, encoding="utf-8") as source:
+            anteriores = json.load(source).get("events", [])
+    except (OSError, json.JSONDecodeError, AttributeError):
+        return eventos_tv
+
+    nuevos_por_clave = {
+        _clave_evento_salida(evento.get("title"), evento.get("starts_at", "")[:16]): evento
+        for evento in eventos_tv
+    }
+    fusionados = []
+    claves = set()
+    for evento in anteriores:
+        clave = _clave_evento_salida(evento.get("title"), evento.get("starts_at", "")[:16])
+        reemplazo = nuevos_por_clave.pop(clave, None)
+        elegido = reemplazo or evento
+        if clave not in claves:
+            fusionados.append(elegido)
+            claves.add(clave)
+    for evento in nuevos_por_clave.values():
+        clave = _clave_evento_salida(evento.get("title"), evento.get("starts_at", "")[:16])
+        if clave not in claves:
+            fusionados.append(evento)
+            claves.add(clave)
+    return fusionados
+
+def extraer_todo_futbol_libre(extra_only=False):
     driver = crear_driver()
     stream_pool = None
     progress = ProgressReporter(PROGRESS_FILE)
@@ -187,7 +322,14 @@ def extraer_todo_futbol_libre():
 
     try:
 
-        urls_to_try = [url.strip() for url in FUTBOL_LIBRE_URL.split(",") if url.strip()]
+        extra_url = FUTBOL_LIBRE_EXTRA_URL.strip()
+        if extra_only:
+            if not extra_url:
+                raise RuntimeError("No hay un sitio adicional configurado.")
+            urls_to_try = [extra_url]
+            print(f"Modo sitio adicional: procesando únicamente {extra_url}")
+        else:
+            urls_to_try = [url.strip() for url in (FUTBOL_LIBRE_URL or "").split(",") if url.strip()]
 
         urls_validas = []
         urls_invalidas = []
@@ -238,13 +380,14 @@ def extraer_todo_futbol_libre():
         # 1. Separar los que estan EN VIVO de los que son PROXIMAMENTE
         en_vivo = []
         proximos = []
-        
         for ev in eventos_raw:
             ev['nombre'] = sanitizar_nombre(ev['nombre'])
             if ev['hora'] == '00:00': 
                 ev['hora'] = '23:59'
             if es_activo(ev['hora']):
                 for opt in ev['opciones']:
+                    if "MLS" in ev['nombre']: 
+                        print(f"opcion: {opt}, nombre {ev['nombre']}")
                     en_vivo.append({'nombre': ev['nombre'], 'hora': ev['hora'], 'canal': opt['canal'], 'logo': ev['logo'], 'url': opt['url']})
             else:
                 if (es_proximo(ev['hora'])):
@@ -332,6 +475,8 @@ def extraer_todo_futbol_libre():
             if resultados_stream[item["url"]][0]
         ]
         streams_sin_resultado = streams_antes_del_filtro - len(en_vivo)
+        if extra_only:
+            en_vivo, proximos = _fusionar_sitio_extra(en_vivo, proximos)
         print(f"Streams candidatos activos: {streams_antes_del_filtro}")
         print(f"Streams válidos encontrados: {len(en_vivo)}")
         print(f"Streams descartados por falta de URL: {streams_sin_resultado}")
@@ -361,7 +506,10 @@ def extraer_todo_futbol_libre():
 
                 try:
                     print(f"buscando m3u de: {item['nombre']}, {item['url']}")
-                    link_stream, origen = stream_pool.result(item['url'])
+                    if "_stream_result" in item:
+                        link_stream, origen = item["_stream_result"]
+                    else:
+                        link_stream, origen = stream_pool.result(item['url'])
                     if link_stream:
                         print(f"Stream encontrado vía {origen}: {link_stream}")
                         nombre_txt = f"[{hora_inicio_evento}] {item['nombre']} ; {item['canal']}"
@@ -424,6 +572,8 @@ def extraer_todo_futbol_libre():
         print(f"Streams finales escritos en M3U: {streams_finales}")
         XML_FILE = M3U_FILE.replace(".m3u", ".xml")
         events_file = TV_EVENTS_FILE or M3U_FILE.replace(".m3u", ".json")
+        if extra_only:
+            eventos_tv = _fusionar_eventos_tv(eventos_tv, events_file)
         # Guardamos para el XML
         generar_xmltv(datos_para_xml, XML_FILE)
 
@@ -476,4 +626,4 @@ def extraer_todo_futbol_libre():
                 pass
 
 if __name__ == "__main__":
-    extraer_todo_futbol_libre()
+    extraer_todo_futbol_libre(extra_only="--extra-only" in sys.argv[1:])

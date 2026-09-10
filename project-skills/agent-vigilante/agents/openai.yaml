@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Vigilante"
+  short_description: "Criterio crítico y verificación contra supuestos"
+  default_prompt: "Usá $agent-vigilante para revisar esta propuesta, detectar supuestos débiles y buscar qué podría fallar."

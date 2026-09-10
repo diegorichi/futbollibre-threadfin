@@ -79,10 +79,42 @@ function updateUrl() {
   const status = document.getElementById('status');
   const tail = document.getElementById('tail');
   const url = document.getElementById('url').value.trim();
+  const extraUrl = document.getElementById('extra-url').value.trim();
   if (!url) return setStatus(status, 'La URL es obligatoria.', 'error');
   button.disabled = true;
   tail.textContent = '';
-  fetch('/update-url', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({url}) })
+  fetch('/update-url', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({url, extra_url: extraUrl}) })
+    .then(response => response.json().then(data => ({ok: response.ok, data})))
+    .then(result => {
+      if (!result.ok && result.data.running) {
+        tail.textContent = (result.data.status.output || []).join('\n');
+        updateProgress(result.data.status.progress);
+        poller = setInterval(() => pollStatus(button, status, tail), 1000);
+        throw new Error('Ya hay un proceso corriendo; mostrando su log.');
+      }
+      if (!result.ok) throw new Error(result.data.error || 'No se pudo iniciar.');
+      poller = setInterval(() => pollStatus(button, status, tail), 1000);
+    }).catch(error => {
+      if (!error.message.startsWith('Ya hay un proceso')) {
+        button.disabled = false;
+        setStatus(status, error.message, 'error');
+      }
+    });
+}
+
+function processExtra() {
+  const button = document.getElementById('run-extra');
+  const status = document.getElementById('status');
+  const tail = document.getElementById('tail');
+  const extraUrl = document.getElementById('extra-url').value.trim();
+  if (!extraUrl) return setStatus(status, 'La URL adicional es obligatoria.', 'error');
+  button.disabled = true;
+  tail.textContent = '';
+  fetch('/update-url', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({extra_url: extraUrl, only_extra: true})
+  })
     .then(response => response.json().then(data => ({ok: response.ok, data})))
     .then(result => {
       if (!result.ok && result.data.running) {

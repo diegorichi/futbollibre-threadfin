@@ -5,8 +5,11 @@
   <p class="muted">Guarda la URL y ejecuta la actualización de Fútbol Libre.</p>
   <label for="url">FUTBOL_LIBRE_URL</label>
   <input id="url" value="{{ current_url }}" placeholder="https://ejemplo.com/">
+  <label for="extra-url">Sitio adicional manual (opcional)</label>
+  <input id="extra-url" value="{{ current_extra_url }}" placeholder="https://otro-sitio.example/">
   <div class="actions">
     <button id="run" onclick="updateUrl()">Actualizar y sincronizar</button>
+    <button id="run-extra" onclick="processExtra()">Procesar sitio adicional</button>
     <button id="stop" class="danger" onclick="stopUpdate()">Detener proceso actual</button>
   </div>
   <p id="status" class="status"></p>
