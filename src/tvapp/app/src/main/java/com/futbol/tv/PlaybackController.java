@@ -9,6 +9,7 @@ import androidx.media3.common.MediaItem;
 import androidx.media3.common.PlaybackException;
 import androidx.media3.common.Player;
 import androidx.media3.datasource.DefaultHttpDataSource;
+import androidx.media3.exoplayer.DefaultLoadControl;
 import androidx.media3.exoplayer.ExoPlayer;
 import androidx.media3.exoplayer.hls.HlsMediaSource;
 import androidx.media3.ui.PlayerView;
@@ -21,6 +22,11 @@ public final class PlaybackController {
 
     private static final float PIP_WIDTH_PERCENT = 0.15f;
     private static final int PIP_MARGIN_DP = 24;
+    // Tolerates short interruptions without making startup excessively slow.
+    private static final int MIN_BUFFER_MS = 50_000;
+    private static final int MAX_BUFFER_MS = 120_000;
+    private static final int BUFFER_FOR_PLAYBACK_MS = 2_500;
+    private static final int BUFFER_AFTER_REBUFFER_MS = 5_000;
     private final Context context;
     private final PlayerView mainView;
     private final PlayerView pipView;
@@ -141,7 +147,15 @@ public final class PlaybackController {
         DefaultHttpDataSource.Factory http = new DefaultHttpDataSource.Factory()
                 .setAllowCrossProtocolRedirects(true)
                 .setUserAgent(source.userAgent == null ? "FutbolTV/0.1" : source.userAgent);
+        DefaultLoadControl loadControl = new DefaultLoadControl.Builder()
+                .setBufferDurationsMs(
+                        MIN_BUFFER_MS,
+                        MAX_BUFFER_MS,
+                        BUFFER_FOR_PLAYBACK_MS,
+                        BUFFER_AFTER_REBUFFER_MS)
+                .build();
         ExoPlayer result = new ExoPlayer.Builder(context)
+                .setLoadControl(loadControl)
                 .setMediaSourceFactory(new HlsMediaSource.Factory(http)).build();
         result.setMediaItem(MediaItem.fromUri(source.url));
         result.setVolume(muted ? 0f : 1f);

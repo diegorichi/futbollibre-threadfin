@@ -9,9 +9,9 @@ android {
         applicationId "com.futbol.tv"
         minSdk 23
         targetSdk 35
-        versionCode 3
-        versionName "0.3"
-        buildConfigField "int", "APP_VERSION_CODE", "3"
+        versionCode 4
+        versionName "0.4"
+        buildConfigField "int", "APP_VERSION_CODE", "4"
     }
 }
 
