@@ -10,8 +10,8 @@ class MenuStrategy:
             return Array.from(document.querySelectorAll('#menu > li')).map(li => ({
                 nombre: li.querySelector('div span')
                     ? li.querySelector('div span').textContent.trim() : '',
-                hora: li.querySelector('div div time')
-                    ? li.querySelector('div div time').textContent.trim() : '00:00',
+                hora: li.querySelector('div time, div div time')
+                    ? li.querySelector('div time, div div time').textContent.trim() : '00:00',
                 logo: li.querySelector('div div img')
                     ? li.querySelector('div div img').src : '',
                 opciones: Array.from(li.querySelectorAll('ul a')).map(a => ({

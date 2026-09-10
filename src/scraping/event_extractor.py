@@ -5,6 +5,7 @@ from .agenda_php_strategy import AgendaPhpStrategy
 from .direct_channel_strategy import DirectChannelStrategy
 from .menu_strategy import MenuStrategy
 from .structured_time_strategy import StructuredTimeStrategy
+from .agenda_time_strategy import AgendaTimeStrategy
 
 
 STRATEGIES = (
@@ -12,6 +13,7 @@ STRATEGIES = (
     AgendaPhpStrategy(),
     DirectChannelStrategy(),
     StructuredTimeStrategy(),
+    AgendaTimeStrategy(),
     MenuStrategy(),
 )
 
