@@ -31,13 +31,12 @@ class ChannelService:
             title = programme.findtext("title") or ""
             if "Slot Libre" in title:
                 continue
-            title_match = re.search(r"\[(\d{2}:\d{2})\]\s*(.*)", title)
+            title_match = re.search(r"(?:PROXIMAMENTE:\s*)?\[(\d{2}:\d{2})\]\s*(.*)", title)
             if not title_match:
                 continue
             channel_id = programme.get("channel")
             description = title_match.group(2).strip()
-            proximamente = description.startswith("PROXIMAMENTE:")
-            description = description.replace("PROXIMAMENTE: ", "", 1).strip()
+            proximamente = title.startswith("PROXIMAMENTE:")
             event_and_channel = description.split(";", 1)
             event_name = event_and_channel[0].strip()
             channel_name = event_and_channel[1].strip() if len(event_and_channel) > 1 else ""
@@ -69,15 +68,13 @@ class ChannelService:
             title = programme.findtext("title") or ""
             if "Slot Libre" in title:
                 continue
-            title_match = re.search(r"\[(\d{2}:\d{2})\]\s*(.*)", title)
+            title_match = re.search(r"(?:PROXIMAMENTE:\s*)?\[(\d{2}:\d{2})\]\s*(.*)", title)
             if not title_match:
                 continue
 
             channel_id = programme.get("channel") or ""
             description = title_match.group(2).strip()
-            is_upcoming = description.startswith("PROXIMAMENTE:")
-            if is_upcoming:
-                description = description.replace("PROXIMAMENTE:", "", 1).strip()
+            is_upcoming = title.startswith("PROXIMAMENTE:")
             event_name, separator, channel_name = description.partition(";")
             event_name = event_name.strip()
             channel_name = channel_name.strip() if separator else ""
