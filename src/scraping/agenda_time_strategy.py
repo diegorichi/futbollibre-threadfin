@@ -30,23 +30,21 @@ class AgendaTimeStrategy:
                 const descripcion = bloque.querySelector('.descripcion');
                 const nombre = descripcion
                     ? descripcion.textContent.replace(/\\s+/g, ' ').trim()
-                    : (() => {
-                        const clon = bloque.cloneNode(true);
-                        clon.querySelectorAll('time, img, ul, .flecha').forEach(node => node.remove());
-                        return clon.textContent.replace(/\\s+/g, ' ').trim();
-                    })();
+                    : Array.from(bloque.querySelectorAll('span'))
+                        .filter(span => !span.closest('a'))
+                        .map(span => span.textContent.replace(/\\s+/g, ' ').trim())
+                        .filter(texto => texto && texto !== '▼')
+                        .sort((a, b) => b.length - a.length)[0] || '';
                 if (!nombre) continue;
 
                 const opciones = Array.from(bloque.querySelectorAll('a[href]'))
                     .map(anchor => ({
                         url: anchor.href,
-                        canal: (() => {
-                            const clon = anchor.cloneNode(true);
-                            clon.querySelectorAll('.play').forEach(node => node.remove());
-                            return clon.textContent.replace(/\\s+/g, ' ').trim() || 'Opción';
-                        })()
+                        canal: anchor.querySelector('span:not(.play)')?.textContent
+                            .replace(/\\s+/g, ' ').trim() ||
+                            anchor.textContent.replace(/\\s+/g, ' ').trim() || 'Opción'
                     }))
-                    .filter(opcion => /(?:\\/en-vivo\\/|eventos(?:12)?\\.(?:html|php))/i.test(opcion.url));
+                    .filter(opcion => /\\/event/i.test(opcion.url));
 
                 const clave = `${nombre}|${hora}|${opciones.map(opcion => opcion.url).join(',')}`;
                 if (resultado.some(evento => evento.clave === clave)) continue;
