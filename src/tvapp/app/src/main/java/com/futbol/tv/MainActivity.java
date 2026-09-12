@@ -10,6 +10,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.View;
+import android.content.res.Configuration;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
@@ -332,7 +333,7 @@ public class MainActivity extends Activity implements TvScreenView.Host {
         screen.invalidate();
     }
 
-    private void tap(float y) {
+    private void tap(float x, float y) {
         if (state == TvScreenView.EVENTS && !events.isEmpty()) {
             int item = eventOffset + (int) ((y - 115) / 52);
             if (item >= 0 && item < events.size()) { selectedEvent = item; showSources(); }
@@ -346,8 +347,16 @@ public class MainActivity extends Activity implements TvScreenView.Host {
             int item = pipSourceOffset + (int) ((y - 145) / 48);
             if (item >= 0 && item < events.get(pipEvent).sources.size()) { pipSource = item; startPip(events.get(pipEvent).sources.get(item)); }
         } else if (state == TvScreenView.PREVIEW && playback.isReady()) {
-            state = TvScreenView.PLAYER;
-            playback.enterFullscreen();
+            // La acción de la derecha del panel inferior agrega PiP; el resto
+            // abre el reproductor principal, igual que OK en el control remoto.
+            boolean pip = x >= (screen.getWidth() / screen.getResources().getDisplayMetrics().density) / 2f
+                    && y >= (screen.getHeight() / screen.getResources().getDisplayMetrics().density) - 145f;
+            if (pip) {
+                openPipEventPicker();
+            } else {
+                state = TvScreenView.PLAYER;
+                playback.enterFullscreen();
+            }
             screen.invalidate();
         }
     }
@@ -374,7 +383,7 @@ public class MainActivity extends Activity implements TvScreenView.Host {
     @Override public String updateVersion() { return pendingUpdate == null ? "" : pendingUpdate.versionName; }
     @Override public String updateStatus() { return updateStatus; }
     @Override public void onBack() { back(); }
-    @Override public void onTouch(float y) { tap(y); }
+    @Override public void onTouch(float x, float y) { tap(x, y); }
 
     @Override public void onDpad(int keyCode) {
         if (state == TvScreenView.ERROR && (keyCode == KeyEvent.KEYCODE_DPAD_CENTER || keyCode == KeyEvent.KEYCODE_ENTER)) { discoverServer(); return; }
@@ -443,6 +452,12 @@ public class MainActivity extends Activity implements TvScreenView.Host {
     }
 
     @Override public void onBackPressed() { back(); }
+
+    @Override public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        playback.onConfigurationChanged();
+        screen.invalidate();
+    }
 
     @Override protected void onStop() {
         super.onStop();

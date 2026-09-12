@@ -27,7 +27,7 @@ public final class TvScreenView extends View {
         int pipEvent(); int pipEventOffset(); int pipSource(); int pipSourceOffset();
         int previewAction(); String playerMessage(); Bitmap logo(String url); String playbackLabel();
         String updateVersion(); String updateStatus();
-        void onBack(); void onDpad(int keyCode); void onConfirm(); void onTouch(float y);
+        void onBack(); void onDpad(int keyCode); void onConfirm(); void onTouch(float x, float y);
     }
 
     private final Host host;
@@ -156,5 +156,14 @@ public final class TvScreenView extends View {
         return true;
     }
 
-    @Override public boolean onTouchEvent(MotionEvent event) { if (event.getAction() == MotionEvent.ACTION_UP) host.onTouch(event.getY() / density); return true; }
+    @Override public boolean onTouchEvent(MotionEvent event) {
+        // Durante reproducción esta vista es transparente y no debe tapar los
+        // gestos/controles táctiles del PlayerView que está debajo.
+        int state = host.state();
+        if (state == PLAYER || state == DUAL) return false;
+        if (event.getAction() == MotionEvent.ACTION_UP) {
+            host.onTouch(event.getX() / density, event.getY() / density);
+        }
+        return true;
+    }
 }

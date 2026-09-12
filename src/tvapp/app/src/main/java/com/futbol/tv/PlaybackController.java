@@ -13,6 +13,7 @@ import androidx.media3.exoplayer.DefaultLoadControl;
 import androidx.media3.exoplayer.ExoPlayer;
 import androidx.media3.exoplayer.hls.HlsMediaSource;
 import androidx.media3.ui.PlayerView;
+import androidx.media3.ui.AspectRatioFrameLayout;
 
 import com.futbol.tv.model.Source;
 
@@ -39,6 +40,8 @@ public final class PlaybackController {
         this.mainView = mainView;
         this.pipView = pipView;
         this.listener = listener;
+        mainView.setResizeMode(AspectRatioFrameLayout.RESIZE_MODE_FIT);
+        pipView.setResizeMode(AspectRatioFrameLayout.RESIZE_MODE_FIT);
     }
 
     public void preview(Source source) {
@@ -142,6 +145,16 @@ public final class PlaybackController {
     }
 
     public void release() { releaseAll(); }
+
+    public void onConfigurationChanged() {
+        if (pip != null) setDualBounds();
+        else if (primary != null && mainView.getVisibility() == View.VISIBLE) {
+            // El video conserva su relación 16:9 dentro de la nueva pantalla,
+            // incluso cuando el teléfono queda en modo vertical.
+            if (mainView.getLayoutParams().width == -1) setFullscreenBounds();
+            else setPreviewBounds();
+        }
+    }
 
     private ExoPlayer buildPlayer(Source source, boolean muted) {
         DefaultHttpDataSource.Factory http = new DefaultHttpDataSource.Factory()
