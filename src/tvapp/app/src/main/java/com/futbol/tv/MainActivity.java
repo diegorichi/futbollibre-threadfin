@@ -186,7 +186,7 @@ public class MainActivity extends Activity implements TvScreenView.Host {
                     events.addAll(loaded);
                     if (showLoading) state = TvScreenView.EVENTS;
                     selectedEvent = NavigationState.clamp(selectedEvent, events.size());
-                    eventOffset = NavigationState.offsetFor(selectedEvent, events.size(), 8, 5);
+                    eventOffset = NavigationState.offsetFor(selectedEvent, events.size(), screen.visibleRows(), listFocusPosition());
                     screen.invalidate();
                     for (Event event : loaded) loadLogo(event);
                     checkForUpdate();
@@ -271,7 +271,7 @@ public class MainActivity extends Activity implements TvScreenView.Host {
             return;
         }
         pipEvent = pipEvent == selectedEvent ? (selectedEvent + 1) % events.size() : pipEvent;
-        pipEventOffset = NavigationState.offsetFor(pipEvent, events.size(), 8, 5);
+        pipEventOffset = NavigationState.offsetFor(pipEvent, events.size(), screen.visibleRows(), listFocusPosition());
         state = TvScreenView.PIP_EVENTS;
         screen.invalidate();
     }
@@ -334,8 +334,12 @@ public class MainActivity extends Activity implements TvScreenView.Host {
     }
 
     private void tap(float x, float y) {
-        if (state == TvScreenView.EVENTS && !events.isEmpty()) {
-            int item = eventOffset + (int) ((y - 115) / 52);
+        if (state == TvScreenView.ERROR) {
+            discoverServer();
+        } else if (state == TvScreenView.UPDATE) {
+            installPendingUpdate();
+        } else if (state == TvScreenView.EVENTS && !events.isEmpty()) {
+            int item = eventOffset + (int) ((y - (screen.isCompactLayout() ? screen.compactEventListTopDp() - 44 : 115)) / (screen.isCompactLayout() ? screen.compactEventRowDp() : 52));
             if (item >= 0 && item < events.size()) { selectedEvent = item; showSources(); }
         } else if (state == TvScreenView.SOURCES && !events.isEmpty()) {
             int item = sourceOffset + (int) ((y - 145) / 48);
@@ -361,6 +365,15 @@ public class MainActivity extends Activity implements TvScreenView.Host {
         }
     }
 
+    private int listFocusPosition() { return Math.max(0, screen.visibleRows() - 3); }
+
+    private void refreshListOffsets() {
+        eventOffset = NavigationState.offsetFor(selectedEvent, events.size(), screen.visibleRows(), listFocusPosition());
+        sourceOffset = events.isEmpty() ? 0 : NavigationState.offsetFor(selectedSource, events.get(selectedEvent).sources.size(), screen.visibleRows(), listFocusPosition());
+        pipEventOffset = NavigationState.offsetFor(pipEvent, events.size(), screen.visibleRows(), listFocusPosition());
+        pipSourceOffset = events.isEmpty() ? 0 : NavigationState.offsetFor(pipSource, events.get(pipEvent).sources.size(), screen.visibleRows(), listFocusPosition());
+    }
+
     @Override public int state() { return state; }
     @Override public List<Event> events() { return events; }
     @Override public int selectedEvent() { return selectedEvent; }
@@ -384,6 +397,9 @@ public class MainActivity extends Activity implements TvScreenView.Host {
     @Override public String updateStatus() { return updateStatus; }
     @Override public void onBack() { back(); }
     @Override public void onTouch(float x, float y) { tap(x, y); }
+    @Override public void onSwipe(boolean down) {
+        onDpad(down ? KeyEvent.KEYCODE_DPAD_DOWN : KeyEvent.KEYCODE_DPAD_UP);
+    }
 
     @Override public void onDpad(int keyCode) {
         if (state == TvScreenView.ERROR && (keyCode == KeyEvent.KEYCODE_DPAD_CENTER || keyCode == KeyEvent.KEYCODE_ENTER)) { discoverServer(); return; }
@@ -391,11 +407,11 @@ public class MainActivity extends Activity implements TvScreenView.Host {
             int direction = keyCode == KeyEvent.KEYCODE_DPAD_UP ? -1 : 1;
             if (state == TvScreenView.EVENTS && !events.isEmpty()) {
                 selectedEvent = NavigationState.clamp(selectedEvent + direction, events.size());
-                eventOffset = NavigationState.offsetFor(selectedEvent, events.size(), 8, 5);
+                eventOffset = NavigationState.offsetFor(selectedEvent, events.size(), screen.visibleRows(), listFocusPosition());
             }
             if (state == TvScreenView.SOURCES && !events.isEmpty() && !events.get(selectedEvent).sources.isEmpty()) {
                 selectedSource = NavigationState.clamp(selectedSource + direction, events.get(selectedEvent).sources.size());
-                sourceOffset = NavigationState.offsetFor(selectedSource, events.get(selectedEvent).sources.size(), 8, 4);
+                sourceOffset = NavigationState.offsetFor(selectedSource, events.get(selectedEvent).sources.size(), screen.visibleRows(), listFocusPosition());
             }
             if (state == TvScreenView.PREVIEW && !events.isEmpty() && !events.get(selectedEvent).sources.isEmpty()) {
                 selectedSource = NavigationState.clamp(selectedSource + direction, events.get(selectedEvent).sources.size());
@@ -408,11 +424,11 @@ public class MainActivity extends Activity implements TvScreenView.Host {
             }
             if (state == TvScreenView.PIP_EVENTS && !events.isEmpty()) {
                 pipEvent = NavigationState.clamp(pipEvent + direction, events.size());
-                pipEventOffset = NavigationState.offsetFor(pipEvent, events.size(), 8, 5);
+                pipEventOffset = NavigationState.offsetFor(pipEvent, events.size(), screen.visibleRows(), listFocusPosition());
             }
             if (state == TvScreenView.PIP_SOURCES && !events.get(pipEvent).sources.isEmpty()) {
                 pipSource = NavigationState.clamp(pipSource + direction, events.get(pipEvent).sources.size());
-                pipSourceOffset = NavigationState.offsetFor(pipSource, events.get(pipEvent).sources.size(), 8, 4);
+                pipSourceOffset = NavigationState.offsetFor(pipSource, events.get(pipEvent).sources.size(), screen.visibleRows(), listFocusPosition());
             }
             screen.invalidate(); return;
         }
@@ -456,6 +472,7 @@ public class MainActivity extends Activity implements TvScreenView.Host {
     @Override public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         playback.onConfigurationChanged();
+        refreshListOffsets();
         screen.invalidate();
     }
 

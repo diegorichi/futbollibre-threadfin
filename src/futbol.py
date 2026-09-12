@@ -94,6 +94,15 @@ def actualizar_urls_y_notificar(urls_validas, urls_invalidas):
     else:
         print("NTFY_URL no configurada; no se envió aviso.")
 
+
+def urls_sin_eventos(urls, sitios_ok):
+    """Devuelve sitios que cargaron, pero no aportaron ningún evento."""
+    eventos_por_url = {
+        sitio["url"]: sitio.get("eventos", 0)
+        for sitio in sitios_ok
+    }
+    return [url for url in urls if eventos_por_url.get(url) == 0]
+
 def sanitizar_nombre(texto):
     if not texto:
         return ""
@@ -348,8 +357,6 @@ def extraer_todo_futbol_libre(extra_only=False):
                 urls_invalidas.append(url)
                 print(f"Fallo inesperado en {url}: {type(error).__name__}: {error}")
 
-        actualizar_urls_y_notificar(urls_validas, urls_invalidas)
-
         if not urls_validas:
             print("Ningún dominio de la lista está operativo. Revisar el .env.")
             progress.fail("Ningún dominio de la lista está operativo.")
@@ -366,6 +373,16 @@ def extraer_todo_futbol_libre(extra_only=False):
             progress_callback=lambda completed, total, url: progress.update(
                 "sites", completed, total, f"Sitio parseado: {url}"
             ),
+        )
+        sitios_sin_eventos = [] if extra_only else urls_sin_eventos(urls_validas, sitios_ok)
+        if sitios_sin_eventos:
+            print("Sitios eliminados por no detectar eventos:")
+            for url in sitios_sin_eventos:
+                print(f"  {url}")
+        urls_validas_finales = [url for url in urls_validas if url not in sitios_sin_eventos]
+        actualizar_urls_y_notificar(
+            urls_validas_finales,
+            urls_invalidas + sitios_sin_eventos,
         )
         total_eventos_extraidos = sum(sitio["eventos"] for sitio in sitios_ok)
         print(f"Eventos detectados sin filtros: {total_eventos_extraidos}")

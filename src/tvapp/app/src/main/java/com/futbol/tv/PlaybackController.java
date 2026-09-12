@@ -197,7 +197,11 @@ public final class PlaybackController {
     }
 
     private void setPreviewBounds() {
-        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(dp(640), dp(360));
+        int availableWidth = context.getResources().getDisplayMetrics().widthPixels - dp(32);
+        int availableHeight = context.getResources().getDisplayMetrics().heightPixels - dp(220);
+        int width = Math.min(dp(640), availableWidth);
+        int height = Math.min(Math.round(width * 9f / 16f), Math.max(dp(120), availableHeight));
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(width, height);
         params.gravity = Gravity.CENTER;
         mainView.setLayoutParams(params);
     }
