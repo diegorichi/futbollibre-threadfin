@@ -20,11 +20,10 @@ Usá este skill cuando la tarea afecte más de un límite del sistema o pueda ro
 - Scraping, extracción de eventos, HLS, M3U/XML/JSON y progreso: leer las secciones de scraping y publicación.
 - Flask, procesos, cron, mDNS/UDP y API: leer servidor y descubrimiento.
 - APK, instalación, actualización, reproducción, visualización y PiP: leer cliente Android TV.
-- Home Assistant y NTFY: leer integraciones; no confundir notificación de cambios de URLs con notificación de agenda.
+- NTFY: leer la integración opcional; no confundir notificación de cambios de URLs con notificación de agenda.
 
 ## Límites que no se deben inventar
 
 - NTFY no es la salida principal del scraping: el scraper lo usa para avisar cambios reales en URLs inválidas; la agenda usa NTFY mediante `AgendaService`.
-- Home Assistant no descubre el servidor de la TV: publica la agenda mediante un endpoint configurado; el cliente descubre Flask por mDNS o UDP broadcast.
 - El PiP actual es dual playback dentro de la Activity, con un segundo `PlayerView` muteado. No es evidencia de soporte de Android system PiP (`Picture-in-Picture`).
 - La extracción de eventos no prueba que un stream sea reproducible: una fuente solo entra como disponible si se obtiene una URL HLS válida.

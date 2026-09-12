@@ -24,7 +24,10 @@ load_dotenv(ENV_PATH)
 app = Flask(__name__)
 status = TaskStatus()
 runner = ProcessRunner(str(PROJECT_ROOT), status)
-progress = ProgressReporter(str(PROJECT_ROOT / ".update-futbollibre.progress.json"))
+PROGRESS_PATH = Path(os.getenv("PROGRESS_FILE", PROJECT_ROOT / ".update-futbollibre.progress.json"))
+if not PROGRESS_PATH.is_absolute():
+    PROGRESS_PATH = PROJECT_ROOT / PROGRESS_PATH
+progress = ProgressReporter(str(PROGRESS_PATH))
 runner.recover()
 mdns = MdnsAdvertiser(port=8080)
 udp_discovery = UdpDiscoveryResponder(http_port=8080)
@@ -218,9 +221,7 @@ def tv_app_download():
 @app.post("/system-update/<target>")
 def system_update(target):
     try:
-        if target == "ha":
-            message = agenda_service().update_home_assistant()
-        elif target == "ntfy":
+        if target == "ntfy":
             message = agenda_service().update_ntfy()
         elif target == "sites":
             result = subprocess.run(

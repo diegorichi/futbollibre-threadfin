@@ -1,0 +1,12 @@
+use_default_settings: true
+
+server:
+  bind_address: "0.0.0.0"
+  limiter: false
+  image_proxy: false
+  secret_key: "futbol-libre-local-searxng"
+
+search:
+  formats:
+    - html
+    - json

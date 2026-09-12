@@ -9,7 +9,6 @@ def procesar_y_notificar():
     service = AgendaService(dotenv_values(os.getenv("ENV_FILE", ".env")))
     print("iniciando actualización de agenda")
     print(service.update_ntfy())
-    print(service.update_home_assistant())
 
 
 if __name__ == "__main__":

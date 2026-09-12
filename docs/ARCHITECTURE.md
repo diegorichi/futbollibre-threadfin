@@ -21,11 +21,11 @@ update-futbollibre.sh -> src/futbol.py
                                       |
                  +--------------------+--------------------+
                  v                                         v
-       Android TV: catálogo y HLS                 web / Threadfin / FFmpeg
+       Android TV: catálogo y HLS                 web / FFmpeg
                  |
        mDNS _futbol._tcp o UDP 45678
 
-agenda.sh / API / agenda.py -> AgendaService -> NTFY y Home Assistant
+agenda.sh / API / agenda.py -> AgendaService -> NTFY opcional
 update-futbol-libre-sites.sh -> SearXNG -> futbol_libre_urls.env
 ```
 
@@ -104,27 +104,24 @@ adb connect IP_DEL_TV:5555
 adb install -r output/futbol-tv-debug.apk
 ```
 
-### 7. NTFY y Home Assistant
+### 7. NTFY opcional
 
 Son integraciones separadas:
 
 - `AgendaService.events()` lee `eventos.xml`, filtra por `KEYS`, parsea títulos y deduplica por hora/equipos.
 - `update_ntfy()` publica la agenda en `NTFY_URL` con título `Grilla Deportiva`.
-- `update_home_assistant()` publica estado y atributos en `HA_URL` usando `HA_TOKEN`; opcionalmente escribe `JSON_FILE`.
-- Flask expone `/system-update/ha`, `/system-update/ntfy` y `/system-update/sites` para dispararlas manualmente.
-
-Home Assistant no interviene en el descubrimiento mDNS/UDP ni en el deploy del APK. Si se requiere ese flujo, primero hay que definir e implementar un contrato nuevo.
+- `update_ntfy()` publica la agenda en `NTFY_URL` si está configurada; sin esa variable, la operación se omite explícitamente.
+- Flask expone `/system-update/ntfy` y `/system-update/sites` para dispararlas manualmente.
 
 ## Reglas para cambios
 
 - Cambiar primero el contrato en un único punto y luego sus consumidores; barrer referencias residuales con `rg`.
 - No eliminar `eventos.xml`, `eventos.m3u`, `eventos.json`, endpoints o nombres de entorno sin identificar consumidores directos e indirectos.
 - Mantener la escritura de archivos generados atómica cuando el proceso pueda ser leído por Flask o por otro job.
-- Probar, como mínimo, importación/sintaxis, tests focalizados y el endpoint o build afectado. Separar validación local de validación en un TV, host Linux, Home Assistant o sitio real.
+- Probar, como mínimo, importación/sintaxis, tests focalizados y el endpoint o build afectado. Separar validación local de validación en un TV, host Linux o sitio real.
 - Tratar CAPTCHA, dominios caídos y streams detectados sin HLS como estados explícitos, no como éxitos parciales.
 
 ## No confirmado en este repositorio
 
-- No hay un flujo implementado de Home Assistant hacia descubrimiento del server.
 - No hay PiP del sistema Android confirmado; solo dual playback dentro de la Activity.
 - No se debe asumir que todos los sitios producen streams reproducibles: la cobertura real de sitios requiere validación contra los sitios actuales.

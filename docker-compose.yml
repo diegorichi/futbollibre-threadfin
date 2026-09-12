@@ -1,0 +1,38 @@
+services:
+  futbol:
+    build: .
+    container_name: futbol-server
+    env_file:
+      - .env
+    environment:
+      ENV_FILE: /app/.env
+      SEARXNG_SEARCH_URL: http://searxng:8080/search
+      M3U_FILE: /data/eventos.m3u
+      XML_FILE: /data/eventos.xml
+      TV_EVENTS_FILE: /data/eventos.json
+      FUTBOL_LIBRE_URL_FILE: /data/futbol_libre_urls.env
+      PROGRESS_FILE: /data/.update-futbollibre.progress.json
+    ports:
+      - "8080:8080"
+      - "45678:45678/udp"
+    volumes:
+      - futbol-data:/data
+      - ./.env:/app/.env:ro
+    depends_on:
+      searxng:
+        condition: service_started
+    restart: unless-stopped
+
+  searxng:
+    image: searxng/searxng:latest
+    container_name: futbol-searxng
+    ports:
+      - "8081:8080"
+    volumes:
+      - searxng-data:/etc/searxng
+      - ./searxng/settings.yml:/etc/searxng/settings.yml:ro
+    restart: unless-stopped
+
+volumes:
+  futbol-data:
+  searxng-data:

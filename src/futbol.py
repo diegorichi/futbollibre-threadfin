@@ -32,7 +32,6 @@ FUTBOL_LIBRE_EXTRA_URL = URLS_ENV.get("FUTBOL_LIBRE_EXTRA_URL") or os.getenv("FU
 M3U_FILE = os.getenv("M3U_FILE")
 XML_FILE = os.getenv("XML_FILE")
 TV_EVENTS_FILE = os.getenv("TV_EVENTS_FILE")
-THREADFIN_API_URL = os.getenv("THREADFIN_API_URL", "http://localhost:34400/api/")
 NTFY_URL = os.getenv("NTFY_URL")
 SINTEL_URL = "https://demo.unified-streaming.com/k8s/live/scte35.isml/.m3u8"
 PARALLEL_STREAM_EXTRACTION = os.getenv("PARALLEL_STREAM_EXTRACTION", "0").lower() in {"1", "true", "yes", "on"}
@@ -598,32 +597,10 @@ def extraer_todo_futbol_libre(extra_only=False):
             f.write(m3u_content)
         generar_tv_events(eventos_tv, events_file)
         
-        print("Actualizando Threadfin")
-
-        comandos = [
-            {"cmd": "update.m3u"},
-            {"cmd": "update.xmltv"},
-            {"cmd": "update.xepg"}
-        ]
-        
-        for payload in comandos:
-            try:
-                response = requests.post(f"{THREADFIN_API_URL}", json=payload)
-                if response.status_code == 200:
-                    print(f"[Threadfin] OK: Comando {payload['cmd']} aceptado.")
-                elif response.status_code == 423:
-                    print(f"[Threadfin] El servidor esta bloqueado (423). Esperando 5 segundos...")
-                else:
-                    print(f"[Threadfin] Error {response.status_code}: {response.text}")
-
-            except Exception as e:
-                print(f"[Threadfin] Error de conexion: {e}")
-            time.sleep(2)
-
         stream_pool.close()
         stream_pool = None
             
-        print(f"\nGrilla de {MAX_CHANNELS} canales actualizada en Threadfin.")
+        print(f"\nGrilla de {MAX_CHANNELS} canales generada.")
         progress.complete("Actualización completa.")
 
     except Exception as error:

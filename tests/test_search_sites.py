@@ -40,7 +40,7 @@ class SearchSitesTest(unittest.TestCase):
 
         request = opener.open.call_args_list[0].args[0]
         self.assertIn("engines=duckduckgo", request.full_url)
-        self.assertIn("q=%22futbol+libre%22", request.full_url)
+        self.assertIn("q=futbol+libre", request.full_url)
         self.assertEqual(request.get_header("Accept-language"), "es-US,es;q=0.9,en-US;q=0.8,en;q=0.7")
         self.assertIn("Macintosh", request.get_header("User-agent"))
 

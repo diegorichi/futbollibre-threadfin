@@ -15,5 +15,5 @@ Usá este skill para modificar scraping, estrategias de eventos, iframes, Seleni
 - Tratar dominio caído, página no disponible, CAPTCHA, iframe inaccesible, URL sin HLS y stream inválido como estados distintos y observables.
 - Mantener progreso exacto para sitios y URLs únicas, y escritura atómica de archivos generados.
 - Validar con fixtures/tests deterministas antes de probar sitios reales. Las pruebas reales pueden estar bloqueadas por CAPTCHA o cambios externos: reportar esa limitación.
-- No borrar estrategias legacy ni cambiar el formato de salida sin rastrear callers, scripts, API, web, Threadfin y Android TV.
+- No borrar estrategias legacy ni cambiar el formato de salida sin rastrear callers, scripts, API, web y Android TV.
 - Para notificaciones, enviar NTFY solo ante cambios efectivos; no usar NTFY como sustituto de logs ni como señal de que un stream es reproducible.

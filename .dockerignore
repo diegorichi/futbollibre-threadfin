@@ -1,0 +1,11 @@
+.git
+.env
+.venv
+__pycache__
+*.pyc
+src/tvapp/.gradle
+src/tvapp/build
+src/tvapp/app/build
+tests
+*.log
+*.lock
